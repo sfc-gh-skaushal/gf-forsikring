@@ -1,0 +1,21 @@
+policy_id,policy_holder_name,policy_holder_email,policy_holder_cpr,address,city,postal_code,policy_type,coverage_limit,premium_annual,policy_start_date,policy_end_date,vehicle_make,vehicle_model,vehicle_year,vehicle_vin,driver_age,years_licensed,previous_claims_count,risk_score
+POL-DK-100234,Anders Jensen,anders.jensen@email.dk,010185-1234,Vestergade 42,København,1456,comprehensive,500000.00,8500.00,2024-03-15,2025-03-14,Volvo,XC60,2022,YV1CZ91H5N1234567,40,22,1,LOW
+POL-DK-100567,Marie Nielsen,marie.nielsen@email.dk,150990-5678,Nørrebrogade 118,København,2200,comprehensive,750000.00,12000.00,2024-06-01,2025-05-31,BMW,X5,2023,WBAJB9C50NB123456,35,17,0,LOW
+POL-DK-100891,Lars Petersen,lars.petersen@email.dk,220375-9012,Hovedgaden 55,Aarhus,8000,basic,250000.00,4500.00,2024-01-01,2024-12-31,Toyota,Corolla,2020,JTDKN3DU5A1234567,50,32,2,LOW
+POL-DK-101234,Henrik Madsen,henrik.madsen@email.dk,080292-3456,Algade 23,Odense,5000,basic,300000.00,6500.00,2024-11-01,2025-10-31,Mercedes,E-Class,2024,WDDZF4JB5NA123456,33,15,4,HIGH
+POL-DK-101567,Sofie Andersen,sofie.andersen@email.dk,300488-7890,Havnegade 67,Aalborg,9000,comprehensive,400000.00,7200.00,2024-04-15,2025-04-14,Audi,A4,2021,WAUENAF47NN123456,37,19,0,LOW
+POL-DK-101890,Mads Christensen,mads.christensen@email.dk,120795-2345,Strandvejen 234,Helsingør,3000,comprehensive,500000.00,9000.00,2024-07-01,2025-06-30,Volkswagen,Passat,2022,WVWZZZ3CZPE123456,30,12,1,MEDIUM
+POL-DK-102234,Emma Larsen,emma.larsen@email.dk,250199-6789,Frederiksberg Allé 89,Frederiksberg,1820,premium,600000.00,15000.00,2024-09-01,2025-08-31,Porsche,Cayenne,2023,WP1AA2AY5PDA12345,26,8,0,MEDIUM
+POL-DK-102567,Jonas Hansen,jonas.hansen@email.dk,180386-0123,Østerbrogade 156,København,2100,basic,350000.00,5500.00,2024-02-15,2025-02-14,Skoda,Octavia,2019,TMBJG7NE5K0123456,39,21,1,LOW
+POL-DK-102890,Thomas Møller,thomas.moller@email.dk,050180-4567,Kongensgade 78,Esbjerg,6700,comprehensive,450000.00,18500.00,2025-01-01,2025-12-31,Tesla,Model S,2024,5YJSA1E45NF123456,45,27,0,HIGH
+POL-DK-103234,Laura Poulsen,laura.poulsen@email.dk,280594-8901,Vesterbro 45,Randers,8900,basic,200000.00,3800.00,2024-05-01,2025-04-30,Ford,Focus,2018,1FADP3F27JL123456,31,13,0,LOW
+POL-DK-103567,Frederik Olsen,frederik.olsen@email.dk,100287-2345,Søndergade 112,Kolding,6000,comprehensive,400000.00,7800.00,2024-08-15,2025-08-14,Hyundai,Tucson,2021,KM8J3CA46MU123456,38,20,1,LOW
+POL-DK-103890,Ida Rasmussen,ida.rasmussen@email.dk,220691-6789,Langelinie 34,Vejle,7100,comprehensive,550000.00,10500.00,2024-03-01,2025-02-28,Mazda,CX-5,2022,JM3KFBDM5N0123456,34,16,0,LOW
+POL-DK-104234,Oliver Thomsen,oliver.thomsen@email.dk,150398-0123,Stormgade 67,Silkeborg,8600,basic,300000.00,5200.00,2024-06-15,2025-06-14,Nissan,Qashqai,2020,JN1TBNT32Z0123456,27,9,0,LOW
+POL-DK-104567,Victoria Kristensen,victoria.kristensen@email.dk,080585-4567,Parkalle 23,Herning,7400,basic,100000.00,8500.00,2024-12-01,2025-11-30,Land Rover,Range Rover,2023,SALGS2SE5NA123456,40,22,2,HIGH
+POL-DK-104890,Sebastian Johansen,sebastian.johansen@email.dk,300492-8901,Industrivej 89,Horsens,8700,comprehensive,250000.00,4800.00,2024-04-01,2025-03-31,Peugeot,3008,2021,VF3MCYHZRML123456,33,15,0,LOW
+POL-DK-105234,Mathilde Pedersen,mathilde.pedersen@email.dk,200196-2345,Kirkegade 56,Roskilde,4000,comprehensive,450000.00,8200.00,2024-07-15,2025-07-14,Kia,Sportage,2022,KNDPM3AC5N7123456,29,11,0,LOW
+POL-DK-105567,Christian Sørensen,christian.sorensen@email.dk,110183-6789,Møllevej 112,Næstved,4700,basic,280000.00,14000.00,2024-12-15,2025-12-14,BMW,M4,2024,WBS33AZ09NCK12345,42,24,3,HIGH
+POL-DK-105890,Amalie Jørgensen,amalie.jorgensen@email.dk,250700-0123,Havnevej 34,Svendborg,5700,basic,300000.00,4200.00,2024-01-15,2025-01-14,Renault,Captur,2020,VF17RHN0A63123456,25,7,0,LOW
+POL-DK-106234,Nikolaj Lund,nikolaj.lund@email.dk,180289-4567,Stationsvej 78,Hjørring,9800,comprehensive,500000.00,11000.00,2024-09-15,2025-09-14,Audi,Q7,2023,WAUZZZ4M6ND123456,36,18,1,LOW
+POL-DK-106567,Isabella Winther,isabella.winther@email.dk,050194-8901,Skovvej 45,Viborg,8800,comprehensive,400000.00,13500.00,2024-10-01,2025-09-30,Mercedes,GLE,2024,4JGFB4JB5NA123456,31,13,2,HIGH

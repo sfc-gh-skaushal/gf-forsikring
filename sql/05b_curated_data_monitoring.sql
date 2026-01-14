@@ -18,13 +18,12 @@ Based on Snowflake Data Quality Monitoring best practices
 ******************************************************************************
 */
 
--- Run as ACCOUNTADMIN to grant required privileges
+-- Run as ACCOUNTADMIN for full privileges to set up DMFs
 USE ROLE ACCOUNTADMIN;
 
--- Grant privileges on CURATED schema
+-- Grant privileges on CURATED schema for DATA_ENGINEER to view data
 GRANT USAGE ON SCHEMA INSURANCECO.CURATED TO ROLE DATA_ENGINEER;
 GRANT SELECT ON ALL TABLES IN SCHEMA INSURANCECO.CURATED TO ROLE DATA_ENGINEER;
-GRANT MODIFY ON ALL TABLES IN SCHEMA INSURANCECO.CURATED TO ROLE DATA_ENGINEER;
 
 -- Grant privileges for viewing DMF results to other roles
 GRANT DATABASE ROLE SNOWFLAKE.DATA_METRIC_USER TO ROLE DATA_ANALYST;
@@ -37,8 +36,7 @@ GRANT DATABASE ROLE SNOWFLAKE.DATA_METRIC_USER TO ROLE DATA_STEWARD;
 ******************************************************************************
 */
 
--- Switch to DATA_ENGINEER role
-USE ROLE DATA_ENGINEER;
+-- Continue as ACCOUNTADMIN (has full privileges to modify tables and add DMFs)
 USE WAREHOUSE INSURANCECO_ETL_WH;
 USE DATABASE INSURANCECO;
 USE SCHEMA CURATED;

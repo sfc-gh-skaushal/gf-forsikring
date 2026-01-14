@@ -110,10 +110,10 @@ COMMENT = 'Returns percentage of claims flagged for potential fraud - alert if a
 AS
 $$
     SELECT ROUND(
-        (SUM(CASE WHEN fraud_flag = TRUE THEN 1 ELSE 0 END)::FLOAT / 
-         NULLIF(COUNT(*), 0)) * 100, 
+        (SUM(CASE WHEN fraud_flag = TRUE THEN 1 ELSE 0 END) * 100.0 / 
+         NULLIF(COUNT(*), 0)), 
         2
-    )
+    )::NUMBER
     FROM ARG_T
 $$;
 

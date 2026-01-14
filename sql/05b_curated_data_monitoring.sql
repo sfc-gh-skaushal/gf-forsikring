@@ -401,7 +401,7 @@ LIMIT 20;
 SELECT 
     table_name,
     metric_name,
-    MAX(value) AS latest_value
+    MAX(value) AS latest_value,
     --MAX(measurement_time) AS last_checked,
     CASE 
         WHEN metric_name LIKE '%INVALID%' AND MAX(value) > 0 THEN 'CRITICAL'

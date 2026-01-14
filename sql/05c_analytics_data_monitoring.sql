@@ -385,7 +385,7 @@ LIMIT 20;
 -- ML Feature Quality Dashboard
 SELECT 
     metric_name,
-    MAX(value) AS latest_value
+    MAX(value) AS latest_value,
    -- MAX(measurement_time) AS last_checked,
     CASE 
         WHEN metric_name = 'DMF_ML_NULL_FEATURES' AND MAX(value) > 0 THEN 'CRITICAL'

@@ -21,44 +21,55 @@ USE DATABASE INSURANCECO;
 USE SCHEMA GOVERNANCE;
 
 -- ============================================================================
--- SECTION 2: ENABLE SYSTEM DATA METRIC FUNCTIONS
+-- SECTION 2: SET DATA METRIC SCHEDULE (MUST BE DONE FIRST)
+-- ============================================================================
+
+/*
+ * IMPORTANT: The DATA_METRIC_SCHEDULE must be set on the table BEFORE
+ * adding any Data Metric Functions. This is required for DMF association.
+ */
+
+-- Set DMF schedule for the table FIRST (before adding any DMFs)
+-- Using time-based schedule for the demo
+ALTER TABLE INSURANCECO.CURATED.DIM_CLAIMS
+    SET DATA_METRIC_SCHEDULE = 'USING CRON 0 * * * * UTC';
+
+-- Alternative schedules (uncomment one if preferred):
+-- SET DATA_METRIC_SCHEDULE = 'TRIGGER_ON_CHANGES';  -- Runs when data changes
+-- SET DATA_METRIC_SCHEDULE = '60 MINUTE';           -- Every 60 minutes
+
+-- ============================================================================
+-- SECTION 2B: SYSTEM DATA METRIC FUNCTIONS (OPTIONAL)
 -- ============================================================================
 
 /*
  * Snowflake provides built-in system DMFs for common quality checks:
- * - FRESHNESS: Monitors data staleness
  * - NULL_COUNT: Counts NULL values
  * - DUPLICATE_COUNT: Identifies duplicates
  * - UNIQUE_COUNT: Counts distinct values
+ * - ROW_COUNT: Counts total rows
+ * - FRESHNESS: Monitors data staleness (requires TIMESTAMP column)
  * 
- * These are available out-of-the-box and require no custom code.
+ * NOTE: System DMFs may not be available in all Snowflake editions.
+ * If you get "Function does not exist" errors, skip this section
+ * and use the custom DMFs in Section 3 instead.
+ * 
+ * To use system DMFs, uncomment the statements below:
  */
 
--- Apply system DMFs to DIM_CLAIMS
--- Note: System DMFs are applied via ALTER TABLE ... ADD DATA METRIC FUNCTION
+-- NULL count monitoring on critical columns (uncomment if available)
+-- ALTER TABLE INSURANCECO.CURATED.DIM_CLAIMS
+--     ADD DATA METRIC FUNCTION SNOWFLAKE.CORE.NULL_COUNT
+--     ON (claim_id);
 
--- Freshness monitoring - alert if data is more than 24 hours old
-ALTER TABLE INSURANCECO.CURATED.DIM_CLAIMS
-    ADD DATA METRIC FUNCTION SNOWFLAKE.CORE.FRESHNESS
-    ON (updated_at);
+-- ALTER TABLE INSURANCECO.CURATED.DIM_CLAIMS
+--     ADD DATA METRIC FUNCTION SNOWFLAKE.CORE.NULL_COUNT
+--     ON (policy_id);
 
--- NULL count monitoring on critical columns
-ALTER TABLE INSURANCECO.CURATED.DIM_CLAIMS
-    ADD DATA METRIC FUNCTION SNOWFLAKE.CORE.NULL_COUNT
-    ON (claim_id);
-
-ALTER TABLE INSURANCECO.CURATED.DIM_CLAIMS
-    ADD DATA METRIC FUNCTION SNOWFLAKE.CORE.NULL_COUNT
-    ON (policy_id);
-
-ALTER TABLE INSURANCECO.CURATED.DIM_CLAIMS
-    ADD DATA METRIC FUNCTION SNOWFLAKE.CORE.NULL_COUNT
-    ON (claim_amount);
-
--- Duplicate detection on business key
-ALTER TABLE INSURANCECO.CURATED.DIM_CLAIMS
-    ADD DATA METRIC FUNCTION SNOWFLAKE.CORE.DUPLICATE_COUNT
-    ON (claim_id);
+-- Duplicate detection on business key (uncomment if available)
+-- ALTER TABLE INSURANCECO.CURATED.DIM_CLAIMS
+--     ADD DATA METRIC FUNCTION SNOWFLAKE.CORE.DUPLICATE_COUNT
+--     ON (claim_id);
 
 -- ============================================================================
 -- SECTION 3: CREATE CUSTOM DATA METRIC FUNCTIONS
@@ -260,24 +271,25 @@ ALTER TABLE INSURANCECO.CURATED.DIM_CLAIMS
     ON (claim_amount, policy_coverage_limit);
 
 -- ============================================================================
--- SECTION 5: CONFIGURE DMF SCHEDULING
+-- SECTION 5: VERIFY DMF SCHEDULING
 -- ============================================================================
 
 /*
- * DMFs can be scheduled to run at different frequencies:
+ * DMF schedule was set in Section 2 (before adding DMFs).
+ * Available schedule options:
  * - TRIGGER_ON_CHANGES: Runs when underlying data changes
- * - 5 MINUTES, 1 HOUR, etc.: Time-based scheduling
+ * - 'USING CRON <expr>': Cron-based scheduling
+ * - '<N> MINUTE': Time interval (e.g., '60 MINUTE')
  * 
- * For the demo, we use change-triggered execution for real-time quality monitoring.
+ * To change the schedule after DMFs are added:
  */
 
--- Set DMF schedule for the table (applies to all DMFs on the table)
-ALTER TABLE INSURANCECO.CURATED.DIM_CLAIMS
-    SET DATA_METRIC_SCHEDULE = 'TRIGGER_ON_CHANGES';
+-- Verify current schedule
+SHOW PARAMETERS LIKE 'DATA_METRIC_SCHEDULE' IN TABLE INSURANCECO.CURATED.DIM_CLAIMS;
 
--- Alternative: Time-based schedule (uncomment to use)
--- ALTER TABLE INSURANCECO.CURATED.DIM_CLAIMS
---     SET DATA_METRIC_SCHEDULE = '1 HOUR';
+-- To modify schedule (uncomment one):
+-- ALTER TABLE INSURANCECO.CURATED.DIM_CLAIMS SET DATA_METRIC_SCHEDULE = 'TRIGGER_ON_CHANGES';
+-- ALTER TABLE INSURANCECO.CURATED.DIM_CLAIMS SET DATA_METRIC_SCHEDULE = '60 MINUTE';
 
 -- ============================================================================
 -- SECTION 6: CREATE DMF RESULTS MONITORING VIEW
@@ -413,10 +425,9 @@ DEMO WALKTHROUGH - Vignette 2: Data Quality Monitoring
    - Or run: SELECT * FROM V_DATA_QUALITY_DASHBOARD
    - Point out: "DMFs automatically monitor data quality 24/7"
 
-3. SHOW SYSTEM DMFS
-   - Show FRESHNESS_BYTES results
-   - Point out: "Snowflake tracks freshness automatically"
-   - Show NULL_COUNT results
+3. SHOW CUSTOM DMFS FOR NULL/COMPLETENESS
+   - Show DMF_MISSING_CRITICAL_FIELDS results
+   - Point out: "We check that all required fields are populated"
    - Point out: "Critical fields are monitored for completeness"
 
 4. SHOW CUSTOM DMFs
@@ -443,6 +454,6 @@ KEY TALKING POINTS:
 */
 
 SELECT 'Data Metric Functions setup complete!' AS STATUS,
-       '8 custom DMFs created' AS CUSTOM_DMFS,
-       '4 system DMFs applied' AS SYSTEM_DMFS,
+       '8 custom DMFs created and applied' AS CUSTOM_DMFS,
+       'System DMFs commented out (enable if available in your edition)' AS SYSTEM_DMFS,
        'Ready for quality monitoring demonstration' AS NEXT_STEP;

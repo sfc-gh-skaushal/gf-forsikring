@@ -263,18 +263,10 @@ $$
     WHERE date_of_incident = date_reported
 $$;
 
--- DMF: Policy active status validation
-CREATE OR REPLACE DATA METRIC FUNCTION DMF_CURATED_EXPIRED_POLICIES(
-    ARG_T TABLE(is_active BOOLEAN, policy_end_date DATE)
-)
-RETURNS NUMBER
-COMMENT = 'Counts policies marked active but with past end date - data inconsistency'
-AS
-$$
-    SELECT COUNT(*)
-    FROM ARG_T
-    WHERE is_active = TRUE AND policy_end_date < CURRENT_DATE()
-$$;
+-- NOTE: DMF_CURATED_EXPIRED_POLICIES was removed because DMFs cannot use 
+-- non-deterministic functions like CURRENT_DATE(). 
+-- To check for expired policies, use a regular SQL query instead:
+-- SELECT COUNT(*) FROM DIM_POLICIES WHERE is_active = TRUE AND policy_end_date < CURRENT_DATE();
 
 -- DMF: Referential integrity - All claims should have valid policy
 CREATE OR REPLACE DATA METRIC FUNCTION DMF_CURATED_ORPHAN_CLAIMS(
@@ -346,10 +338,8 @@ ALTER TABLE DIM_CLAIMS
 ******************************************************************************
 */
 
--- Apply DMFs to DIM_POLICIES
-ALTER TABLE DIM_POLICIES
-  ADD DATA METRIC FUNCTION INSURANCECO.GOVERNANCE.DMF_CURATED_EXPIRED_POLICIES
-    ON (is_active, policy_end_date);
+-- NOTE: No custom DMFs applied to DIM_POLICIES
+-- DMF_CURATED_EXPIRED_POLICIES was removed (cannot use CURRENT_DATE in DMF)
 
 /*
 ******************************************************************************
@@ -480,7 +470,7 @@ System DMFs:
   - UNIQUE_COUNT: policy_type, risk_score, region
 
 Custom DMFs:
-  - DMF_CURATED_EXPIRED_POLICIES: Active policies with past end date
+  - (None - DMF_CURATED_EXPIRED_POLICIES removed due to CURRENT_DATE limitation)
 
 Navigate to the table's Data Quality page in Snowsight to review results!
 ******************************************************************************

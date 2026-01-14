@@ -181,18 +181,10 @@ $$
     WHERE (COALESCE(approved_claims, 0) + COALESCE(pending_claims, 0) + COALESCE(flagged_claims, 0)) > total_claims
 $$;
 
--- DMF: Freshness check - aggregates should be recent
-CREATE OR REPLACE DATA METRIC FUNCTION DMF_AGG_STALE_DATA(
-    ARG_T TABLE(refreshed_at TIMESTAMP_LTZ)
-)
-RETURNS NUMBER
-COMMENT = 'Counts rows where refresh timestamp is more than 24 hours old'
-AS
-$$
-    SELECT COUNT(*)
-    FROM ARG_T
-    WHERE refreshed_at < DATEADD('hour', -24, CURRENT_TIMESTAMP())
-$$;
+-- NOTE: DMF_AGG_STALE_DATA was removed because DMFs cannot use 
+-- non-deterministic functions like CURRENT_TIMESTAMP(). 
+-- Use SNOWFLAKE.CORE.FRESHNESS system DMF instead for staleness monitoring.
+-- Or use a regular SQL query: SELECT COUNT(*) FROM AGG_CLAIMS_EXECUTIVE WHERE refreshed_at < DATEADD('hour', -24, CURRENT_TIMESTAMP());
 
 -- DMF: ML Feature - Target variable distribution (fraud rate)
 CREATE OR REPLACE DATA METRIC FUNCTION DMF_ML_FRAUD_RATE(
@@ -299,9 +291,8 @@ ALTER TABLE AGG_CLAIMS_EXECUTIVE
   ADD DATA METRIC FUNCTION INSURANCECO.GOVERNANCE.DMF_AGG_STATUS_MISMATCH
     ON (total_claims, approved_claims, pending_claims, flagged_claims);
 
-ALTER TABLE AGG_CLAIMS_EXECUTIVE
-  ADD DATA METRIC FUNCTION INSURANCECO.GOVERNANCE.DMF_AGG_STALE_DATA
-    ON (refreshed_at);
+-- NOTE: DMF_AGG_STALE_DATA removed (cannot use CURRENT_TIMESTAMP in DMF)
+-- Using SNOWFLAKE.CORE.FRESHNESS system DMF instead for staleness monitoring
 
 /*
 ******************************************************************************
@@ -443,7 +434,7 @@ Custom DMFs:
   - DMF_AGG_NEGATIVE_TOTALS: Negative total_claims
   - DMF_AGG_NEGATIVE_VALUES: Negative total_claim_value
   - DMF_AGG_STATUS_MISMATCH: Status counts > total
-  - DMF_AGG_STALE_DATA: Data older than 24 hours
+  - (DMF_AGG_STALE_DATA removed - use FRESHNESS system DMF instead)
 
 FRAUD_DETECTION_FEATURES Table (15 DMFs):
 -----------------------------------------

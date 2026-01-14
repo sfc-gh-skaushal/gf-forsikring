@@ -32,7 +32,9 @@ USE SCHEMA ANALYTICS;
 
 -- Analytics View 1: Claims Summary by Region
 -- Shows aggregated claims data by geographic region
-CREATE OR REPLACE VIEW V_CLAIMS_BY_REGION AS
+CREATE OR REPLACE VIEW V_CLAIMS_BY_REGION
+    COMMENT = 'Regional claims analysis - aggregated by region and claim type. Source: DIM_CLAIMS'
+AS
 SELECT
     region,
     claim_type,
@@ -43,12 +45,13 @@ SELECT
     SUM(CASE WHEN fraud_flag THEN 1 ELSE 0 END) AS fraud_flagged_count,
     ROUND(SUM(CASE WHEN fraud_flag THEN 1 ELSE 0 END) * 100.0 / COUNT(*), 2) AS fraud_rate_pct
 FROM INSURANCECO.CURATED.DIM_CLAIMS
-GROUP BY region, claim_type
-COMMENT = 'Regional claims analysis - aggregated by region and claim type. Source: DIM_CLAIMS';
+GROUP BY region, claim_type;
 
 -- Analytics View 2: Monthly Claims Trend
 -- Time-series view for trending analysis
-CREATE OR REPLACE VIEW V_CLAIMS_MONTHLY_TREND AS
+CREATE OR REPLACE VIEW V_CLAIMS_MONTHLY_TREND
+    COMMENT = 'Monthly claims trend analysis. Source: DIM_CLAIMS'
+AS
 SELECT
     DATE_TRUNC('MONTH', date_reported) AS report_month,
     claim_type,
@@ -58,12 +61,13 @@ SELECT
     AVG(days_to_report) AS avg_days_to_report,
     SUM(CASE WHEN exceeds_coverage THEN 1 ELSE 0 END) AS coverage_exceeded_count
 FROM INSURANCECO.CURATED.DIM_CLAIMS
-GROUP BY 1, 2, 3
-COMMENT = 'Monthly claims trend analysis. Source: DIM_CLAIMS';
+GROUP BY 1, 2, 3;
 
 -- Analytics View 3: High Risk Claims Dashboard
 -- Filtered view for claims requiring attention
-CREATE OR REPLACE VIEW V_HIGH_RISK_CLAIMS AS
+CREATE OR REPLACE VIEW V_HIGH_RISK_CLAIMS
+    COMMENT = 'High risk claims requiring review. Combines fraud, coverage, and value indicators. Source: DIM_CLAIMS'
+AS
 SELECT
     c.claim_id,
     c.policy_id,
@@ -93,12 +97,13 @@ FROM INSURANCECO.CURATED.DIM_CLAIMS c
 WHERE c.fraud_flag = TRUE 
    OR c.exceeds_coverage = TRUE 
    OR c.high_value_claim = TRUE
-   OR c.days_to_report = 0
-COMMENT = 'High risk claims requiring review. Combines fraud, coverage, and value indicators. Source: DIM_CLAIMS';
+   OR c.days_to_report = 0;
 
 -- Analytics View 4: Claims with Policy Details (Join)
 -- Demonstrates lineage across joined tables
-CREATE OR REPLACE VIEW V_CLAIMS_WITH_POLICY AS
+CREATE OR REPLACE VIEW V_CLAIMS_WITH_POLICY
+    COMMENT = 'Claims enriched with policy details. Demonstrates cross-table lineage. Source: DIM_CLAIMS + DIM_POLICIES'
+AS
 SELECT
     c.claim_id,
     c.claim_amount,
@@ -126,8 +131,7 @@ SELECT
         ELSE 'Standard'
     END AS customer_segment
 FROM INSURANCECO.CURATED.DIM_CLAIMS c
-JOIN INSURANCECO.CURATED.DIM_POLICIES p ON c.policy_id = p.policy_id
-COMMENT = 'Claims enriched with policy details. Demonstrates cross-table lineage. Source: DIM_CLAIMS + DIM_POLICIES';
+JOIN INSURANCECO.CURATED.DIM_POLICIES p ON c.policy_id = p.policy_id;
 
 -- ============================================================================
 -- SECTION 3: CREATE AGGREGATE TABLES (For BI Dashboard)
@@ -150,8 +154,10 @@ SELECT
     AVG(days_to_report) AS avg_reporting_delay,
     CURRENT_TIMESTAMP() AS refreshed_at
 FROM INSURANCECO.CURATED.DIM_CLAIMS
-GROUP BY 1, 2, 3
-COMMENT = 'Pre-aggregated executive dashboard data. Refreshed by scheduled task. Source: DIM_CLAIMS';
+GROUP BY 1, 2, 3;
+
+-- Add comment to table
+ALTER TABLE AGG_CLAIMS_EXECUTIVE SET COMMENT = 'Pre-aggregated executive dashboard data. Refreshed by scheduled task. Source: DIM_CLAIMS';
 
 -- ============================================================================
 -- SECTION 4: CREATE ML FEATURE TABLE (For Data Science)
@@ -214,8 +220,10 @@ SELECT
     p.driver_age - p.years_licensed AS age_when_licensed,
     c.claim_amount / NULLIF(p.premium_annual, 0) AS claim_premium_ratio
 FROM INSURANCECO.CURATED.DIM_CLAIMS c
-JOIN INSURANCECO.CURATED.DIM_POLICIES p ON c.policy_id = p.policy_id
-COMMENT = 'ML features for fraud detection model. Derived from DIM_CLAIMS and DIM_POLICIES.';
+JOIN INSURANCECO.CURATED.DIM_POLICIES p ON c.policy_id = p.policy_id;
+
+-- Add comment to table
+ALTER TABLE FRAUD_DETECTION_FEATURES SET COMMENT = 'ML features for fraud detection model. Derived from DIM_CLAIMS and DIM_POLICIES.';
 
 -- ============================================================================
 -- SECTION 5: QUERY LINEAGE METADATA

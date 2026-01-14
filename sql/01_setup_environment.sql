@@ -12,7 +12,7 @@ Date: 2025-01
 -- ============================================================================
 -- SECTION 1: SET CONTEXT
 -- ============================================================================
-USE ROLE ACCOUNTADMIN;
+USE ROLE SYSADMIN;
 
 -- ============================================================================
 -- SECTION 2: CREATE WAREHOUSES
@@ -82,6 +82,8 @@ CREATE SCHEMA IF NOT EXISTS INSURANCECO.GOVERNANCE
 -- SECTION 4: CREATE CUSTOM ROLES
 -- ============================================================================
 
+use role accountadmin;
+
 -- Governance Administrator - manages tags, policies, data quality
 CREATE ROLE IF NOT EXISTS GOVERNANCE_ADMIN
     COMMENT = 'Administers data governance - tags, policies, quality metrics';
@@ -125,6 +127,7 @@ GRANT ROLE DATA_STEWARD TO ROLE GOVERNANCE_ADMIN;
 -- ============================================================================
 -- SECTION 6: WAREHOUSE GRANTS
 -- ============================================================================
+use role sysadmin;
 
 -- Admin warehouse access
 GRANT USAGE ON WAREHOUSE INSURANCECO_ADMIN_WH TO ROLE GOVERNANCE_ADMIN;
@@ -191,6 +194,9 @@ GRANT CREATE TAG ON SCHEMA INSURANCECO.GOVERNANCE TO ROLE GOVERNANCE_ADMIN;
 GRANT CREATE MASKING POLICY ON SCHEMA INSURANCECO.GOVERNANCE TO ROLE GOVERNANCE_ADMIN;
 GRANT CREATE ROW ACCESS POLICY ON SCHEMA INSURANCECO.GOVERNANCE TO ROLE GOVERNANCE_ADMIN;
 GRANT CREATE FUNCTION ON SCHEMA INSURANCECO.GOVERNANCE TO ROLE GOVERNANCE_ADMIN;
+GRANT CREATE VIEW ON SCHEMA INSURANCECO.GOVERNANCE TO ROLE GOVERNANCE_ADMIN;
+
+use role accountadmin;
 
 -- Allow Governance Admin to apply tags and policies to all schemas
 GRANT APPLY TAG ON ACCOUNT TO ROLE GOVERNANCE_ADMIN;
@@ -202,11 +208,11 @@ GRANT APPLY MASKING POLICY ON ACCOUNT TO ROLE GOVERNANCE_ADMIN;
 
 -- Grant all demo roles to current user for demonstration
 -- Replace <YOUR_USERNAME> with actual username or use CURRENT_USER()
-GRANT ROLE GOVERNANCE_ADMIN TO USER IDENTIFIER($CURRENT_USER);
-GRANT ROLE DATA_ENGINEER TO USER IDENTIFIER($CURRENT_USER);
-GRANT ROLE DATA_SCIENTIST TO USER IDENTIFIER($CURRENT_USER);
-GRANT ROLE DATA_ANALYST TO USER IDENTIFIER($CURRENT_USER);
-GRANT ROLE DATA_STEWARD TO USER IDENTIFIER($CURRENT_USER);
+GRANT ROLE GOVERNANCE_ADMIN TO USER  skaushal;
+GRANT ROLE DATA_ENGINEER TO USER  skaushal;
+GRANT ROLE DATA_SCIENTIST TO USER  skaushal;
+GRANT ROLE DATA_ANALYST TO USER  skaushal;
+GRANT ROLE DATA_STEWARD TO USER  skaushal;
 
 -- ============================================================================
 -- SECTION 9: VERIFICATION
@@ -215,6 +221,7 @@ GRANT ROLE DATA_STEWARD TO USER IDENTIFIER($CURRENT_USER);
 -- Verify setup
 SHOW WAREHOUSES LIKE 'INSURANCECO%';
 SHOW SCHEMAS IN DATABASE INSURANCECO;
+
 SHOW ROLES LIKE '%ADMIN%' OR LIKE '%ENGINEER%' OR LIKE '%SCIENTIST%' OR LIKE '%ANALYST%' OR LIKE '%STEWARD%';
 
 -- Display completion message

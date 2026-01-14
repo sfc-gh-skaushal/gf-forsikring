@@ -39,7 +39,7 @@ USE SCHEMA GOVERNANCE;
 
 -- Freshness monitoring - alert if data is more than 24 hours old
 ALTER TABLE INSURANCECO.CURATED.DIM_CLAIMS
-    ADD DATA METRIC FUNCTION SNOWFLAKE.CORE.FRESHNESS_BYTES
+    ADD DATA METRIC FUNCTION SNOWFLAKE.CORE.FRESHNESS
     ON (updated_at);
 
 -- NULL count monitoring on critical columns

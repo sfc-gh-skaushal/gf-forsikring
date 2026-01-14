@@ -97,7 +97,7 @@ CREATE OR REPLACE TABLE DIM_CLAIMS (
         COMMENT 'TRUE if claim amount exceeds 100,000 DKK threshold',
     
     -- Audit & Metadata
-    created_at TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP()
+    created_at TIMESTAMP_LTZ DEFAULT CURRENT_TIMESTAMP()
         COMMENT 'Timestamp when record was created in curated layer',
     updated_at TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP()
         COMMENT 'Timestamp of last update',
@@ -108,6 +108,8 @@ CREATE OR REPLACE TABLE DIM_CLAIMS (
 )
 COMMENT = 'Curated claims dimension table - the trusted source for claims analytics. Contains policy holder PII - access controlled via masking policies.'
 ;
+
+--alter table DIM_CLAIMS modify created_at TIMESTAMP_LTZ;
 
 -- ============================================================================
 -- SECTION 3: POPULATE DIM_CLAIMS FROM RAW

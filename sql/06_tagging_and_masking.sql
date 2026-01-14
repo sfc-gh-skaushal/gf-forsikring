@@ -53,9 +53,11 @@ CREATE TAG IF NOT EXISTS RETENTION_PERIOD
 -- ============================================================================
 
 /*
- * Masking policies define HOW data is masked.
- * They are then attached to TAGS, not individual columns.
- * Any column with that tag automatically gets the masking applied.
+ * Masking policies define HOW data is masked based on the querying role.
+ * Each policy checks CURRENT_ROLE() and returns either:
+ * - Full data (for privileged roles like DATA_SCIENTIST)
+ * - Partially masked data (for DATA_ENGINEER)
+ * - Fully masked data (for DATA_ANALYST and others)
  */
 
 -- Masking policy for NAME fields
@@ -121,56 +123,83 @@ CREATE OR REPLACE MASKING POLICY MASK_PII_FINANCIAL AS (val STRING) RETURNS STRI
     END;
 
 -- ============================================================================
--- SECTION 4: ATTACH MASKING POLICIES TO TAGS
+-- SECTION 4: APPLY TAGS AND MASKING POLICIES TO COLUMNS
 -- ============================================================================
 
 /*
- * This is the magic of tag-based masking:
- * Once a policy is attached to a tag value, ANY column tagged with that
- * value automatically gets the masking policy applied.
+ * We apply both tags (for classification/discovery) AND masking policies 
+ * (for data protection) to PII columns. This gives us:
+ * - Tags: Visible in Horizon Catalog for data discovery
+ * - Masking: Role-based access control on the actual data
  */
-
--- Attach masking policies to PII tag values
-ALTER TAG PII SET MASKING POLICY MASK_PII_NAME FOR 'NAME';
-ALTER TAG PII SET MASKING POLICY MASK_PII_EMAIL FOR 'EMAIL';
-ALTER TAG PII SET MASKING POLICY MASK_PII_ADDRESS FOR 'ADDRESS';
-ALTER TAG PII SET MASKING POLICY MASK_PII_CPR FOR 'CPR';
-ALTER TAG PII SET MASKING POLICY MASK_PII_FINANCIAL FOR 'FINANCIAL';
-
--- ============================================================================
--- SECTION 5: APPLY PII TAGS TO COLUMNS
--- ============================================================================
 
 USE SCHEMA INSURANCECO.CURATED;
 
--- Tag DIM_CLAIMS PII columns
+-- ============================================================================
+-- DIM_CLAIMS - Apply Tags and Masking Policies
+-- ============================================================================
+
+-- POLICY_HOLDER_NAME: Tag + Masking
 ALTER TABLE DIM_CLAIMS MODIFY COLUMN policy_holder_name 
     SET TAG INSURANCECO.GOVERNANCE.PII = 'NAME';
+ALTER TABLE DIM_CLAIMS MODIFY COLUMN policy_holder_name 
+    SET MASKING POLICY INSURANCECO.GOVERNANCE.MASK_PII_NAME;
 
+-- POLICY_HOLDER_EMAIL: Tag + Masking  
 ALTER TABLE DIM_CLAIMS MODIFY COLUMN policy_holder_email 
     SET TAG INSURANCECO.GOVERNANCE.PII = 'EMAIL';
+ALTER TABLE DIM_CLAIMS MODIFY COLUMN policy_holder_email 
+    SET MASKING POLICY INSURANCECO.GOVERNANCE.MASK_PII_EMAIL;
 
+-- POLICY_HOLDER_CPR: Tag + Masking (most sensitive)
 ALTER TABLE DIM_CLAIMS MODIFY COLUMN policy_holder_cpr 
     SET TAG INSURANCECO.GOVERNANCE.PII = 'CPR';
+ALTER TABLE DIM_CLAIMS MODIFY COLUMN policy_holder_cpr 
+    SET MASKING POLICY INSURANCECO.GOVERNANCE.MASK_PII_CPR;
 
+-- ADDRESS: Tag + Masking
 ALTER TABLE DIM_CLAIMS MODIFY COLUMN address 
     SET TAG INSURANCECO.GOVERNANCE.PII = 'ADDRESS';
+ALTER TABLE DIM_CLAIMS MODIFY COLUMN address 
+    SET MASKING POLICY INSURANCECO.GOVERNANCE.MASK_PII_ADDRESS;
 
--- Tag DIM_POLICIES PII columns
+-- ============================================================================
+-- DIM_POLICIES - Apply Tags and Masking Policies
+-- ============================================================================
+
+-- POLICY_HOLDER_NAME: Tag + Masking
 ALTER TABLE DIM_POLICIES MODIFY COLUMN policy_holder_name 
     SET TAG INSURANCECO.GOVERNANCE.PII = 'NAME';
+ALTER TABLE DIM_POLICIES MODIFY COLUMN policy_holder_name 
+    SET MASKING POLICY INSURANCECO.GOVERNANCE.MASK_PII_NAME;
 
+-- POLICY_HOLDER_EMAIL: Tag + Masking
 ALTER TABLE DIM_POLICIES MODIFY COLUMN policy_holder_email 
     SET TAG INSURANCECO.GOVERNANCE.PII = 'EMAIL';
+ALTER TABLE DIM_POLICIES MODIFY COLUMN policy_holder_email 
+    SET MASKING POLICY INSURANCECO.GOVERNANCE.MASK_PII_EMAIL;
 
+-- POLICY_HOLDER_CPR: Tag + Masking
 ALTER TABLE DIM_POLICIES MODIFY COLUMN policy_holder_cpr 
     SET TAG INSURANCECO.GOVERNANCE.PII = 'CPR';
+ALTER TABLE DIM_POLICIES MODIFY COLUMN policy_holder_cpr 
+    SET MASKING POLICY INSURANCECO.GOVERNANCE.MASK_PII_CPR;
 
+-- ADDRESS: Tag + Masking
 ALTER TABLE DIM_POLICIES MODIFY COLUMN address 
     SET TAG INSURANCECO.GOVERNANCE.PII = 'ADDRESS';
+ALTER TABLE DIM_POLICIES MODIFY COLUMN address 
+    SET MASKING POLICY INSURANCECO.GOVERNANCE.MASK_PII_ADDRESS;
 
+-- VEHICLE_VIN: Tag + Masking
 ALTER TABLE DIM_POLICIES MODIFY COLUMN vehicle_vin 
     SET TAG INSURANCECO.GOVERNANCE.PII = 'FINANCIAL';
+ALTER TABLE DIM_POLICIES MODIFY COLUMN vehicle_vin 
+    SET MASKING POLICY INSURANCECO.GOVERNANCE.MASK_PII_FINANCIAL;
+
+-- ============================================================================
+-- SECTION 5: APPLY TABLE-LEVEL TAGS
+-- ============================================================================
 
 -- Set sensitivity levels
 ALTER TABLE DIM_CLAIMS SET TAG INSURANCECO.GOVERNANCE.SENSITIVITY_LEVEL = 'CONFIDENTIAL';

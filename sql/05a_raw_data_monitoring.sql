@@ -309,38 +309,40 @@ SHOW PARAMETERS LIKE 'DATA_METRIC_SCHEDULE' IN TABLE RAW_POLICIES;
 
 -- View latest DMF results for RAW_CLAIMS
 SELECT 
-    measurement_time,
+    --measurement_time,
     metric_name,
     table_name,
-    column_name,
+    --column_name,
     value
 FROM SNOWFLAKE.LOCAL.DATA_QUALITY_MONITORING_RESULTS
 WHERE table_database = 'INSURANCECO'
   AND table_schema = 'RAW'
   AND table_name = 'RAW_CLAIMS'
-ORDER BY measurement_time DESC
+--ORDER BY measurement_time DESC
 LIMIT 20;
+
+select * FROM SNOWFLAKE.LOCAL.DATA_QUALITY_MONITORING_RESULTS;
 
 -- View latest DMF results for RAW_POLICIES
 SELECT 
-    measurement_time,
+    --measurement_time,
     metric_name,
     table_name,
-    column_name,
+   -- column_name,
     value
 FROM SNOWFLAKE.LOCAL.DATA_QUALITY_MONITORING_RESULTS
 WHERE table_database = 'INSURANCECO'
   AND table_schema = 'RAW'
   AND table_name = 'RAW_POLICIES'
-ORDER BY measurement_time DESC
+--ORDER BY measurement_time DESC
 LIMIT 20;
 
 -- Summary view of all data quality issues
 SELECT 
     table_name,
     metric_name,
-    MAX(value) AS latest_value,
-    MAX(measurement_time) AS last_checked
+    MAX(value) AS latest_value
+    --MAX(measurement_time) AS last_checked
 FROM SNOWFLAKE.LOCAL.DATA_QUALITY_MONITORING_RESULTS
 WHERE table_database = 'INSURANCECO'
   AND table_schema = 'RAW'

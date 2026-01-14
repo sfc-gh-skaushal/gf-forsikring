@@ -365,37 +365,37 @@ SHOW PARAMETERS LIKE 'DATA_METRIC_SCHEDULE' IN TABLE FRAUD_DETECTION_FEATURES;
 
 -- View latest DMF results for AGG_CLAIMS_EXECUTIVE
 SELECT 
-    measurement_time,
+    --measurement_time,
     metric_name,
     table_name,
-    column_name,
+    --column_name,
     value
 FROM SNOWFLAKE.LOCAL.DATA_QUALITY_MONITORING_RESULTS
 WHERE table_database = 'INSURANCECO'
   AND table_schema = 'ANALYTICS'
   AND table_name = 'AGG_CLAIMS_EXECUTIVE'
-ORDER BY measurement_time DESC
+--ORDER BY measurement_time DESC
 LIMIT 20;
 
 -- View latest DMF results for FRAUD_DETECTION_FEATURES
 SELECT 
-    measurement_time,
+    --measurement_time,
     metric_name,
     table_name,
-    column_name,
+    --column_name,
     value
 FROM SNOWFLAKE.LOCAL.DATA_QUALITY_MONITORING_RESULTS
 WHERE table_database = 'INSURANCECO'
   AND table_schema = 'DATA_SCIENCE'
   AND table_name = 'FRAUD_DETECTION_FEATURES'
-ORDER BY measurement_time DESC
+--ORDER BY measurement_time DESC
 LIMIT 20;
 
 -- ML Feature Quality Dashboard
 SELECT 
     metric_name,
-    MAX(value) AS latest_value,
-    MAX(measurement_time) AS last_checked,
+    MAX(value) AS latest_value
+   -- MAX(measurement_time) AS last_checked,
     CASE 
         WHEN metric_name = 'DMF_ML_NULL_FEATURES' AND MAX(value) > 0 THEN 'CRITICAL'
         WHEN metric_name = 'DMF_ML_NEGATIVE_FEATURES' AND MAX(value) > 0 THEN 'CRITICAL'

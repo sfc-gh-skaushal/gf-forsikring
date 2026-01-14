@@ -381,38 +381,38 @@ SHOW PARAMETERS LIKE 'DATA_METRIC_SCHEDULE' IN TABLE DIM_POLICIES;
 
 -- View latest DMF results for DIM_CLAIMS
 SELECT 
-    measurement_time,
+    --measurement_time,
     metric_name,
     table_name,
-    column_name,
+   -- column_name,
     value
 FROM SNOWFLAKE.LOCAL.DATA_QUALITY_MONITORING_RESULTS
 WHERE table_database = 'INSURANCECO'
   AND table_schema = 'CURATED'
   AND table_name = 'DIM_CLAIMS'
-ORDER BY measurement_time DESC
+--ORDER BY measurement_time DESC
 LIMIT 30;
 
 -- View latest DMF results for DIM_POLICIES
 SELECT 
-    measurement_time,
+   -- measurement_time,
     metric_name,
     table_name,
-    column_name,
+   -- column_name,
     value
 FROM SNOWFLAKE.LOCAL.DATA_QUALITY_MONITORING_RESULTS
 WHERE table_database = 'INSURANCECO'
   AND table_schema = 'CURATED'
   AND table_name = 'DIM_POLICIES'
-ORDER BY measurement_time DESC
+--ORDER BY measurement_time DESC
 LIMIT 20;
 
 -- Data Quality Dashboard: Show all issues in CURATED schema
 SELECT 
     table_name,
     metric_name,
-    MAX(value) AS latest_value,
-    MAX(measurement_time) AS last_checked,
+    MAX(value) AS latest_value
+    --MAX(measurement_time) AS last_checked,
     CASE 
         WHEN metric_name LIKE '%INVALID%' AND MAX(value) > 0 THEN 'CRITICAL'
         WHEN metric_name LIKE '%ORPHAN%' AND MAX(value) > 0 THEN 'CRITICAL'

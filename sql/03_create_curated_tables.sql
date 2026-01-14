@@ -99,7 +99,7 @@ CREATE OR REPLACE TABLE DIM_CLAIMS (
     -- Audit & Metadata
     created_at TIMESTAMP_LTZ DEFAULT CURRENT_TIMESTAMP()
         COMMENT 'Timestamp when record was created in curated layer',
-    updated_at TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP()
+    updated_at TIMESTAMP_LTZ DEFAULT CURRENT_TIMESTAMP()
         COMMENT 'Timestamp of last update',
     source_system VARCHAR(50) DEFAULT 'CLAIMS_SYSTEM'
         COMMENT 'Source system identifier',
@@ -240,9 +240,9 @@ CREATE OR REPLACE TABLE DIM_POLICIES (
         COMMENT 'Risk classification: LOW, MEDIUM, HIGH',
     
     -- Audit
-    created_at TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP()
+    created_at TIMESTAMP_LTZ DEFAULT CURRENT_TIMESTAMP()
         COMMENT 'Record creation timestamp',
-    updated_at TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP()
+    updated_at TIMESTAMP_LTZ DEFAULT CURRENT_TIMESTAMP()
         COMMENT 'Last update timestamp'
 )
 COMMENT = 'Curated policy dimension - master data for insurance policies. Contains PII - access controlled.'

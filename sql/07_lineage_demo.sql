@@ -152,7 +152,7 @@ SELECT
     AVG(claim_amount) AS avg_claim_value,
     SUM(CASE WHEN fraud_flag THEN claim_amount ELSE 0 END) AS fraud_flagged_value,
     AVG(days_to_report) AS avg_reporting_delay,
-    CURRENT_TIMESTAMP() AS refreshed_at
+    CURRENT_TIMESTAMP()::TIMESTAMP_LTZ AS refreshed_at
 FROM INSURANCECO.CURATED.DIM_CLAIMS
 GROUP BY 1, 2, 3;
 

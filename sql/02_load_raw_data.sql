@@ -78,7 +78,7 @@ CREATE OR REPLACE TABLE RAW_CLAIMS (
     fraud_flag BOOLEAN,
     adjuster_notes VARCHAR(2000),
     -- Audit columns
-    _loaded_at TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP(),
+    _loaded_at TIMESTAMP_LTZ DEFAULT CURRENT_TIMESTAMP(),
     _source_file VARCHAR(500)
 )
 COMMENT = 'Raw claims data - landing zone from source systems. DO NOT USE FOR ANALYTICS.';
@@ -106,7 +106,7 @@ CREATE OR REPLACE TABLE RAW_POLICIES (
     previous_claims_count NUMBER(5),
     risk_score VARCHAR(20),
     -- Audit columns
-    _loaded_at TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP(),
+    _loaded_at TIMESTAMP_LTZ DEFAULT CURRENT_TIMESTAMP(),
     _source_file VARCHAR(500)
 )
 COMMENT = 'Raw policy data - landing zone from policy administration system';

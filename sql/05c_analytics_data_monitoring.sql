@@ -183,7 +183,7 @@ $$;
 
 -- DMF: Freshness check - aggregates should be recent
 CREATE OR REPLACE DATA METRIC FUNCTION DMF_AGG_STALE_DATA(
-    ARG_T TABLE(refreshed_at TIMESTAMP_NTZ)
+    ARG_T TABLE(refreshed_at TIMESTAMP_LTZ)
 )
 RETURNS NUMBER
 COMMENT = 'Counts rows where refresh timestamp is more than 24 hours old'

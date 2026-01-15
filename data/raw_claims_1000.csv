@@ -1,0 +1,1001 @@
+claim_id,policy_id,date_of_incident,date_reported,claim_type,claim_amount,claim_status,description,region,fraud_flag
+,POL-000449,2025-06-27,2025-08-30,Auto,140993,Rejected,Claim description for record 1,West,FALSE
+,POL-000456,2025-03-05,2024-05-06,Travel,54647,Pending,Claim description for record 2,Central,FALSE
+,POL-000356,2025-09-18,2025-07-19,Property,112381,Under Review,Claim description for record 3,South,FALSE
+,POL-000021,2025-05-10,2025-01-16,Property,62579,Closed,Claim description for record 4,South,FALSE
+,POL-000414,2023-12-26,2024-12-06,Health,2893,Rejected,Claim description for record 5,South,FALSE
+,POL-000101,2025-12-27,2025-02-28,Health,95970,Rejected,Claim description for record 6,South,FALSE
+,POL-000031,2024-08-21,2025-12-19,Auto,105155,Approved,Claim description for record 7,West,FALSE
+,POL-000320,2023-01-03,2024-12-26,Travel,9655,Pending,Claim description for record 8,East,FALSE
+,POL-000199,2025-05-22,2025-05-16,Property,122836,Closed,Claim description for record 9,West,FALSE
+,POL-000344,2023-04-17,2024-08-28,Health,46877,Pending,Claim description for record 10,Central,FALSE
+,POL-000036,2025-08-22,2025-08-29,Auto,93007,Rejected,Claim description for record 11,West,FALSE
+,POL-000398,2023-04-26,2025-11-27,Auto,126947,Approved,Claim description for record 12,East,FALSE
+,POL-000031,2025-11-16,2024-11-14,Travel,80352,Pending,Claim description for record 13,West,FALSE
+,POL-000495,2023-07-04,2024-02-18,Auto,7919,Pending,Claim description for record 14,West,FALSE
+,POL-000034,2025-01-22,2025-11-24,Auto,30604,Under Review,Claim description for record 15,Central,FALSE
+CLM-2024-000016,,2024-09-05,2025-07-20,Auto,111777,Under Review,Claim description for record 16,East,FALSE
+CLM-2024-000017,,2025-09-14,2025-08-13,Auto,71189,Under Review,Claim description for record 17,South,FALSE
+CLM-2024-000018,,2024-03-23,2024-02-11,Auto,143031,Approved,Claim description for record 18,East,FALSE
+CLM-2024-000019,,2024-09-26,2024-03-07,Life,22660,Closed,Claim description for record 19,Central,FALSE
+CLM-2024-000020,,2023-08-26,2024-02-12,Auto,76660,Rejected,Claim description for record 20,South,FALSE
+CLM-2024-000021,,2025-11-12,2024-07-26,Travel,8230,Under Review,Claim description for record 21,North,FALSE
+CLM-2024-000022,,2023-04-13,2025-04-22,Travel,133085,Rejected,Claim description for record 22,West,FALSE
+CLM-2024-000023,,2023-01-09,2024-08-30,Health,95126,Approved,Claim description for record 23,East,FALSE
+CLM-2024-000024,,2024-08-10,2024-10-30,Auto,145785,Rejected,Claim description for record 24,Central,FALSE
+CLM-2024-000025,,2023-09-20,2025-07-30,Property,63320,Approved,Claim description for record 25,Central,FALSE
+CLM-2024-000026,,2024-04-28,2025-04-30,Life,90716,Rejected,Claim description for record 26,Central,FALSE
+CLM-2024-000027,,2023-05-30,2024-06-23,Life,106289,Rejected,Claim description for record 27,Central,FALSE
+CLM-2024-000028,,2025-08-26,2024-03-11,Auto,84358,Pending,Claim description for record 28,Central,FALSE
+CLM-2024-000029,,2023-01-10,2025-07-05,Travel,54977,Closed,Claim description for record 29,North,FALSE
+CLM-2024-000030,,2023-06-01,2024-11-07,Travel,121992,Approved,Claim description for record 30,Central,FALSE
+CLM-2024-000031,POL-000270,2025-08-28,2025-12-26,Health,,Pending,Claim description for record 31,North,FALSE
+CLM-2024-000032,POL-000174,2023-03-05,2024-06-16,Life,,Under Review,Claim description for record 32,West,FALSE
+CLM-2024-000033,POL-000115,2024-05-31,2024-01-03,Travel,,Approved,Claim description for record 33,South,FALSE
+CLM-2024-000034,POL-000016,2023-12-31,2025-06-05,Life,,Pending,Claim description for record 34,East,FALSE
+CLM-2024-000035,POL-000407,2023-02-19,2025-04-13,Life,,Under Review,Claim description for record 35,West,FALSE
+CLM-2024-000036,POL-000191,2025-12-12,2025-04-29,Property,,Under Review,Claim description for record 36,West,FALSE
+CLM-2024-000037,POL-000422,2025-07-05,2025-05-26,Travel,,Approved,Claim description for record 37,West,FALSE
+CLM-2024-000038,POL-000077,2023-04-16,2024-01-15,Life,,Approved,Claim description for record 38,South,TRUE
+CLM-2024-000039,POL-000159,2023-12-04,2024-03-22,Auto,,Pending,Claim description for record 39,Central,FALSE
+CLM-2024-000040,POL-000085,2023-04-17,2024-06-19,Health,,Pending,Claim description for record 40,North,FALSE
+CLM-2024-000041,POL-000236,2023-05-10,2024-10-01,Health,,Rejected,Claim description for record 41,East,FALSE
+CLM-2024-000042,POL-000435,2023-10-02,2024-04-16,Property,,Closed,Claim description for record 42,Central,FALSE
+CLM-2024-000043,POL-000072,2025-03-05,2024-06-10,Life,,Under Review,Claim description for record 43,Central,FALSE
+CLM-2024-000044,POL-000487,2025-08-06,2024-09-02,Auto,,Rejected,Claim description for record 44,East,FALSE
+CLM-2024-000045,POL-000477,2025-06-26,2024-08-03,Health,,Approved,Claim description for record 45,West,FALSE
+CLM-2024-000005,POL-000492,2025-10-25,2024-06-14,Travel,72402,Under Review,Claim description for record 46,East,FALSE
+CLM-2024-000006,POL-000264,2025-06-03,2024-12-27,Auto,66038,Under Review,Claim description for record 47,South,FALSE
+CLM-2024-000001,POL-000239,2023-01-27,2024-06-23,Health,36399,Approved,Claim description for record 48,Central,FALSE
+CLM-2024-000009,POL-000277,2023-11-05,2025-06-03,Life,139610,Under Review,Claim description for record 49,North,FALSE
+CLM-2024-000009,POL-000098,2025-05-14,2024-01-09,Health,18543,Approved,Claim description for record 50,West,FALSE
+CLM-2024-000009,POL-000210,2024-05-26,2025-02-07,Travel,55482,Approved,Claim description for record 51,Central,FALSE
+CLM-2024-000009,POL-000391,2023-05-08,2025-07-18,Health,130663,Pending,Claim description for record 52,Central,FALSE
+CLM-2024-000002,POL-000392,2023-01-16,2024-03-06,Life,25940,Closed,Claim description for record 53,South,FALSE
+CLM-2024-000005,POL-000459,2024-08-07,2025-05-06,Travel,78233,Rejected,Claim description for record 54,West,FALSE
+CLM-2024-000004,POL-000226,2024-02-26,2024-03-25,Health,32856,Pending,Claim description for record 55,West,FALSE
+CLM-2024-000007,POL-000036,2025-03-16,2025-07-25,Life,56190,Pending,Claim description for record 56,East,FALSE
+CLM-2024-000009,POL-000404,2023-02-19,2024-12-24,Property,125446,Approved,Claim description for record 57,North,FALSE
+CLM-2024-000006,POL-000027,2023-11-28,2024-10-13,Travel,97487,Pending,Claim description for record 58,East,FALSE
+CLM-2024-000010,POL-000489,2023-02-16,2025-08-04,Auto,40280,Approved,Claim description for record 59,South,FALSE
+CLM-2024-000004,POL-000337,2023-09-18,2024-03-25,Property,134095,Rejected,Claim description for record 60,North,FALSE
+CLM-2024-000061,POL-000063,2023-11-19,2025-01-21,Property,-34933,Pending,Claim description for record 61,Central,FALSE
+CLM-2024-000062,POL-000281,2025-12-15,2024-11-04,Auto,-13860,Rejected,Claim description for record 62,South,FALSE
+CLM-2024-000063,POL-000410,2024-12-22,2024-11-01,Health,-31174,Pending,Claim description for record 63,West,TRUE
+CLM-2024-000064,POL-000067,2024-02-23,2025-06-23,Auto,-42038,Closed,Claim description for record 64,Central,FALSE
+CLM-2024-000065,POL-000354,2024-02-08,2024-01-12,Travel,-19921,Rejected,Claim description for record 65,North,FALSE
+CLM-2024-000066,POL-000371,2025-01-09,2025-10-05,Life,-32579,Rejected,Claim description for record 66,Central,FALSE
+CLM-2024-000067,POL-000479,2023-09-18,2024-12-25,Auto,-23569,Rejected,Claim description for record 67,West,FALSE
+CLM-2024-000068,POL-000475,2023-08-30,2025-10-16,Property,-11709,Approved,Claim description for record 68,South,FALSE
+CLM-2024-000069,POL-000489,2024-09-06,2024-02-20,Health,-37130,Closed,Claim description for record 69,Central,FALSE
+CLM-2024-000070,POL-000201,2024-09-11,2024-12-10,Property,-44223,Rejected,Claim description for record 70,West,FALSE
+CLM-2024-000071,POL-000428,2025-06-01,2024-04-27,Health,-26207,Pending,Claim description for record 71,Central,FALSE
+CLM-2024-000072,POL-000430,2024-09-18,2025-02-22,Life,-4252,Approved,Claim description for record 72,South,TRUE
+CLM-2024-000073,POL-000449,2025-10-07,2024-08-22,Property,-7017,Closed,Claim description for record 73,East,FALSE
+CLM-2024-000074,POL-000395,2025-03-16,2024-04-11,Auto,-48356,Rejected,Claim description for record 74,North,FALSE
+CLM-2024-000075,POL-000392,2024-04-11,2025-03-03,Property,-40082,Rejected,Claim description for record 75,West,FALSE
+CLM-2024-000076,POL-000135,2027-01-11,2024-07-22,Property,73802,Pending,Claim description for record 76,Central,FALSE
+CLM-2024-000077,POL-000178,2026-07-14,2025-04-28,Travel,45068,Closed,Claim description for record 77,South,FALSE
+CLM-2024-000078,POL-000317,2026-08-15,2024-10-01,Auto,122728,Under Review,Claim description for record 78,South,FALSE
+CLM-2024-000079,POL-000427,2026-12-07,2024-03-31,Life,96287,Rejected,Claim description for record 79,West,FALSE
+CLM-2024-000080,POL-000135,2026-04-01,2025-04-12,Life,140277,Approved,Claim description for record 80,North,FALSE
+CLM-2024-000081,POL-000367,2026-07-07,2024-10-08,Travel,127316,Closed,Claim description for record 81,North,FALSE
+CLM-2024-000082,POL-000461,2026-02-26,2025-09-21,Auto,117771,Closed,Claim description for record 82,East,FALSE
+CLM-2024-000083,POL-000221,2026-12-03,2024-03-17,Auto,44024,Pending,Claim description for record 83,South,FALSE
+CLM-2024-000084,POL-000105,2026-05-18,2024-03-17,Property,96630,Closed,Claim description for record 84,Central,FALSE
+CLM-2024-000085,POL-000166,2026-06-02,2025-09-10,Life,34562,Rejected,Claim description for record 85,East,FALSE
+CLM-2024-000086,POL-000097,2026-07-19,2024-10-18,Auto,117372,Approved,Claim description for record 86,North,FALSE
+CLM-2024-000087,POL-000443,2026-06-19,2025-06-03,Health,43520,Closed,Claim description for record 87,Central,FALSE
+CLM-2024-000088,POL-000401,2026-07-10,2025-07-23,Travel,15171,Pending,Claim description for record 88,Central,FALSE
+CLM-2024-000089,POL-000376,2026-03-11,2024-01-28,Travel,50269,Rejected,Claim description for record 89,North,FALSE
+CLM-2024-000090,POL-000066,2026-08-08,2025-12-29,Life,52937,Rejected,Claim description for record 90,West,FALSE
+CLM-2024-000091,POL-000147,2025-01-01,2024-06-29,Travel,0,Rejected,Claim description for record 91,Central,FALSE
+CLM-2024-000092,POL-000100,2024-12-13,2024-02-07,Property,0,Under Review,Claim description for record 92,West,FALSE
+CLM-2024-000093,POL-000223,2024-05-15,2024-09-25,Auto,0,Pending,Claim description for record 93,Central,FALSE
+CLM-2024-000094,POL-000018,2023-10-08,2025-10-25,Health,0,Under Review,Claim description for record 94,North,FALSE
+CLM-2024-000095,POL-000361,2023-02-18,2024-09-07,Health,0,Pending,Claim description for record 95,North,FALSE
+CLM-2024-000096,POL-000219,2025-09-21,2024-08-10,Travel,0,Rejected,Claim description for record 96,North,FALSE
+CLM-2024-000097,POL-000355,2023-09-22,2025-02-26,Life,0,Under Review,Claim description for record 97,East,FALSE
+CLM-2024-000098,POL-000252,2025-12-11,2024-09-25,Travel,0,Under Review,Claim description for record 98,West,FALSE
+CLM-2024-000099,POL-000292,2023-02-04,2025-02-15,Property,0,Rejected,Claim description for record 99,Central,FALSE
+CLM-2024-000100,POL-000081,2023-06-29,2024-04-18,Life,0,Rejected,Claim description for record 100,West,FALSE
+CLM-2024-000101,POL-000483,2023-09-06,2025-03-18,Life,0,Closed,Claim description for record 101,South,FALSE
+CLM-2024-000102,POL-000443,2025-10-11,2025-07-07,Travel,0,Closed,Claim description for record 102,Central,FALSE
+CLM-2024-000103,POL-000357,2025-11-29,2025-10-22,Auto,0,Pending,Claim description for record 103,North,FALSE
+CLM-2024-000104,POL-000002,2025-05-21,2024-02-21,Property,0,Rejected,Claim description for record 104,Central,FALSE
+CLM-2024-000105,POL-000107,2024-05-26,2024-09-15,Life,0,Rejected,Claim description for record 105,Central,FALSE
+CLM-2024-000106,POL-000019,2025-08-19,2025-11-12,Health,67237209,Under Review,Claim description for record 106,West,FALSE
+CLM-2024-000107,POL-000034,2023-04-10,2025-04-21,Property,77981849,Rejected,Claim description for record 107,East,FALSE
+CLM-2024-000108,POL-000428,2024-05-20,2025-02-22,Travel,87891330,Pending,Claim description for record 108,Central,FALSE
+CLM-2024-000109,POL-000353,2024-08-08,2024-12-08,Travel,53548960,Under Review,Claim description for record 109,East,FALSE
+CLM-2024-000110,POL-000229,2024-07-19,2025-04-11,Health,74282151,Approved,Claim description for record 110,North,TRUE
+CLM-2024-000111,POL-000148,2023-05-18,2024-02-20,Health,91100109,Pending,Claim description for record 111,South,FALSE
+CLM-2024-000112,POL-000286,2025-12-02,2025-04-25,Property,99846919,Pending,Claim description for record 112,South,FALSE
+CLM-2024-000113,POL-000040,2024-01-21,2024-09-28,Travel,81390573,Closed,Claim description for record 113,East,FALSE
+CLM-2024-000114,POL-000432,2023-01-03,2025-03-11,Health,94075083,Pending,Claim description for record 114,East,FALSE
+CLM-2024-000115,POL-000447,2025-05-12,2024-09-29,Auto,83118495,Approved,Claim description for record 115,South,FALSE
+CLM-2024-000116,POL-000337,2023-04-01,2024-03-29,Property,52425096,Rejected,Claim description for record 116,South,FALSE
+CLM-2024-000117,POL-000434,2025-09-04,2025-01-18,Travel,60375200,Closed,Claim description for record 117,East,FALSE
+CLM-2024-000118,POL-000347,2023-08-30,2024-05-05,Auto,56128270,Rejected,Claim description for record 118,East,FALSE
+CLM-2024-000119,POL-000480,2025-05-14,2025-07-18,Life,77024790,Closed,Claim description for record 119,North,FALSE
+CLM-2024-000120,POL-000064,2024-12-24,2024-05-04,Health,94348103,Closed,Claim description for record 120,South,FALSE
+CLM-2024-000121,POL-000001,,2024-05-01,Auto,52765,Closed,Claim description for record 121,South,TRUE
+CLM-2024-000122,POL-000055,,2025-07-01,Property,45274,Approved,Claim description for record 122,West,FALSE
+CLM-2024-000123,POL-000292,,2024-10-14,Travel,114967,Rejected,Claim description for record 123,East,FALSE
+CLM-2024-000124,POL-000328,,2024-07-11,Health,50984,Rejected,Claim description for record 124,North,FALSE
+CLM-2024-000125,POL-000453,,2024-11-28,Auto,86466,Closed,Claim description for record 125,North,FALSE
+CLM-2024-000126,POL-000080,,2024-02-20,Auto,66950,Under Review,Claim description for record 126,Central,FALSE
+CLM-2024-000127,POL-000058,,2024-11-24,Health,88313,Under Review,Claim description for record 127,Central,FALSE
+CLM-2024-000128,POL-000417,,2024-03-22,Auto,92791,Pending,Claim description for record 128,North,FALSE
+CLM-2024-000129,POL-000273,,2025-07-02,Health,9554,Approved,Claim description for record 129,West,FALSE
+CLM-2024-000130,POL-000227,,2025-10-30,Property,109788,Rejected,Claim description for record 130,Central,FALSE
+CLM-2024-000131,POL-000460,,2025-06-06,Life,119009,Approved,Claim description for record 131,North,FALSE
+CLM-2024-000132,POL-000247,,2024-11-09,Health,129231,Closed,Claim description for record 132,North,FALSE
+CLM-2024-000133,POL-000184,,2025-02-15,Property,131626,Approved,Claim description for record 133,Central,FALSE
+CLM-2024-000134,POL-000232,,2024-01-11,Life,18610,Under Review,Claim description for record 134,Central,FALSE
+CLM-2024-000135,POL-000014,,2024-01-28,Property,89438,Approved,Claim description for record 135,West,FALSE
+CLM-2024-000136,POL-000484,2023-04-07,2024-05-14,Health,57491,Rejected,Claim description for record 136,South,TRUE
+CLM-2024-000137,POL-000279,2024-05-27,2025-03-06,Travel,36339,Under Review,Claim description for record 137,East,TRUE
+CLM-2024-000138,POL-000353,2023-06-24,2025-06-05,Health,40630,Under Review,Claim description for record 138,Central,TRUE
+CLM-2024-000139,POL-000338,2024-10-07,2025-07-03,Health,100331,Closed,Claim description for record 139,Central,TRUE
+CLM-2024-000140,POL-000233,2023-11-07,2025-08-21,Life,85374,Pending,Claim description for record 140,East,TRUE
+CLM-2024-000141,POL-000027,2023-11-12,2024-10-31,Health,70200,Rejected,Claim description for record 141,South,TRUE
+CLM-2024-000142,POL-000348,2023-12-12,2024-04-15,Auto,83833,Pending,Claim description for record 142,East,TRUE
+CLM-2024-000143,POL-000450,2023-07-02,2025-10-09,Health,123851,Under Review,Claim description for record 143,Central,TRUE
+CLM-2024-000144,POL-000422,2024-06-19,2025-04-27,Auto,87036,Rejected,Claim description for record 144,North,TRUE
+CLM-2024-000145,POL-000466,2024-07-13,2024-01-08,Property,28042,Closed,Claim description for record 145,East,TRUE
+CLM-2024-000146,POL-000450,2025-06-29,2024-03-19,Health,55280,Approved,Claim description for record 146,Central,TRUE
+CLM-2024-000147,POL-000187,2024-08-31,2025-08-09,Health,99306,Rejected,Claim description for record 147,East,TRUE
+CLM-2024-000148,POL-000272,2025-10-14,2024-09-14,Property,61656,Under Review,Claim description for record 148,Central,TRUE
+CLM-2024-000149,POL-000374,2023-11-10,2024-02-15,Auto,123320,Approved,Claim description for record 149,North,TRUE
+CLM-2024-000150,POL-000161,2023-11-24,2025-11-29,Travel,11788,Under Review,Claim description for record 150,West,TRUE
+CLM-2024-000151,POL-000402,2023-03-10,2024-05-20,Health,144788,Approved,Claim description for record 151,West,FALSE
+CLM-2024-000152,POL-000347,2025-07-25,2025-06-03,Property,143017,Rejected,Claim description for record 152,South,FALSE
+CLM-2024-000153,POL-000195,2024-09-09,2024-11-04,Life,113240,Under Review,Claim description for record 153,East,FALSE
+CLM-2024-000154,POL-000098,2024-09-14,2024-06-30,Health,9081,Approved,Claim description for record 154,Central,FALSE
+CLM-2024-000155,POL-000450,2025-08-08,2025-01-03,Travel,45213,Closed,Claim description for record 155,North,FALSE
+CLM-2024-000156,POL-000104,2023-12-28,2024-05-15,Travel,39653,Closed,Claim description for record 156,West,FALSE
+CLM-2024-000157,POL-000448,2025-01-14,2024-02-19,Auto,70241,Approved,Claim description for record 157,West,FALSE
+CLM-2024-000158,POL-000180,2023-07-03,2025-08-03,Health,108295,Approved,Claim description for record 158,Central,FALSE
+CLM-2024-000159,POL-000023,2023-12-26,2025-03-17,Travel,3956,Approved,Claim description for record 159,Central,FALSE
+CLM-2024-000160,POL-000030,2025-08-15,2025-03-17,Property,58057,Rejected,Claim description for record 160,South,FALSE
+CLM-2024-000161,POL-000488,2025-02-24,2025-04-29,Auto,149372,Approved,Claim description for record 161,North,FALSE
+CLM-2024-000162,POL-000143,2025-11-01,2025-04-16,Health,130902,Rejected,Claim description for record 162,East,FALSE
+CLM-2024-000163,POL-000079,2024-03-19,2024-09-05,Auto,7311,Rejected,Claim description for record 163,West,FALSE
+CLM-2024-000164,POL-000202,2025-10-06,2024-01-17,Travel,30935,Under Review,Claim description for record 164,East,FALSE
+CLM-2024-000165,POL-000127,2023-07-14,2024-04-13,Property,34540,Rejected,Claim description for record 165,East,FALSE
+CLM-2024-000166,POL-000417,2023-03-09,2025-04-06,Travel,16401,Approved,Claim description for record 166,East,FALSE
+CLM-2024-000167,POL-000427,2023-03-07,2024-10-01,Health,60790,Under Review,Claim description for record 167,Central,TRUE
+CLM-2024-000168,POL-000374,2023-07-31,2024-10-17,Life,127050,Pending,Claim description for record 168,Central,FALSE
+CLM-2024-000169,POL-000390,2025-03-18,2025-08-10,Travel,108672,Closed,Claim description for record 169,North,FALSE
+CLM-2024-000170,POL-000474,2024-03-17,2025-11-10,Health,27952,Approved,Claim description for record 170,West,FALSE
+CLM-2024-000171,POL-000384,2024-08-01,2024-01-06,Auto,47339,Under Review,Claim description for record 171,North,FALSE
+CLM-2024-000172,POL-000321,2024-01-27,2024-11-05,Life,95279,Rejected,Claim description for record 172,South,FALSE
+CLM-2024-000173,POL-000391,2023-02-28,2025-07-05,Auto,13623,Under Review,Claim description for record 173,East,FALSE
+CLM-2024-000174,POL-000412,2025-05-21,2025-11-29,Travel,100791,Under Review,Claim description for record 174,North,FALSE
+CLM-2024-000175,POL-000359,2023-10-29,2024-04-07,Travel,36991,Pending,Claim description for record 175,Central,FALSE
+CLM-2024-000176,POL-000440,2023-01-09,2025-01-27,Travel,124658,Pending,Claim description for record 176,Central,FALSE
+CLM-2024-000177,POL-000001,2023-08-15,2024-09-04,Travel,144754,Closed,Claim description for record 177,North,FALSE
+CLM-2024-000178,POL-000249,2024-04-16,2024-05-24,Life,124091,Pending,Claim description for record 178,East,FALSE
+CLM-2024-000179,POL-000497,2024-08-11,2025-08-17,Travel,81277,Approved,Claim description for record 179,Central,FALSE
+CLM-2024-000180,POL-000243,2025-10-20,2024-11-15,Travel,6071,Pending,Claim description for record 180,Central,FALSE
+CLM-2024-000181,POL-000484,2023-03-28,2025-06-14,Property,79380,Approved,Claim description for record 181,West,FALSE
+CLM-2024-000182,POL-000087,2023-06-17,2024-04-02,Health,99542,Rejected,Claim description for record 182,West,FALSE
+CLM-2024-000183,POL-000440,2023-01-03,2025-06-18,Life,126661,Rejected,Claim description for record 183,Central,FALSE
+CLM-2024-000184,POL-000496,2024-05-15,2025-11-24,Property,80317,Closed,Claim description for record 184,North,FALSE
+CLM-2024-000185,POL-000277,2025-09-02,2024-12-15,Property,135183,Under Review,Claim description for record 185,East,FALSE
+CLM-2024-000186,POL-000073,2025-03-11,2025-07-27,Life,75266,Pending,Claim description for record 186,South,FALSE
+CLM-2024-000187,POL-000033,2025-01-03,2024-09-10,Health,14448,Pending,Claim description for record 187,South,FALSE
+CLM-2024-000188,POL-000169,2023-10-12,2024-11-10,Life,69850,Under Review,Claim description for record 188,North,FALSE
+CLM-2024-000189,POL-000410,2025-06-11,2025-01-29,Health,125761,Rejected,Claim description for record 189,Central,FALSE
+CLM-2024-000190,POL-000387,2025-12-20,2025-01-08,Health,81819,Approved,Claim description for record 190,East,FALSE
+CLM-2024-000191,POL-000421,2024-07-16,2025-10-24,Travel,104587,Closed,Claim description for record 191,South,FALSE
+CLM-2024-000192,POL-000247,2024-04-16,2024-02-09,Health,116353,Rejected,Claim description for record 192,North,FALSE
+CLM-2024-000193,POL-000407,2023-10-29,2024-03-22,Life,23392,Under Review,Claim description for record 193,Central,FALSE
+CLM-2024-000194,POL-000208,2024-02-08,2025-08-11,Auto,69449,Pending,Claim description for record 194,Central,FALSE
+CLM-2024-000195,POL-000315,2023-01-13,2024-05-30,Life,83481,Pending,Claim description for record 195,West,FALSE
+CLM-2024-000196,POL-000448,2023-12-13,2024-06-10,Health,129837,Pending,Claim description for record 196,Central,FALSE
+CLM-2024-000197,POL-000361,2023-03-29,2024-07-14,Travel,31219,Closed,Claim description for record 197,North,FALSE
+CLM-2024-000198,POL-000212,2025-01-07,2024-10-30,Property,74302,Under Review,Claim description for record 198,South,FALSE
+CLM-2024-000199,POL-000090,2025-07-22,2025-12-12,Travel,102666,Approved,Claim description for record 199,South,FALSE
+CLM-2024-000200,POL-000014,2023-03-25,2024-08-10,Life,32973,Under Review,Claim description for record 200,West,FALSE
+CLM-2024-000201,POL-000116,2024-06-29,2024-03-22,Property,144300,Closed,Claim description for record 201,North,FALSE
+CLM-2024-000202,POL-000352,2025-02-16,2025-11-15,Auto,70840,Closed,Claim description for record 202,Central,FALSE
+CLM-2024-000203,POL-000375,2023-06-16,2024-02-24,Travel,113470,Approved,Claim description for record 203,East,FALSE
+CLM-2024-000204,POL-000376,2025-12-21,2025-07-01,Travel,12948,Closed,Claim description for record 204,East,FALSE
+CLM-2024-000205,POL-000464,2023-05-15,2025-06-02,Auto,79821,Rejected,Claim description for record 205,West,FALSE
+CLM-2024-000206,POL-000400,2024-02-24,2025-11-19,Property,82350,Under Review,Claim description for record 206,South,FALSE
+CLM-2024-000207,POL-000064,2025-08-23,2024-03-24,Life,120519,Rejected,Claim description for record 207,East,FALSE
+CLM-2024-000208,POL-000315,2024-04-10,2024-06-06,Life,72635,Under Review,Claim description for record 208,East,FALSE
+CLM-2024-000209,POL-000386,2023-08-21,2024-08-06,Health,71838,Under Review,Claim description for record 209,South,FALSE
+CLM-2024-000210,POL-000072,2024-11-04,2025-07-16,Health,71619,Closed,Claim description for record 210,West,FALSE
+CLM-2024-000211,POL-000138,2024-04-01,2025-04-22,Life,7543,Pending,Claim description for record 211,South,FALSE
+CLM-2024-000212,POL-000269,2025-09-24,2025-04-11,Property,22809,Pending,Claim description for record 212,East,FALSE
+CLM-2024-000213,POL-000023,2024-12-13,2024-06-08,Life,32698,Approved,Claim description for record 213,South,FALSE
+CLM-2024-000214,POL-000403,2024-01-09,2025-08-04,Travel,85705,Pending,Claim description for record 214,North,TRUE
+CLM-2024-000215,POL-000393,2024-04-08,2024-04-25,Property,114501,Approved,Claim description for record 215,East,FALSE
+CLM-2024-000216,POL-000298,2023-12-03,2025-12-27,Health,49365,Under Review,Claim description for record 216,Central,FALSE
+CLM-2024-000217,POL-000058,2023-09-03,2025-11-02,Auto,65508,Pending,Claim description for record 217,South,FALSE
+CLM-2024-000218,POL-000384,2023-02-09,2025-04-05,Life,106516,Rejected,Claim description for record 218,West,FALSE
+CLM-2024-000219,POL-000294,2025-09-03,2024-06-16,Auto,48420,Pending,Claim description for record 219,North,FALSE
+CLM-2024-000220,POL-000229,2025-05-07,2024-11-28,Travel,101346,Pending,Claim description for record 220,South,FALSE
+CLM-2024-000221,POL-000133,2025-10-16,2024-04-22,Health,99033,Under Review,Claim description for record 221,Central,FALSE
+CLM-2024-000222,POL-000139,2023-08-31,2024-09-10,Property,97321,Under Review,Claim description for record 222,Central,FALSE
+CLM-2024-000223,POL-000467,2023-01-11,2025-03-04,Auto,124296,Closed,Claim description for record 223,South,FALSE
+CLM-2024-000224,POL-000411,2023-02-02,2025-09-11,Travel,108221,Approved,Claim description for record 224,West,FALSE
+CLM-2024-000225,POL-000094,2024-03-01,2025-09-29,Travel,102899,Approved,Claim description for record 225,East,FALSE
+CLM-2024-000226,POL-000053,2024-12-07,2024-10-26,Life,75362,Rejected,Claim description for record 226,East,FALSE
+CLM-2024-000227,POL-000394,2023-11-14,2024-09-21,Travel,138894,Under Review,Claim description for record 227,East,TRUE
+CLM-2024-000228,POL-000356,2025-12-10,2025-10-22,Life,51410,Closed,Claim description for record 228,East,FALSE
+CLM-2024-000229,POL-000113,2024-03-01,2025-07-16,Life,16236,Under Review,Claim description for record 229,South,FALSE
+CLM-2024-000230,POL-000089,2024-11-06,2025-10-05,Property,134975,Approved,Claim description for record 230,South,FALSE
+CLM-2024-000231,POL-000015,2025-09-25,2025-04-16,Health,130787,Closed,Claim description for record 231,West,FALSE
+CLM-2024-000232,POL-000221,2023-10-11,2024-12-04,Property,99466,Rejected,Claim description for record 232,South,FALSE
+CLM-2024-000233,POL-000146,2024-04-29,2025-05-13,Property,72761,Under Review,Claim description for record 233,East,FALSE
+CLM-2024-000234,POL-000296,2023-06-12,2025-06-17,Health,25124,Under Review,Claim description for record 234,East,FALSE
+CLM-2024-000235,POL-000116,2023-10-16,2024-03-12,Auto,87177,Under Review,Claim description for record 235,Central,FALSE
+CLM-2024-000236,POL-000198,2023-05-01,2025-02-03,Travel,29054,Pending,Claim description for record 236,North,FALSE
+CLM-2024-000237,POL-000110,2025-04-22,2025-07-15,Life,8758,Approved,Claim description for record 237,West,FALSE
+CLM-2024-000238,POL-000134,2023-06-27,2024-10-10,Life,102259,Approved,Claim description for record 238,East,FALSE
+CLM-2024-000239,POL-000001,2023-03-27,2024-01-12,Travel,115638,Pending,Claim description for record 239,Central,FALSE
+CLM-2024-000240,POL-000234,2024-03-02,2024-05-26,Life,58087,Under Review,Claim description for record 240,West,FALSE
+CLM-2024-000241,POL-000095,2023-12-17,2024-03-03,Travel,126473,Under Review,Claim description for record 241,West,FALSE
+CLM-2024-000242,POL-000329,2023-06-29,2024-05-24,Health,78392,Pending,Claim description for record 242,East,FALSE
+CLM-2024-000243,POL-000379,2023-04-09,2024-05-14,Life,50083,Under Review,Claim description for record 243,West,FALSE
+CLM-2024-000244,POL-000049,2023-05-13,2024-04-22,Travel,16808,Pending,Claim description for record 244,East,FALSE
+CLM-2024-000245,POL-000115,2024-12-19,2024-11-30,Health,99658,Rejected,Claim description for record 245,Central,FALSE
+CLM-2024-000246,POL-000108,2025-08-04,2025-06-15,Life,145889,Rejected,Claim description for record 246,Central,FALSE
+CLM-2024-000247,POL-000158,2023-01-06,2024-11-14,Travel,64293,Approved,Claim description for record 247,East,FALSE
+CLM-2024-000248,POL-000211,2025-11-07,2025-07-28,Life,8785,Under Review,Claim description for record 248,East,FALSE
+CLM-2024-000249,POL-000312,2025-01-07,2024-07-05,Life,80180,Rejected,Claim description for record 249,South,FALSE
+CLM-2024-000250,POL-000039,2025-12-15,2025-01-04,Property,54163,Closed,Claim description for record 250,West,FALSE
+CLM-2024-000251,POL-000355,2024-12-11,2024-06-29,Travel,21644,Rejected,Claim description for record 251,East,FALSE
+CLM-2024-000252,POL-000038,2023-02-12,2025-07-06,Life,39897,Under Review,Claim description for record 252,West,FALSE
+CLM-2024-000253,POL-000311,2023-06-29,2024-02-28,Auto,77000,Approved,Claim description for record 253,Central,FALSE
+CLM-2024-000254,POL-000438,2023-06-02,2024-05-05,Auto,148575,Pending,Claim description for record 254,West,FALSE
+CLM-2024-000255,POL-000358,2024-02-04,2024-04-27,Health,63025,Approved,Claim description for record 255,East,FALSE
+CLM-2024-000256,POL-000129,2025-04-04,2024-02-24,Life,23278,Closed,Claim description for record 256,South,FALSE
+CLM-2024-000257,POL-000480,2025-07-25,2024-10-07,Travel,83300,Under Review,Claim description for record 257,West,FALSE
+CLM-2024-000258,POL-000374,2025-07-18,2025-09-20,Travel,121266,Under Review,Claim description for record 258,South,FALSE
+CLM-2024-000259,POL-000240,2023-06-17,2024-03-11,Travel,114468,Closed,Claim description for record 259,East,FALSE
+CLM-2024-000260,POL-000197,2023-08-25,2025-01-15,Life,127784,Closed,Claim description for record 260,West,FALSE
+CLM-2024-000261,POL-000182,2024-10-29,2024-10-16,Property,80240,Approved,Claim description for record 261,East,FALSE
+CLM-2024-000262,POL-000306,2023-08-18,2025-02-06,Travel,21670,Pending,Claim description for record 262,South,FALSE
+CLM-2024-000263,POL-000178,2025-03-20,2024-02-04,Auto,114700,Pending,Claim description for record 263,Central,TRUE
+CLM-2024-000264,POL-000334,2024-03-19,2024-11-22,Travel,46073,Approved,Claim description for record 264,West,FALSE
+CLM-2024-000265,POL-000197,2023-08-10,2025-09-07,Health,67805,Approved,Claim description for record 265,North,FALSE
+CLM-2024-000266,POL-000481,2023-07-30,2024-10-16,Auto,61827,Pending,Claim description for record 266,Central,FALSE
+CLM-2024-000267,POL-000140,2023-06-03,2025-06-19,Auto,139291,Rejected,Claim description for record 267,West,FALSE
+CLM-2024-000268,POL-000144,2025-04-26,2025-10-11,Life,138886,Rejected,Claim description for record 268,Central,FALSE
+CLM-2024-000269,POL-000409,2023-08-29,2025-02-26,Property,86753,Rejected,Claim description for record 269,Central,FALSE
+CLM-2024-000270,POL-000283,2024-10-01,2025-06-30,Auto,124759,Pending,Claim description for record 270,North,FALSE
+CLM-2024-000271,POL-000286,2024-04-19,2024-12-18,Life,144240,Rejected,Claim description for record 271,Central,FALSE
+CLM-2024-000272,POL-000056,2025-03-04,2025-10-16,Auto,85291,Pending,Claim description for record 272,North,FALSE
+CLM-2024-000273,POL-000149,2023-07-11,2024-07-30,Travel,5989,Approved,Claim description for record 273,South,FALSE
+CLM-2024-000274,POL-000363,2023-12-08,2024-11-27,Travel,149169,Approved,Claim description for record 274,South,FALSE
+CLM-2024-000275,POL-000466,2025-04-30,2024-01-23,Life,59261,Under Review,Claim description for record 275,Central,FALSE
+CLM-2024-000276,POL-000323,2024-07-26,2025-12-20,Health,15190,Closed,Claim description for record 276,North,FALSE
+CLM-2024-000277,POL-000237,2023-09-17,2024-05-27,Auto,133144,Approved,Claim description for record 277,East,FALSE
+CLM-2024-000278,POL-000411,2025-04-22,2025-12-19,Life,87675,Pending,Claim description for record 278,West,FALSE
+CLM-2024-000279,POL-000233,2024-05-09,2025-05-05,Health,44549,Approved,Claim description for record 279,South,FALSE
+CLM-2024-000280,POL-000260,2025-03-27,2024-06-04,Auto,143706,Approved,Claim description for record 280,South,FALSE
+CLM-2024-000281,POL-000170,2024-12-23,2025-05-12,Travel,126428,Approved,Claim description for record 281,East,FALSE
+CLM-2024-000282,POL-000209,2025-07-31,2025-07-25,Travel,127117,Under Review,Claim description for record 282,East,FALSE
+CLM-2024-000283,POL-000260,2023-04-22,2025-12-22,Health,92899,Rejected,Claim description for record 283,West,FALSE
+CLM-2024-000284,POL-000306,2023-01-20,2024-01-13,Property,1802,Under Review,Claim description for record 284,West,FALSE
+CLM-2024-000285,POL-000204,2023-01-23,2024-12-29,Life,38113,Closed,Claim description for record 285,North,FALSE
+CLM-2024-000286,POL-000086,2024-12-23,2025-12-20,Auto,40354,Pending,Claim description for record 286,North,FALSE
+CLM-2024-000287,POL-000167,2025-11-23,2025-12-03,Property,7507,Pending,Claim description for record 287,West,FALSE
+CLM-2024-000288,POL-000365,2023-10-18,2025-11-06,Property,102398,Under Review,Claim description for record 288,Central,FALSE
+CLM-2024-000289,POL-000337,2023-05-02,2024-08-19,Health,135507,Closed,Claim description for record 289,Central,FALSE
+CLM-2024-000290,POL-000196,2024-07-29,2025-11-28,Property,30167,Approved,Claim description for record 290,Central,FALSE
+CLM-2024-000291,POL-000043,2023-02-16,2024-06-02,Travel,64233,Rejected,Claim description for record 291,Central,FALSE
+CLM-2024-000292,POL-000439,2024-04-02,2024-02-25,Travel,129376,Rejected,Claim description for record 292,East,FALSE
+CLM-2024-000293,POL-000103,2024-09-09,2025-04-06,Life,58875,Closed,Claim description for record 293,South,FALSE
+CLM-2024-000294,POL-000206,2024-07-22,2025-04-02,Health,127175,Under Review,Claim description for record 294,West,TRUE
+CLM-2024-000295,POL-000455,2023-06-06,2025-02-05,Property,64378,Pending,Claim description for record 295,South,FALSE
+CLM-2024-000296,POL-000400,2023-03-31,2025-07-27,Auto,144587,Closed,Claim description for record 296,East,FALSE
+CLM-2024-000297,POL-000418,2025-07-20,2024-05-01,Life,118346,Rejected,Claim description for record 297,West,FALSE
+CLM-2024-000298,POL-000365,2024-02-04,2024-07-06,Auto,65426,Rejected,Claim description for record 298,East,FALSE
+CLM-2024-000299,POL-000466,2025-10-04,2025-11-12,Property,110479,Pending,Claim description for record 299,North,FALSE
+CLM-2024-000300,POL-000173,2025-03-27,2025-05-19,Life,18496,Rejected,Claim description for record 300,Central,FALSE
+CLM-2024-000301,POL-000395,2023-06-06,2025-03-22,Travel,111348,Under Review,Claim description for record 301,West,FALSE
+CLM-2024-000302,POL-000030,2024-03-22,2025-05-31,Travel,82825,Approved,Claim description for record 302,West,FALSE
+CLM-2024-000303,POL-000362,2025-12-12,2024-06-26,Property,140458,Closed,Claim description for record 303,East,TRUE
+CLM-2024-000304,POL-000175,2024-01-13,2025-11-12,Property,100944,Approved,Claim description for record 304,South,FALSE
+CLM-2024-000305,POL-000457,2025-09-15,2025-07-22,Travel,55592,Under Review,Claim description for record 305,Central,FALSE
+CLM-2024-000306,POL-000134,2023-06-21,2025-09-06,Life,105227,Approved,Claim description for record 306,East,FALSE
+CLM-2024-000307,POL-000466,2025-05-11,2024-02-11,Life,137973,Approved,Claim description for record 307,West,FALSE
+CLM-2024-000308,POL-000054,2023-04-21,2024-03-06,Property,28511,Under Review,Claim description for record 308,North,FALSE
+CLM-2024-000309,POL-000004,2023-01-07,2024-06-13,Property,8553,Approved,Claim description for record 309,West,FALSE
+CLM-2024-000310,POL-000137,2024-11-24,2024-11-25,Travel,951,Approved,Claim description for record 310,North,FALSE
+CLM-2024-000311,POL-000487,2025-07-17,2024-10-21,Life,17643,Rejected,Claim description for record 311,Central,FALSE
+CLM-2024-000312,POL-000423,2024-03-27,2024-05-21,Health,28093,Closed,Claim description for record 312,North,FALSE
+CLM-2024-000313,POL-000090,2023-11-01,2025-04-24,Travel,122881,Approved,Claim description for record 313,East,FALSE
+CLM-2024-000314,POL-000190,2023-06-29,2024-01-12,Auto,120010,Under Review,Claim description for record 314,South,FALSE
+CLM-2024-000315,POL-000378,2023-02-22,2024-01-28,Auto,93224,Closed,Claim description for record 315,East,FALSE
+CLM-2024-000316,POL-000479,2025-07-17,2025-10-13,Auto,51026,Closed,Claim description for record 316,South,TRUE
+CLM-2024-000317,POL-000472,2025-07-04,2025-07-03,Life,141635,Under Review,Claim description for record 317,North,FALSE
+CLM-2024-000318,POL-000429,2024-05-07,2024-11-12,Life,45974,Closed,Claim description for record 318,Central,FALSE
+CLM-2024-000319,POL-000311,2023-07-09,2024-11-07,Life,88348,Approved,Claim description for record 319,Central,FALSE
+CLM-2024-000320,POL-000374,2025-01-22,2025-12-17,Property,6858,Rejected,Claim description for record 320,Central,FALSE
+CLM-2024-000321,POL-000389,2024-11-28,2024-04-02,Health,123661,Under Review,Claim description for record 321,South,FALSE
+CLM-2024-000322,POL-000174,2023-09-07,2025-06-11,Life,24984,Approved,Claim description for record 322,West,FALSE
+CLM-2024-000323,POL-000014,2023-04-09,2024-01-02,Auto,81330,Approved,Claim description for record 323,North,FALSE
+CLM-2024-000324,POL-000366,2023-06-23,2025-11-02,Travel,18127,Closed,Claim description for record 324,East,FALSE
+CLM-2024-000325,POL-000060,2025-08-02,2025-12-09,Property,39162,Under Review,Claim description for record 325,East,FALSE
+CLM-2024-000326,POL-000253,2024-04-08,2025-01-26,Property,61554,Pending,Claim description for record 326,North,FALSE
+CLM-2024-000327,POL-000053,2023-02-07,2025-03-06,Travel,89160,Rejected,Claim description for record 327,North,FALSE
+CLM-2024-000328,POL-000389,2024-01-25,2025-10-04,Life,104177,Closed,Claim description for record 328,West,FALSE
+CLM-2024-000329,POL-000120,2023-09-16,2024-04-08,Health,134950,Closed,Claim description for record 329,South,TRUE
+CLM-2024-000330,POL-000202,2023-09-01,2025-03-07,Health,84131,Pending,Claim description for record 330,West,FALSE
+CLM-2024-000331,POL-000071,2025-09-05,2024-09-20,Travel,130260,Closed,Claim description for record 331,Central,FALSE
+CLM-2024-000332,POL-000288,2023-03-02,2024-04-07,Travel,43439,Rejected,Claim description for record 332,West,TRUE
+CLM-2024-000333,POL-000128,2023-10-14,2024-04-26,Health,40822,Rejected,Claim description for record 333,West,FALSE
+CLM-2024-000334,POL-000444,2025-10-10,2024-11-15,Health,148636,Rejected,Claim description for record 334,West,FALSE
+CLM-2024-000335,POL-000024,2025-03-28,2025-06-17,Health,132293,Approved,Claim description for record 335,Central,FALSE
+CLM-2024-000336,POL-000031,2024-11-11,2024-02-27,Auto,62652,Closed,Claim description for record 336,South,FALSE
+CLM-2024-000337,POL-000468,2024-06-12,2024-12-01,Auto,123420,Closed,Claim description for record 337,West,FALSE
+CLM-2024-000338,POL-000028,2023-10-23,2025-11-29,Health,146929,Under Review,Claim description for record 338,North,TRUE
+CLM-2024-000339,POL-000394,2025-04-12,2025-06-21,Property,72948,Rejected,Claim description for record 339,West,FALSE
+CLM-2024-000340,POL-000267,2025-08-01,2025-04-04,Auto,23201,Under Review,Claim description for record 340,South,FALSE
+CLM-2024-000341,POL-000023,2024-08-04,2025-10-31,Property,30880,Approved,Claim description for record 341,North,FALSE
+CLM-2024-000342,POL-000091,2023-03-26,2025-12-23,Life,110328,Pending,Claim description for record 342,Central,FALSE
+CLM-2024-000343,POL-000107,2024-01-24,2024-11-08,Life,64534,Under Review,Claim description for record 343,East,FALSE
+CLM-2024-000344,POL-000091,2025-02-21,2025-07-20,Property,117959,Under Review,Claim description for record 344,East,FALSE
+CLM-2024-000345,POL-000415,2025-09-17,2025-05-24,Travel,42607,Under Review,Claim description for record 345,West,FALSE
+CLM-2024-000346,POL-000208,2024-06-17,2024-10-01,Auto,109130,Approved,Claim description for record 346,Central,FALSE
+CLM-2024-000347,POL-000359,2024-07-12,2024-05-11,Health,98510,Rejected,Claim description for record 347,North,TRUE
+CLM-2024-000348,POL-000152,2024-06-28,2024-10-14,Travel,111606,Approved,Claim description for record 348,East,FALSE
+CLM-2024-000349,POL-000240,2023-03-06,2024-02-09,Auto,52148,Approved,Claim description for record 349,Central,FALSE
+CLM-2024-000350,POL-000122,2025-12-14,2024-11-08,Health,38965,Pending,Claim description for record 350,East,FALSE
+CLM-2024-000351,POL-000028,2024-07-24,2025-11-29,Life,4102,Approved,Claim description for record 351,West,FALSE
+CLM-2024-000352,POL-000143,2023-11-01,2024-08-18,Life,8109,Approved,Claim description for record 352,Central,FALSE
+CLM-2024-000353,POL-000076,2025-01-29,2025-08-18,Property,43537,Rejected,Claim description for record 353,Central,FALSE
+CLM-2024-000354,POL-000143,2023-06-22,2024-06-13,Life,64773,Closed,Claim description for record 354,North,FALSE
+CLM-2024-000355,POL-000456,2025-03-11,2025-11-12,Travel,64317,Pending,Claim description for record 355,South,FALSE
+CLM-2024-000356,POL-000102,2023-07-26,2025-04-28,Life,138340,Closed,Claim description for record 356,North,FALSE
+CLM-2024-000357,POL-000212,2025-09-16,2024-11-29,Travel,107788,Rejected,Claim description for record 357,South,FALSE
+CLM-2024-000358,POL-000062,2023-11-06,2025-06-03,Health,54382,Rejected,Claim description for record 358,East,FALSE
+CLM-2024-000359,POL-000435,2025-11-21,2025-01-14,Life,109624,Approved,Claim description for record 359,North,FALSE
+CLM-2024-000360,POL-000284,2023-09-07,2025-10-23,Auto,97471,Closed,Claim description for record 360,Central,FALSE
+CLM-2024-000361,POL-000258,2023-09-04,2024-02-17,Property,136338,Rejected,Claim description for record 361,North,FALSE
+CLM-2024-000362,POL-000248,2025-07-31,2025-02-03,Auto,131158,Rejected,Claim description for record 362,Central,FALSE
+CLM-2024-000363,POL-000148,2025-07-19,2024-09-27,Property,51108,Under Review,Claim description for record 363,East,FALSE
+CLM-2024-000364,POL-000428,2024-05-27,2024-11-22,Travel,83151,Approved,Claim description for record 364,West,FALSE
+CLM-2024-000365,POL-000158,2025-06-10,2025-09-30,Life,24996,Under Review,Claim description for record 365,Central,FALSE
+CLM-2024-000366,POL-000457,2025-05-14,2025-11-26,Travel,10447,Pending,Claim description for record 366,North,FALSE
+CLM-2024-000367,POL-000095,2023-09-16,2024-01-24,Property,42246,Approved,Claim description for record 367,East,FALSE
+CLM-2024-000368,POL-000186,2023-07-15,2025-09-17,Health,85389,Approved,Claim description for record 368,North,FALSE
+CLM-2024-000369,POL-000255,2023-02-24,2025-07-22,Life,96356,Rejected,Claim description for record 369,East,FALSE
+CLM-2024-000370,POL-000461,2025-02-15,2024-05-07,Health,3441,Rejected,Claim description for record 370,South,FALSE
+CLM-2024-000371,POL-000292,2025-03-24,2024-12-07,Health,24820,Under Review,Claim description for record 371,North,FALSE
+CLM-2024-000372,POL-000370,2023-08-22,2024-01-10,Auto,124008,Closed,Claim description for record 372,Central,FALSE
+CLM-2024-000373,POL-000241,2023-03-25,2024-04-15,Life,99027,Rejected,Claim description for record 373,West,FALSE
+CLM-2024-000374,POL-000094,2025-04-21,2025-03-25,Property,28892,Pending,Claim description for record 374,South,FALSE
+CLM-2024-000375,POL-000421,2024-09-12,2025-09-18,Property,102668,Closed,Claim description for record 375,Central,FALSE
+CLM-2024-000376,POL-000016,2025-09-08,2025-11-23,Property,53474,Closed,Claim description for record 376,North,FALSE
+CLM-2024-000377,POL-000211,2025-10-12,2024-12-04,Health,21116,Under Review,Claim description for record 377,East,FALSE
+CLM-2024-000378,POL-000219,2025-01-19,2024-11-19,Life,80165,Closed,Claim description for record 378,East,FALSE
+CLM-2024-000379,POL-000045,2023-10-17,2025-05-03,Travel,18523,Approved,Claim description for record 379,South,FALSE
+CLM-2024-000380,POL-000142,2024-10-08,2025-02-16,Travel,146480,Under Review,Claim description for record 380,Central,TRUE
+CLM-2024-000381,POL-000329,2025-12-30,2024-05-03,Health,141330,Approved,Claim description for record 381,North,FALSE
+CLM-2024-000382,POL-000471,2025-08-01,2025-11-24,Life,80554,Rejected,Claim description for record 382,Central,FALSE
+CLM-2024-000383,POL-000428,2023-07-15,2024-10-19,Auto,146293,Rejected,Claim description for record 383,East,FALSE
+CLM-2024-000384,POL-000041,2023-05-18,2025-11-08,Auto,54328,Approved,Claim description for record 384,West,FALSE
+CLM-2024-000385,POL-000384,2023-05-06,2024-11-12,Property,65340,Pending,Claim description for record 385,South,FALSE
+CLM-2024-000386,POL-000485,2025-11-06,2024-09-13,Health,120851,Closed,Claim description for record 386,North,FALSE
+CLM-2024-000387,POL-000466,2024-11-26,2024-11-19,Auto,112835,Rejected,Claim description for record 387,East,FALSE
+CLM-2024-000388,POL-000139,2023-04-07,2025-08-01,Travel,90693,Pending,Claim description for record 388,West,FALSE
+CLM-2024-000389,POL-000412,2025-11-11,2025-05-21,Property,87381,Approved,Claim description for record 389,Central,FALSE
+CLM-2024-000390,POL-000350,2023-04-28,2024-06-23,Travel,62167,Approved,Claim description for record 390,West,FALSE
+CLM-2024-000391,POL-000135,2025-04-26,2024-10-01,Auto,82853,Under Review,Claim description for record 391,Central,FALSE
+CLM-2024-000392,POL-000472,2023-04-25,2024-04-04,Health,98260,Approved,Claim description for record 392,South,FALSE
+CLM-2024-000393,POL-000090,2025-04-20,2024-01-04,Property,2671,Pending,Claim description for record 393,South,FALSE
+CLM-2024-000394,POL-000483,2023-03-02,2025-12-24,Property,98762,Rejected,Claim description for record 394,North,FALSE
+CLM-2024-000395,POL-000432,2025-01-20,2024-06-19,Life,32525,Under Review,Claim description for record 395,West,FALSE
+CLM-2024-000396,POL-000392,2025-11-20,2024-04-07,Property,130376,Approved,Claim description for record 396,West,FALSE
+CLM-2024-000397,POL-000237,2025-04-28,2024-01-30,Health,20849,Closed,Claim description for record 397,North,FALSE
+CLM-2024-000398,POL-000111,2023-06-27,2024-01-28,Property,70861,Approved,Claim description for record 398,Central,FALSE
+CLM-2024-000399,POL-000402,2023-12-30,2024-05-05,Health,108331,Approved,Claim description for record 399,South,FALSE
+CLM-2024-000400,POL-000145,2024-07-25,2025-12-02,Auto,126255,Rejected,Claim description for record 400,Central,FALSE
+CLM-2024-000401,POL-000292,2023-01-22,2025-03-29,Travel,22682,Under Review,Claim description for record 401,Central,FALSE
+CLM-2024-000402,POL-000473,2023-10-06,2024-05-07,Health,104560,Approved,Claim description for record 402,West,FALSE
+CLM-2024-000403,POL-000156,2025-10-02,2024-09-21,Auto,31467,Approved,Claim description for record 403,West,FALSE
+CLM-2024-000404,POL-000415,2025-12-27,2024-11-29,Life,99554,Closed,Claim description for record 404,West,FALSE
+CLM-2024-000405,POL-000039,2025-03-11,2025-04-19,Auto,16724,Approved,Claim description for record 405,West,TRUE
+CLM-2024-000406,POL-000321,2025-07-30,2025-05-25,Travel,64740,Rejected,Claim description for record 406,West,FALSE
+CLM-2024-000407,POL-000210,2025-03-14,2025-01-18,Life,130913,Pending,Claim description for record 407,North,FALSE
+CLM-2024-000408,POL-000277,2024-04-12,2025-11-21,Health,138689,Under Review,Claim description for record 408,West,FALSE
+CLM-2024-000409,POL-000290,2024-11-25,2025-04-20,Life,73784,Under Review,Claim description for record 409,North,FALSE
+CLM-2024-000410,POL-000476,2025-11-18,2024-07-20,Auto,14077,Pending,Claim description for record 410,Central,FALSE
+CLM-2024-000411,POL-000210,2025-07-21,2024-05-07,Health,142978,Under Review,Claim description for record 411,Central,FALSE
+CLM-2024-000412,POL-000255,2023-12-12,2025-01-10,Travel,4702,Approved,Claim description for record 412,North,FALSE
+CLM-2024-000413,POL-000303,2024-07-06,2024-03-06,Health,48791,Pending,Claim description for record 413,South,FALSE
+CLM-2024-000414,POL-000045,2023-07-28,2025-12-28,Travel,94446,Approved,Claim description for record 414,East,FALSE
+CLM-2024-000415,POL-000209,2024-06-18,2025-10-21,Life,133175,Pending,Claim description for record 415,Central,TRUE
+CLM-2024-000416,POL-000341,2024-03-18,2025-04-27,Health,145132,Rejected,Claim description for record 416,Central,FALSE
+CLM-2024-000417,POL-000483,2023-09-19,2025-06-12,Auto,56925,Under Review,Claim description for record 417,East,FALSE
+CLM-2024-000418,POL-000224,2025-11-29,2025-05-29,Property,69046,Rejected,Claim description for record 418,South,FALSE
+CLM-2024-000419,POL-000397,2023-06-22,2025-09-30,Auto,80009,Approved,Claim description for record 419,North,FALSE
+CLM-2024-000420,POL-000025,2025-12-22,2025-11-27,Life,40228,Under Review,Claim description for record 420,North,FALSE
+CLM-2024-000421,POL-000053,2023-06-14,2024-04-26,Life,45710,Under Review,Claim description for record 421,East,FALSE
+CLM-2024-000422,POL-000139,2024-02-14,2024-10-02,Auto,129290,Pending,Claim description for record 422,West,FALSE
+CLM-2024-000423,POL-000046,2025-07-13,2025-04-20,Travel,103232,Closed,Claim description for record 423,West,FALSE
+CLM-2024-000424,POL-000279,2025-08-24,2025-07-09,Property,111670,Rejected,Claim description for record 424,West,FALSE
+CLM-2024-000425,POL-000120,2024-10-24,2025-01-20,Travel,30211,Closed,Claim description for record 425,East,FALSE
+CLM-2024-000426,POL-000027,2025-11-13,2025-09-09,Life,3294,Pending,Claim description for record 426,North,FALSE
+CLM-2024-000427,POL-000406,2024-08-30,2024-05-06,Property,54952,Rejected,Claim description for record 427,South,FALSE
+CLM-2024-000428,POL-000170,2023-08-14,2024-07-26,Travel,2445,Closed,Claim description for record 428,South,FALSE
+CLM-2024-000429,POL-000165,2025-02-26,2024-01-01,Health,130217,Under Review,Claim description for record 429,Central,FALSE
+CLM-2024-000430,POL-000237,2024-05-16,2024-04-02,Auto,83433,Approved,Claim description for record 430,East,FALSE
+CLM-2024-000431,POL-000274,2025-03-17,2025-03-21,Life,62139,Under Review,Claim description for record 431,East,FALSE
+CLM-2024-000432,POL-000436,2025-07-29,2025-09-26,Auto,41710,Rejected,Claim description for record 432,North,FALSE
+CLM-2024-000433,POL-000190,2025-11-14,2024-01-09,Life,122450,Closed,Claim description for record 433,South,FALSE
+CLM-2024-000434,POL-000266,2024-10-28,2025-10-30,Life,21617,Pending,Claim description for record 434,West,FALSE
+CLM-2024-000435,POL-000227,2024-09-13,2025-06-03,Auto,52800,Closed,Claim description for record 435,South,FALSE
+CLM-2024-000436,POL-000494,2024-09-19,2025-03-02,Property,119974,Under Review,Claim description for record 436,West,FALSE
+CLM-2024-000437,POL-000442,2025-05-22,2024-02-27,Health,24893,Closed,Claim description for record 437,West,FALSE
+CLM-2024-000438,POL-000368,2024-12-29,2025-04-09,Health,137200,Pending,Claim description for record 438,West,FALSE
+CLM-2024-000439,POL-000047,2024-02-22,2025-09-05,Auto,130627,Under Review,Claim description for record 439,Central,TRUE
+CLM-2024-000440,POL-000170,2023-03-17,2024-06-04,Property,31902,Pending,Claim description for record 440,Central,FALSE
+CLM-2024-000441,POL-000383,2025-07-08,2025-12-18,Health,41374,Pending,Claim description for record 441,North,FALSE
+CLM-2024-000442,POL-000238,2024-11-18,2025-10-12,Travel,130711,Closed,Claim description for record 442,Central,FALSE
+CLM-2024-000443,POL-000434,2024-05-17,2025-02-03,Health,56673,Under Review,Claim description for record 443,South,FALSE
+CLM-2024-000444,POL-000422,2025-08-21,2024-05-04,Life,55851,Pending,Claim description for record 444,West,FALSE
+CLM-2024-000445,POL-000344,2024-12-16,2024-03-30,Life,15087,Under Review,Claim description for record 445,West,FALSE
+CLM-2024-000446,POL-000490,2023-02-08,2024-07-31,Life,40989,Rejected,Claim description for record 446,East,FALSE
+CLM-2024-000447,POL-000264,2025-12-11,2024-01-16,Life,60227,Closed,Claim description for record 447,Central,FALSE
+CLM-2024-000448,POL-000453,2024-11-28,2025-08-04,Life,77296,Closed,Claim description for record 448,East,FALSE
+CLM-2024-000449,POL-000286,2025-01-19,2024-02-03,Life,3865,Under Review,Claim description for record 449,South,FALSE
+CLM-2024-000450,POL-000349,2025-02-12,2024-01-31,Life,110014,Closed,Claim description for record 450,North,FALSE
+CLM-2024-000451,POL-000015,2024-09-22,2024-11-04,Travel,25833,Closed,Claim description for record 451,West,FALSE
+CLM-2024-000452,POL-000300,2025-02-20,2024-05-20,Auto,3015,Rejected,Claim description for record 452,East,FALSE
+CLM-2024-000453,POL-000364,2025-03-24,2024-04-17,Health,96651,Pending,Claim description for record 453,West,FALSE
+CLM-2024-000454,POL-000408,2024-07-08,2024-07-31,Life,18524,Closed,Claim description for record 454,North,FALSE
+CLM-2024-000455,POL-000124,2023-03-01,2025-06-29,Property,12723,Closed,Claim description for record 455,North,FALSE
+CLM-2024-000456,POL-000173,2023-07-01,2025-10-11,Life,31996,Under Review,Claim description for record 456,Central,FALSE
+CLM-2024-000457,POL-000203,2025-02-20,2025-12-06,Property,37898,Under Review,Claim description for record 457,East,FALSE
+CLM-2024-000458,POL-000475,2025-06-29,2025-10-31,Property,2093,Pending,Claim description for record 458,West,FALSE
+CLM-2024-000459,POL-000348,2025-05-14,2025-10-15,Property,128431,Under Review,Claim description for record 459,North,FALSE
+CLM-2024-000460,POL-000359,2025-05-30,2024-03-06,Property,72506,Closed,Claim description for record 460,South,FALSE
+CLM-2024-000461,POL-000337,2025-06-22,2025-07-02,Property,66348,Approved,Claim description for record 461,Central,FALSE
+CLM-2024-000462,POL-000096,2023-08-18,2024-12-10,Property,21076,Pending,Claim description for record 462,South,FALSE
+CLM-2024-000463,POL-000099,2024-04-20,2025-11-28,Auto,23306,Rejected,Claim description for record 463,North,FALSE
+CLM-2024-000464,POL-000044,2025-11-14,2024-08-12,Travel,144982,Closed,Claim description for record 464,North,FALSE
+CLM-2024-000465,POL-000289,2024-07-20,2025-01-28,Travel,51456,Closed,Claim description for record 465,North,FALSE
+CLM-2024-000466,POL-000177,2023-05-14,2025-10-27,Travel,117166,Pending,Claim description for record 466,East,FALSE
+CLM-2024-000467,POL-000133,2024-01-09,2025-07-13,Health,51081,Closed,Claim description for record 467,Central,FALSE
+CLM-2024-000468,POL-000390,2023-01-02,2025-03-19,Life,2320,Closed,Claim description for record 468,Central,FALSE
+CLM-2024-000469,POL-000437,2025-08-17,2024-01-13,Auto,107889,Under Review,Claim description for record 469,West,FALSE
+CLM-2024-000470,POL-000113,2025-07-14,2024-06-13,Travel,52619,Pending,Claim description for record 470,North,FALSE
+CLM-2024-000471,POL-000386,2025-09-09,2024-01-17,Auto,139664,Closed,Claim description for record 471,North,FALSE
+CLM-2024-000472,POL-000456,2025-04-26,2025-07-19,Life,127244,Closed,Claim description for record 472,West,FALSE
+CLM-2024-000473,POL-000153,2023-12-17,2025-07-15,Property,7019,Pending,Claim description for record 473,West,FALSE
+CLM-2024-000474,POL-000162,2023-01-21,2025-09-13,Property,104430,Closed,Claim description for record 474,West,FALSE
+CLM-2024-000475,POL-000247,2023-02-11,2025-09-07,Travel,114278,Closed,Claim description for record 475,East,FALSE
+CLM-2024-000476,POL-000020,2024-02-25,2025-12-13,Travel,92574,Pending,Claim description for record 476,East,FALSE
+CLM-2024-000477,POL-000046,2024-01-15,2024-12-23,Auto,40686,Pending,Claim description for record 477,West,FALSE
+CLM-2024-000478,POL-000076,2024-12-14,2025-08-18,Auto,120635,Pending,Claim description for record 478,North,FALSE
+CLM-2024-000479,POL-000236,2025-08-23,2024-10-07,Travel,84707,Approved,Claim description for record 479,North,FALSE
+CLM-2024-000480,POL-000109,2023-06-09,2025-04-03,Life,13713,Rejected,Claim description for record 480,Central,FALSE
+CLM-2024-000481,POL-000263,2024-08-05,2024-09-15,Property,117351,Pending,Claim description for record 481,East,FALSE
+CLM-2024-000482,POL-000093,2025-05-19,2025-06-10,Health,130323,Approved,Claim description for record 482,North,FALSE
+CLM-2024-000483,POL-000253,2024-07-08,2024-08-10,Property,32006,Under Review,Claim description for record 483,South,FALSE
+CLM-2024-000484,POL-000024,2024-08-03,2025-11-23,Auto,116409,Under Review,Claim description for record 484,South,FALSE
+CLM-2024-000485,POL-000018,2023-06-15,2025-04-29,Property,70595,Pending,Claim description for record 485,West,FALSE
+CLM-2024-000486,POL-000018,2025-01-29,2025-01-21,Health,129705,Approved,Claim description for record 486,South,FALSE
+CLM-2024-000487,POL-000038,2023-06-15,2025-07-15,Property,93754,Pending,Claim description for record 487,West,FALSE
+CLM-2024-000488,POL-000285,2024-09-06,2025-10-14,Property,107113,Rejected,Claim description for record 488,South,FALSE
+CLM-2024-000489,POL-000259,2024-03-26,2025-01-24,Auto,92309,Closed,Claim description for record 489,West,FALSE
+CLM-2024-000490,POL-000398,2024-10-03,2025-02-14,Auto,136806,Rejected,Claim description for record 490,Central,FALSE
+CLM-2024-000491,POL-000431,2023-11-04,2024-07-24,Life,109575,Rejected,Claim description for record 491,West,FALSE
+CLM-2024-000492,POL-000317,2024-02-04,2025-09-22,Health,145397,Closed,Claim description for record 492,North,FALSE
+CLM-2024-000493,POL-000091,2023-06-27,2024-08-21,Travel,2206,Approved,Claim description for record 493,North,FALSE
+CLM-2024-000494,POL-000219,2024-07-31,2025-10-07,Property,119027,Pending,Claim description for record 494,East,FALSE
+CLM-2024-000495,POL-000432,2025-10-07,2025-07-10,Travel,116588,Approved,Claim description for record 495,West,FALSE
+CLM-2024-000496,POL-000457,2024-01-24,2025-02-16,Health,7521,Approved,Claim description for record 496,Central,FALSE
+CLM-2024-000497,POL-000338,2024-01-11,2025-01-10,Life,77949,Rejected,Claim description for record 497,Central,FALSE
+CLM-2024-000498,POL-000364,2025-12-31,2024-03-01,Life,143069,Approved,Claim description for record 498,South,FALSE
+CLM-2024-000499,POL-000343,2025-02-17,2024-08-19,Property,32384,Pending,Claim description for record 499,East,FALSE
+CLM-2024-000500,POL-000376,2023-01-02,2024-09-14,Travel,121680,Rejected,Claim description for record 500,East,TRUE
+CLM-2024-000501,POL-000090,2025-11-12,2024-10-29,Travel,85465,Pending,Claim description for record 501,Central,FALSE
+CLM-2024-000502,POL-000331,2023-07-15,2024-07-27,Property,13398,Closed,Claim description for record 502,East,FALSE
+CLM-2024-000503,POL-000052,2025-06-26,2025-01-03,Travel,84149,Approved,Claim description for record 503,Central,FALSE
+CLM-2024-000504,POL-000403,2025-10-15,2025-09-05,Health,67085,Closed,Claim description for record 504,East,FALSE
+CLM-2024-000505,POL-000282,2025-07-30,2024-03-15,Life,62735,Rejected,Claim description for record 505,East,FALSE
+CLM-2024-000506,POL-000071,2024-05-23,2024-07-26,Health,120111,Under Review,Claim description for record 506,East,FALSE
+CLM-2024-000507,POL-000267,2023-07-22,2024-08-17,Auto,99109,Rejected,Claim description for record 507,East,FALSE
+CLM-2024-000508,POL-000098,2023-10-25,2024-07-17,Property,97765,Approved,Claim description for record 508,West,FALSE
+CLM-2024-000509,POL-000424,2025-11-25,2025-04-06,Health,30002,Closed,Claim description for record 509,South,FALSE
+CLM-2024-000510,POL-000237,2024-05-16,2025-11-15,Health,34290,Under Review,Claim description for record 510,West,FALSE
+CLM-2024-000511,POL-000149,2024-11-21,2024-09-11,Property,104071,Rejected,Claim description for record 511,South,FALSE
+CLM-2024-000512,POL-000241,2024-05-13,2025-02-10,Property,104222,Closed,Claim description for record 512,West,FALSE
+CLM-2024-000513,POL-000461,2025-12-14,2025-03-30,Life,54233,Pending,Claim description for record 513,East,FALSE
+CLM-2024-000514,POL-000341,2024-03-18,2024-10-04,Life,114455,Approved,Claim description for record 514,North,TRUE
+CLM-2024-000515,POL-000174,2025-08-21,2024-06-20,Travel,43831,Approved,Claim description for record 515,Central,FALSE
+CLM-2024-000516,POL-000443,2025-05-27,2024-12-02,Health,11978,Approved,Claim description for record 516,West,FALSE
+CLM-2024-000517,POL-000170,2025-06-19,2025-11-19,Travel,79862,Pending,Claim description for record 517,West,FALSE
+CLM-2024-000518,POL-000044,2024-01-08,2024-05-20,Auto,136548,Closed,Claim description for record 518,South,FALSE
+CLM-2024-000519,POL-000487,2023-07-27,2024-10-28,Property,63923,Approved,Claim description for record 519,South,FALSE
+CLM-2024-000520,POL-000040,2023-02-02,2024-10-13,Auto,88232,Approved,Claim description for record 520,Central,FALSE
+CLM-2024-000521,POL-000017,2024-07-06,2025-09-30,Travel,148984,Rejected,Claim description for record 521,Central,FALSE
+CLM-2024-000522,POL-000240,2023-05-07,2025-10-12,Life,90919,Under Review,Claim description for record 522,South,FALSE
+CLM-2024-000523,POL-000028,2023-07-16,2025-09-28,Auto,130754,Under Review,Claim description for record 523,East,FALSE
+CLM-2024-000524,POL-000197,2024-06-01,2025-10-24,Life,81931,Approved,Claim description for record 524,East,FALSE
+CLM-2024-000525,POL-000212,2023-02-01,2024-09-14,Health,37089,Pending,Claim description for record 525,West,FALSE
+CLM-2024-000526,POL-000137,2024-11-04,2025-07-13,Auto,27002,Under Review,Claim description for record 526,East,FALSE
+CLM-2024-000527,POL-000148,2024-08-30,2025-01-11,Health,110072,Approved,Claim description for record 527,West,FALSE
+CLM-2024-000528,POL-000241,2025-08-10,2025-03-16,Auto,51335,Closed,Claim description for record 528,North,FALSE
+CLM-2024-000529,POL-000365,2023-09-18,2024-01-30,Auto,47980,Under Review,Claim description for record 529,East,FALSE
+CLM-2024-000530,POL-000252,2025-09-10,2024-04-22,Property,795,Approved,Claim description for record 530,Central,FALSE
+CLM-2024-000531,POL-000140,2023-07-09,2024-10-10,Life,138283,Rejected,Claim description for record 531,North,FALSE
+CLM-2024-000532,POL-000209,2025-09-02,2025-10-28,Property,146945,Pending,Claim description for record 532,West,FALSE
+CLM-2024-000533,POL-000400,2025-05-27,2024-03-11,Property,92769,Pending,Claim description for record 533,North,FALSE
+CLM-2024-000534,POL-000276,2025-12-01,2025-07-26,Property,20966,Closed,Claim description for record 534,East,FALSE
+CLM-2024-000535,POL-000008,2024-11-29,2024-10-30,Health,42686,Pending,Claim description for record 535,Central,FALSE
+CLM-2024-000536,POL-000096,2025-09-13,2025-04-15,Health,90974,Approved,Claim description for record 536,West,FALSE
+CLM-2024-000537,POL-000084,2023-06-29,2025-10-31,Health,12273,Under Review,Claim description for record 537,North,FALSE
+CLM-2024-000538,POL-000069,2023-12-30,2024-08-05,Auto,76395,Rejected,Claim description for record 538,Central,FALSE
+CLM-2024-000539,POL-000039,2025-10-20,2025-09-30,Auto,25544,Under Review,Claim description for record 539,West,FALSE
+CLM-2024-000540,POL-000024,2023-11-15,2025-01-18,Property,54768,Under Review,Claim description for record 540,South,FALSE
+CLM-2024-000541,POL-000051,2023-12-27,2024-01-26,Life,14999,Pending,Claim description for record 541,North,FALSE
+CLM-2024-000542,POL-000176,2023-01-30,2024-12-02,Health,39013,Closed,Claim description for record 542,North,FALSE
+CLM-2024-000543,POL-000224,2024-02-19,2024-07-09,Life,145870,Approved,Claim description for record 543,North,FALSE
+CLM-2024-000544,POL-000039,2023-11-02,2025-01-30,Property,31886,Closed,Claim description for record 544,North,FALSE
+CLM-2024-000545,POL-000189,2025-10-02,2025-01-09,Property,95088,Under Review,Claim description for record 545,East,FALSE
+CLM-2024-000546,POL-000233,2024-10-08,2025-10-15,Health,145410,Pending,Claim description for record 546,South,FALSE
+CLM-2024-000547,POL-000229,2024-12-08,2025-12-10,Property,109208,Closed,Claim description for record 547,South,FALSE
+CLM-2024-000548,POL-000431,2023-09-06,2025-07-27,Health,134631,Under Review,Claim description for record 548,South,FALSE
+CLM-2024-000549,POL-000312,2024-03-25,2025-12-10,Property,24132,Closed,Claim description for record 549,Central,FALSE
+CLM-2024-000550,POL-000211,2023-03-13,2025-09-03,Health,12264,Rejected,Claim description for record 550,West,FALSE
+CLM-2024-000551,POL-000320,2023-05-09,2025-05-10,Property,106111,Closed,Claim description for record 551,North,FALSE
+CLM-2024-000552,POL-000393,2025-06-10,2025-04-07,Health,100427,Pending,Claim description for record 552,West,FALSE
+CLM-2024-000553,POL-000085,2023-04-11,2024-06-27,Property,132442,Under Review,Claim description for record 553,East,FALSE
+CLM-2024-000554,POL-000274,2024-06-04,2024-03-08,Auto,32564,Closed,Claim description for record 554,Central,FALSE
+CLM-2024-000555,POL-000102,2025-12-01,2024-07-15,Health,93298,Closed,Claim description for record 555,Central,FALSE
+CLM-2024-000556,POL-000386,2025-10-05,2025-11-15,Auto,81859,Closed,Claim description for record 556,East,FALSE
+CLM-2024-000557,POL-000020,2023-05-12,2024-04-20,Travel,149815,Pending,Claim description for record 557,Central,FALSE
+CLM-2024-000558,POL-000303,2024-04-14,2024-06-05,Life,77591,Rejected,Claim description for record 558,Central,FALSE
+CLM-2024-000559,POL-000038,2025-02-21,2024-04-02,Travel,79495,Pending,Claim description for record 559,East,FALSE
+CLM-2024-000560,POL-000341,2025-05-16,2024-02-23,Property,80674,Closed,Claim description for record 560,Central,FALSE
+CLM-2024-000561,POL-000366,2023-10-04,2024-07-07,Property,148215,Rejected,Claim description for record 561,Central,FALSE
+CLM-2024-000562,POL-000469,2023-08-12,2025-12-29,Health,93292,Pending,Claim description for record 562,East,FALSE
+CLM-2024-000563,POL-000232,2023-02-06,2024-09-19,Life,20745,Closed,Claim description for record 563,North,FALSE
+CLM-2024-000564,POL-000413,2023-09-19,2024-10-27,Travel,11069,Under Review,Claim description for record 564,Central,FALSE
+CLM-2024-000565,POL-000103,2025-08-11,2025-08-09,Auto,141702,Under Review,Claim description for record 565,South,FALSE
+CLM-2024-000566,POL-000001,2025-09-02,2025-10-31,Travel,91939,Closed,Claim description for record 566,West,FALSE
+CLM-2024-000567,POL-000255,2024-08-17,2024-01-19,Life,6584,Approved,Claim description for record 567,West,FALSE
+CLM-2024-000568,POL-000386,2025-12-04,2025-10-05,Auto,2274,Closed,Claim description for record 568,South,FALSE
+CLM-2024-000569,POL-000186,2024-03-22,2025-12-14,Health,27638,Approved,Claim description for record 569,West,FALSE
+CLM-2024-000570,POL-000358,2023-07-19,2024-05-02,Travel,8263,Approved,Claim description for record 570,East,FALSE
+CLM-2024-000571,POL-000111,2025-02-25,2025-11-23,Life,52592,Closed,Claim description for record 571,East,FALSE
+CLM-2024-000572,POL-000182,2025-06-20,2025-07-21,Auto,92732,Approved,Claim description for record 572,Central,TRUE
+CLM-2024-000573,POL-000052,2023-02-25,2025-01-26,Property,47011,Closed,Claim description for record 573,North,FALSE
+CLM-2024-000574,POL-000110,2025-11-15,2025-11-24,Auto,13124,Pending,Claim description for record 574,East,FALSE
+CLM-2024-000575,POL-000281,2023-07-14,2024-08-04,Travel,129923,Rejected,Claim description for record 575,South,FALSE
+CLM-2024-000576,POL-000219,2025-01-27,2024-07-02,Property,57929,Closed,Claim description for record 576,East,FALSE
+CLM-2024-000577,POL-000453,2025-06-01,2024-04-25,Travel,51421,Rejected,Claim description for record 577,South,FALSE
+CLM-2024-000578,POL-000035,2023-04-16,2024-08-06,Life,81957,Closed,Claim description for record 578,Central,FALSE
+CLM-2024-000579,POL-000484,2024-03-19,2025-08-20,Life,107760,Pending,Claim description for record 579,Central,FALSE
+CLM-2024-000580,POL-000484,2025-12-04,2024-07-06,Travel,92373,Approved,Claim description for record 580,North,FALSE
+CLM-2024-000581,POL-000440,2023-09-25,2025-09-25,Health,143468,Approved,Claim description for record 581,South,TRUE
+CLM-2024-000582,POL-000396,2024-09-26,2025-05-20,Health,66187,Approved,Claim description for record 582,East,FALSE
+CLM-2024-000583,POL-000176,2024-09-01,2024-10-02,Travel,11826,Closed,Claim description for record 583,South,FALSE
+CLM-2024-000584,POL-000416,2023-12-25,2024-07-22,Life,49579,Under Review,Claim description for record 584,Central,FALSE
+CLM-2024-000585,POL-000228,2023-07-28,2025-02-08,Property,85195,Closed,Claim description for record 585,East,FALSE
+CLM-2024-000586,POL-000019,2025-09-02,2024-04-16,Life,61331,Pending,Claim description for record 586,Central,FALSE
+CLM-2024-000587,POL-000373,2024-10-19,2025-12-13,Property,56152,Under Review,Claim description for record 587,North,FALSE
+CLM-2024-000588,POL-000154,2025-07-04,2024-09-27,Property,83135,Under Review,Claim description for record 588,North,FALSE
+CLM-2024-000589,POL-000188,2024-05-18,2024-08-28,Travel,90508,Closed,Claim description for record 589,North,TRUE
+CLM-2024-000590,POL-000202,2024-04-29,2025-06-24,Health,133931,Rejected,Claim description for record 590,West,FALSE
+CLM-2024-000591,POL-000399,2024-11-05,2024-04-19,Life,18211,Rejected,Claim description for record 591,West,FALSE
+CLM-2024-000592,POL-000431,2023-11-22,2025-02-21,Travel,63995,Pending,Claim description for record 592,Central,FALSE
+CLM-2024-000593,POL-000427,2023-11-11,2024-05-08,Health,14920,Under Review,Claim description for record 593,West,FALSE
+CLM-2024-000594,POL-000022,2024-05-16,2024-09-03,Life,43206,Under Review,Claim description for record 594,East,FALSE
+CLM-2024-000595,POL-000151,2023-07-16,2024-03-25,Life,80644,Approved,Claim description for record 595,South,FALSE
+CLM-2024-000596,POL-000033,2025-01-23,2024-06-23,Property,1521,Closed,Claim description for record 596,North,FALSE
+CLM-2024-000597,POL-000230,2024-12-16,2025-09-03,Property,75000,Rejected,Claim description for record 597,East,FALSE
+CLM-2024-000598,POL-000213,2024-09-30,2024-06-30,Travel,22027,Approved,Claim description for record 598,West,FALSE
+CLM-2024-000599,POL-000173,2023-07-25,2024-04-20,Life,128563,Under Review,Claim description for record 599,West,FALSE
+CLM-2024-000600,POL-000154,2024-04-02,2025-02-10,Life,26408,Approved,Claim description for record 600,North,FALSE
+CLM-2024-000601,POL-000121,2024-02-08,2025-02-22,Auto,143789,Closed,Claim description for record 601,North,FALSE
+CLM-2024-000602,POL-000226,2024-11-07,2024-06-07,Health,58067,Approved,Claim description for record 602,South,FALSE
+CLM-2024-000603,POL-000177,2024-12-07,2024-05-13,Life,8786,Closed,Claim description for record 603,South,FALSE
+CLM-2024-000604,POL-000016,2023-05-09,2025-08-02,Property,141356,Approved,Claim description for record 604,North,FALSE
+CLM-2024-000605,POL-000036,2025-01-19,2024-11-15,Property,46530,Under Review,Claim description for record 605,East,FALSE
+CLM-2024-000606,POL-000264,2024-02-05,2025-08-16,Auto,3632,Closed,Claim description for record 606,Central,FALSE
+CLM-2024-000607,POL-000180,2025-03-11,2024-09-08,Auto,45946,Approved,Claim description for record 607,East,FALSE
+CLM-2024-000608,POL-000004,2025-08-28,2025-04-20,Travel,142775,Under Review,Claim description for record 608,North,FALSE
+CLM-2024-000609,POL-000348,2023-02-11,2024-01-25,Health,147188,Approved,Claim description for record 609,East,FALSE
+CLM-2024-000610,POL-000419,2023-11-23,2024-04-07,Property,70364,Pending,Claim description for record 610,East,FALSE
+CLM-2024-000611,POL-000054,2023-10-09,2024-02-18,Health,114368,Pending,Claim description for record 611,West,FALSE
+CLM-2024-000612,POL-000345,2023-07-28,2024-11-21,Travel,100116,Rejected,Claim description for record 612,East,FALSE
+CLM-2024-000613,POL-000077,2025-01-18,2025-11-08,Health,53390,Rejected,Claim description for record 613,East,FALSE
+CLM-2024-000614,POL-000112,2024-04-15,2025-02-19,Life,119385,Rejected,Claim description for record 614,East,FALSE
+CLM-2024-000615,POL-000188,2023-02-14,2025-05-26,Health,12267,Rejected,Claim description for record 615,East,FALSE
+CLM-2024-000616,POL-000363,2023-08-02,2024-12-21,Property,139762,Rejected,Claim description for record 616,South,FALSE
+CLM-2024-000617,POL-000411,2025-01-31,2024-04-05,Travel,96328,Closed,Claim description for record 617,East,FALSE
+CLM-2024-000618,POL-000018,2023-02-27,2024-09-28,Health,95183,Pending,Claim description for record 618,North,FALSE
+CLM-2024-000619,POL-000061,2024-05-18,2025-09-23,Travel,127248,Under Review,Claim description for record 619,North,FALSE
+CLM-2024-000620,POL-000280,2023-09-14,2024-01-16,Property,41418,Approved,Claim description for record 620,South,FALSE
+CLM-2024-000621,POL-000289,2023-09-24,2025-10-19,Travel,52528,Approved,Claim description for record 621,West,FALSE
+CLM-2024-000622,POL-000007,2023-10-03,2025-05-06,Property,128984,Approved,Claim description for record 622,North,TRUE
+CLM-2024-000623,POL-000413,2023-12-21,2024-03-01,Life,34407,Approved,Claim description for record 623,South,FALSE
+CLM-2024-000624,POL-000352,2024-09-14,2025-09-27,Travel,7105,Pending,Claim description for record 624,Central,TRUE
+CLM-2024-000625,POL-000280,2023-10-06,2025-09-21,Health,143696,Approved,Claim description for record 625,West,FALSE
+CLM-2024-000626,POL-000255,2023-01-27,2025-12-23,Life,92413,Approved,Claim description for record 626,West,FALSE
+CLM-2024-000627,POL-000013,2023-10-23,2024-09-19,Property,44746,Approved,Claim description for record 627,South,FALSE
+CLM-2024-000628,POL-000092,2025-09-18,2024-05-20,Travel,28284,Pending,Claim description for record 628,West,FALSE
+CLM-2024-000629,POL-000309,2025-04-30,2025-02-18,Health,5559,Under Review,Claim description for record 629,North,TRUE
+CLM-2024-000630,POL-000051,2024-09-10,2025-12-07,Life,9837,Closed,Claim description for record 630,South,FALSE
+CLM-2024-000631,POL-000495,2024-02-11,2025-07-05,Travel,75399,Rejected,Claim description for record 631,Central,FALSE
+CLM-2024-000632,POL-000498,2025-04-28,2025-08-12,Property,130207,Under Review,Claim description for record 632,West,FALSE
+CLM-2024-000633,POL-000241,2023-03-04,2024-03-05,Life,82965,Rejected,Claim description for record 633,South,FALSE
+CLM-2024-000634,POL-000056,2024-08-27,2025-12-10,Travel,52498,Closed,Claim description for record 634,West,FALSE
+CLM-2024-000635,POL-000034,2023-08-18,2025-03-27,Health,57514,Pending,Claim description for record 635,West,FALSE
+CLM-2024-000636,POL-000065,2025-10-26,2025-05-19,Auto,143756,Pending,Claim description for record 636,Central,FALSE
+CLM-2024-000637,POL-000485,2025-06-02,2024-02-11,Property,76381,Rejected,Claim description for record 637,Central,FALSE
+CLM-2024-000638,POL-000035,2025-10-04,2025-03-11,Property,13835,Pending,Claim description for record 638,West,FALSE
+CLM-2024-000639,POL-000059,2024-04-16,2024-04-11,Life,23329,Closed,Claim description for record 639,South,FALSE
+CLM-2024-000640,POL-000280,2024-10-31,2024-07-18,Life,82195,Pending,Claim description for record 640,North,FALSE
+CLM-2024-000641,POL-000219,2023-12-11,2024-12-26,Health,76062,Pending,Claim description for record 641,East,FALSE
+CLM-2024-000642,POL-000478,2023-07-23,2024-11-22,Property,129208,Approved,Claim description for record 642,West,FALSE
+CLM-2024-000643,POL-000042,2025-01-25,2025-01-25,Health,34456,Approved,Claim description for record 643,West,FALSE
+CLM-2024-000644,POL-000172,2023-02-15,2025-10-26,Travel,149147,Pending,Claim description for record 644,East,FALSE
+CLM-2024-000645,POL-000152,2023-06-13,2024-01-16,Property,87606,Under Review,Claim description for record 645,Central,TRUE
+CLM-2024-000646,POL-000182,2025-07-08,2024-08-17,Auto,130527,Approved,Claim description for record 646,West,FALSE
+CLM-2024-000647,POL-000330,2024-11-06,2024-05-02,Property,96283,Pending,Claim description for record 647,West,FALSE
+CLM-2024-000648,POL-000017,2024-01-10,2024-08-19,Health,80128,Under Review,Claim description for record 648,North,FALSE
+CLM-2024-000649,POL-000184,2024-04-06,2024-03-31,Property,104562,Under Review,Claim description for record 649,East,FALSE
+CLM-2024-000650,POL-000051,2023-01-07,2024-11-06,Property,85839,Closed,Claim description for record 650,East,FALSE
+CLM-2024-000651,POL-000269,2023-08-19,2025-07-30,Property,46916,Under Review,Claim description for record 651,West,FALSE
+CLM-2024-000652,POL-000373,2024-12-05,2024-06-07,Life,139314,Approved,Claim description for record 652,Central,FALSE
+CLM-2024-000653,POL-000072,2025-04-10,2025-02-16,Health,104006,Under Review,Claim description for record 653,North,FALSE
+CLM-2024-000654,POL-000107,2025-07-11,2025-05-27,Life,96777,Rejected,Claim description for record 654,North,FALSE
+CLM-2024-000655,POL-000426,2024-06-08,2025-07-02,Auto,117511,Under Review,Claim description for record 655,South,FALSE
+CLM-2024-000656,POL-000136,2023-01-08,2024-07-04,Auto,136176,Rejected,Claim description for record 656,North,FALSE
+CLM-2024-000657,POL-000090,2024-11-02,2024-06-07,Travel,76495,Under Review,Claim description for record 657,West,FALSE
+CLM-2024-000658,POL-000362,2024-06-26,2024-02-25,Travel,90523,Closed,Claim description for record 658,East,FALSE
+CLM-2024-000659,POL-000326,2024-03-03,2025-04-26,Health,12476,Rejected,Claim description for record 659,North,FALSE
+CLM-2024-000660,POL-000191,2024-11-26,2024-09-23,Property,144177,Closed,Claim description for record 660,Central,FALSE
+CLM-2024-000661,POL-000327,2024-06-15,2024-10-20,Life,29534,Closed,Claim description for record 661,Central,FALSE
+CLM-2024-000662,POL-000282,2023-07-12,2025-03-13,Life,126142,Closed,Claim description for record 662,West,FALSE
+CLM-2024-000663,POL-000237,2025-01-25,2025-07-01,Property,54404,Rejected,Claim description for record 663,West,TRUE
+CLM-2024-000664,POL-000185,2025-04-26,2025-11-23,Travel,58650,Under Review,Claim description for record 664,East,FALSE
+CLM-2024-000665,POL-000092,2024-03-27,2025-05-30,Auto,13768,Approved,Claim description for record 665,East,FALSE
+CLM-2024-000666,POL-000381,2025-06-11,2025-06-16,Health,148306,Under Review,Claim description for record 666,Central,FALSE
+CLM-2024-000667,POL-000170,2024-06-28,2025-10-21,Auto,68547,Pending,Claim description for record 667,Central,FALSE
+CLM-2024-000668,POL-000493,2024-07-17,2024-03-20,Auto,17681,Closed,Claim description for record 668,Central,FALSE
+CLM-2024-000669,POL-000146,2024-11-01,2024-08-18,Health,101934,Pending,Claim description for record 669,East,FALSE
+CLM-2024-000670,POL-000492,2023-12-12,2024-08-10,Health,116799,Approved,Claim description for record 670,South,FALSE
+CLM-2024-000671,POL-000071,2023-01-29,2025-07-06,Life,127438,Closed,Claim description for record 671,South,FALSE
+CLM-2024-000672,POL-000237,2024-01-14,2025-09-16,Health,64233,Closed,Claim description for record 672,North,FALSE
+CLM-2024-000673,POL-000445,2025-10-06,2025-07-06,Health,53968,Closed,Claim description for record 673,East,FALSE
+CLM-2024-000674,POL-000474,2025-01-20,2025-08-24,Life,119289,Rejected,Claim description for record 674,North,FALSE
+CLM-2024-000675,POL-000427,2025-06-30,2024-12-07,Property,137291,Rejected,Claim description for record 675,North,FALSE
+CLM-2024-000676,POL-000266,2025-12-22,2025-06-14,Travel,43778,Closed,Claim description for record 676,West,FALSE
+CLM-2024-000677,POL-000029,2025-10-05,2024-08-22,Travel,67517,Approved,Claim description for record 677,North,FALSE
+CLM-2024-000678,POL-000178,2024-03-19,2025-05-14,Life,112093,Under Review,Claim description for record 678,South,FALSE
+CLM-2024-000679,POL-000022,2023-10-11,2024-06-02,Auto,124829,Pending,Claim description for record 679,West,FALSE
+CLM-2024-000680,POL-000011,2023-09-29,2025-02-16,Travel,95582,Closed,Claim description for record 680,South,FALSE
+CLM-2024-000681,POL-000300,2025-08-19,2025-02-10,Property,40196,Rejected,Claim description for record 681,North,FALSE
+CLM-2024-000682,POL-000437,2023-06-21,2025-10-28,Travel,57837,Closed,Claim description for record 682,South,FALSE
+CLM-2024-000683,POL-000346,2023-07-17,2025-12-09,Travel,94784,Closed,Claim description for record 683,South,FALSE
+CLM-2024-000684,POL-000190,2023-01-20,2024-08-28,Health,115578,Approved,Claim description for record 684,North,FALSE
+CLM-2024-000685,POL-000334,2023-02-06,2024-08-28,Property,82163,Approved,Claim description for record 685,North,FALSE
+CLM-2024-000686,POL-000134,2023-02-04,2024-04-21,Auto,118448,Approved,Claim description for record 686,South,FALSE
+CLM-2024-000687,POL-000240,2024-01-11,2024-06-08,Auto,101346,Pending,Claim description for record 687,West,FALSE
+CLM-2024-000688,POL-000394,2025-06-24,2025-07-23,Health,51010,Pending,Claim description for record 688,North,FALSE
+CLM-2024-000689,POL-000313,2025-03-24,2024-06-12,Auto,149606,Rejected,Claim description for record 689,West,FALSE
+CLM-2024-000690,POL-000423,2025-10-27,2024-08-24,Auto,119838,Closed,Claim description for record 690,East,FALSE
+CLM-2024-000691,POL-000072,2024-01-11,2025-06-10,Life,28019,Rejected,Claim description for record 691,West,FALSE
+CLM-2024-000692,POL-000011,2025-08-10,2025-06-29,Health,23957,Pending,Claim description for record 692,North,FALSE
+CLM-2024-000693,POL-000090,2024-06-29,2024-12-02,Life,138081,Pending,Claim description for record 693,South,FALSE
+CLM-2024-000694,POL-000213,2024-06-03,2025-07-22,Travel,139931,Rejected,Claim description for record 694,East,FALSE
+CLM-2024-000695,POL-000155,2023-03-19,2025-01-14,Property,32153,Under Review,Claim description for record 695,South,TRUE
+CLM-2024-000696,POL-000001,2024-07-22,2025-05-09,Travel,83815,Pending,Claim description for record 696,East,FALSE
+CLM-2024-000697,POL-000173,2025-02-21,2025-07-06,Life,101206,Pending,Claim description for record 697,North,FALSE
+CLM-2024-000698,POL-000125,2025-12-21,2025-10-27,Property,109580,Approved,Claim description for record 698,Central,FALSE
+CLM-2024-000699,POL-000138,2025-11-16,2024-07-03,Life,84404,Under Review,Claim description for record 699,West,FALSE
+CLM-2024-000700,POL-000181,2023-08-14,2025-01-22,Property,108653,Pending,Claim description for record 700,South,TRUE
+CLM-2024-000701,POL-000182,2024-07-13,2025-11-23,Travel,108135,Approved,Claim description for record 701,North,FALSE
+CLM-2024-000702,POL-000196,2025-01-11,2025-10-29,Health,128370,Approved,Claim description for record 702,South,FALSE
+CLM-2024-000703,POL-000422,2025-08-30,2024-11-03,Property,141728,Closed,Claim description for record 703,West,FALSE
+CLM-2024-000704,POL-000013,2023-07-06,2024-02-22,Life,53750,Closed,Claim description for record 704,South,FALSE
+CLM-2024-000705,POL-000017,2023-12-15,2025-11-25,Travel,105658,Approved,Claim description for record 705,Central,FALSE
+CLM-2024-000706,POL-000450,2023-03-23,2024-12-07,Health,106876,Under Review,Claim description for record 706,Central,FALSE
+CLM-2024-000707,POL-000238,2023-09-21,2024-07-30,Life,67248,Under Review,Claim description for record 707,West,FALSE
+CLM-2024-000708,POL-000226,2025-02-28,2024-06-01,Health,121647,Closed,Claim description for record 708,West,FALSE
+CLM-2024-000709,POL-000014,2024-12-25,2025-12-26,Property,104672,Rejected,Claim description for record 709,East,TRUE
+CLM-2024-000710,POL-000160,2025-02-21,2024-11-28,Auto,130302,Closed,Claim description for record 710,South,FALSE
+CLM-2024-000711,POL-000014,2025-06-28,2025-08-14,Health,43887,Approved,Claim description for record 711,South,FALSE
+CLM-2024-000712,POL-000273,2025-09-11,2024-07-13,Life,32717,Under Review,Claim description for record 712,West,FALSE
+CLM-2024-000713,POL-000017,2025-01-29,2025-04-29,Auto,88537,Under Review,Claim description for record 713,North,FALSE
+CLM-2024-000714,POL-000088,2024-05-04,2024-11-21,Auto,73543,Closed,Claim description for record 714,South,FALSE
+CLM-2024-000715,POL-000078,2025-05-16,2025-02-27,Auto,8719,Rejected,Claim description for record 715,Central,FALSE
+CLM-2024-000716,POL-000485,2023-10-04,2025-06-09,Auto,84158,Pending,Claim description for record 716,East,FALSE
+CLM-2024-000717,POL-000082,2023-05-09,2025-03-09,Travel,22016,Rejected,Claim description for record 717,East,FALSE
+CLM-2024-000718,POL-000013,2024-10-27,2024-12-17,Health,113466,Approved,Claim description for record 718,Central,FALSE
+CLM-2024-000719,POL-000011,2024-09-01,2024-12-02,Life,116310,Approved,Claim description for record 719,West,FALSE
+CLM-2024-000720,POL-000457,2023-10-13,2024-09-21,Travel,140666,Rejected,Claim description for record 720,East,FALSE
+CLM-2024-000721,POL-000470,2024-10-08,2025-07-27,Life,144146,Under Review,Claim description for record 721,West,FALSE
+CLM-2024-000722,POL-000058,2024-03-06,2024-06-10,Auto,100541,Closed,Claim description for record 722,West,FALSE
+CLM-2024-000723,POL-000111,2024-07-04,2025-10-28,Property,140486,Approved,Claim description for record 723,Central,FALSE
+CLM-2024-000724,POL-000072,2025-07-06,2025-02-24,Life,47370,Closed,Claim description for record 724,Central,FALSE
+CLM-2024-000725,POL-000188,2025-04-30,2025-06-15,Travel,6607,Under Review,Claim description for record 725,North,TRUE
+CLM-2024-000726,POL-000186,2023-11-29,2024-09-10,Property,116832,Under Review,Claim description for record 726,Central,FALSE
+CLM-2024-000727,POL-000025,2024-07-03,2024-02-05,Property,129059,Rejected,Claim description for record 727,Central,FALSE
+CLM-2024-000728,POL-000423,2024-10-02,2025-04-01,Auto,24197,Pending,Claim description for record 728,North,FALSE
+CLM-2024-000729,POL-000270,2023-12-11,2024-05-06,Health,121802,Pending,Claim description for record 729,West,FALSE
+CLM-2024-000730,POL-000238,2023-01-07,2024-01-26,Property,55796,Pending,Claim description for record 730,West,FALSE
+CLM-2024-000731,POL-000044,2023-04-28,2025-02-06,Health,147110,Closed,Claim description for record 731,West,FALSE
+CLM-2024-000732,POL-000431,2023-09-03,2025-09-03,Auto,122899,Under Review,Claim description for record 732,West,FALSE
+CLM-2024-000733,POL-000267,2023-07-28,2024-08-20,Property,62778,Under Review,Claim description for record 733,West,FALSE
+CLM-2024-000734,POL-000476,2023-05-07,2025-11-02,Life,100743,Rejected,Claim description for record 734,West,FALSE
+CLM-2024-000735,POL-000407,2023-02-10,2024-10-21,Property,31141,Rejected,Claim description for record 735,Central,FALSE
+CLM-2024-000736,POL-000187,2023-01-22,2025-02-09,Property,71758,Rejected,Claim description for record 736,South,FALSE
+CLM-2024-000737,POL-000005,2023-07-29,2024-10-12,Health,56909,Under Review,Claim description for record 737,South,FALSE
+CLM-2024-000738,POL-000474,2023-10-01,2025-01-13,Health,84428,Approved,Claim description for record 738,Central,FALSE
+CLM-2024-000739,POL-000299,2023-03-16,2024-11-29,Travel,123744,Closed,Claim description for record 739,Central,FALSE
+CLM-2024-000740,POL-000207,2025-02-07,2025-11-18,Property,59557,Closed,Claim description for record 740,West,FALSE
+CLM-2024-000741,POL-000131,2023-07-01,2024-06-02,Health,3374,Pending,Claim description for record 741,East,FALSE
+CLM-2024-000742,POL-000072,2023-01-22,2024-04-10,Auto,45018,Under Review,Claim description for record 742,West,FALSE
+CLM-2024-000743,POL-000444,2023-02-18,2025-01-20,Property,92208,Approved,Claim description for record 743,South,TRUE
+CLM-2024-000744,POL-000304,2025-03-12,2025-09-30,Life,145896,Closed,Claim description for record 744,South,FALSE
+CLM-2024-000745,POL-000102,2023-08-16,2025-07-20,Property,7084,Closed,Claim description for record 745,South,FALSE
+CLM-2024-000746,POL-000195,2024-03-18,2025-03-02,Life,51656,Pending,Claim description for record 746,East,FALSE
+CLM-2024-000747,POL-000369,2024-11-03,2024-06-16,Health,110521,Rejected,Claim description for record 747,East,FALSE
+CLM-2024-000748,POL-000335,2025-05-27,2024-03-05,Property,147562,Closed,Claim description for record 748,East,FALSE
+CLM-2024-000749,POL-000093,2023-02-15,2025-11-24,Travel,128592,Pending,Claim description for record 749,North,FALSE
+CLM-2024-000750,POL-000499,2024-04-11,2025-02-18,Auto,101532,Approved,Claim description for record 750,East,FALSE
+CLM-2024-000751,POL-000090,2023-02-22,2025-04-14,Health,63288,Closed,Claim description for record 751,South,FALSE
+CLM-2024-000752,POL-000029,2023-05-02,2024-11-07,Auto,47538,Rejected,Claim description for record 752,East,FALSE
+CLM-2024-000753,POL-000031,2025-12-03,2025-12-06,Property,44616,Pending,Claim description for record 753,Central,FALSE
+CLM-2024-000754,POL-000024,2025-11-16,2025-01-24,Property,713,Under Review,Claim description for record 754,South,TRUE
+CLM-2024-000755,POL-000171,2023-01-29,2025-02-23,Auto,66135,Under Review,Claim description for record 755,South,FALSE
+CLM-2024-000756,POL-000308,2023-03-02,2025-07-20,Travel,97485,Closed,Claim description for record 756,East,TRUE
+CLM-2024-000757,POL-000465,2024-11-11,2024-08-08,Auto,104185,Approved,Claim description for record 757,North,FALSE
+CLM-2024-000758,POL-000473,2024-08-27,2025-06-08,Travel,42086,Pending,Claim description for record 758,West,FALSE
+CLM-2024-000759,POL-000267,2024-03-03,2024-12-10,Auto,2343,Approved,Claim description for record 759,North,FALSE
+CLM-2024-000760,POL-000187,2025-01-06,2024-02-09,Life,146686,Under Review,Claim description for record 760,Central,FALSE
+CLM-2024-000761,POL-000415,2024-04-28,2024-01-24,Auto,64152,Closed,Claim description for record 761,East,FALSE
+CLM-2024-000762,POL-000286,2025-04-15,2024-04-30,Life,3600,Approved,Claim description for record 762,North,FALSE
+CLM-2024-000763,POL-000423,2024-09-02,2025-03-22,Travel,57679,Pending,Claim description for record 763,Central,FALSE
+CLM-2024-000764,POL-000340,2023-02-02,2025-08-28,Auto,133945,Pending,Claim description for record 764,East,TRUE
+CLM-2024-000765,POL-000298,2024-05-03,2024-05-12,Travel,23748,Rejected,Claim description for record 765,East,FALSE
+CLM-2024-000766,POL-000047,2024-01-15,2024-12-13,Health,68893,Pending,Claim description for record 766,Central,FALSE
+CLM-2024-000767,POL-000498,2024-12-28,2024-11-14,Health,104159,Under Review,Claim description for record 767,East,TRUE
+CLM-2024-000768,POL-000470,2023-03-01,2025-07-01,Travel,25417,Under Review,Claim description for record 768,South,FALSE
+CLM-2024-000769,POL-000265,2023-04-24,2024-01-02,Travel,52525,Approved,Claim description for record 769,North,FALSE
+CLM-2024-000770,POL-000424,2024-05-27,2025-04-05,Auto,16350,Rejected,Claim description for record 770,North,FALSE
+CLM-2024-000771,POL-000160,2024-07-31,2024-11-25,Health,121448,Under Review,Claim description for record 771,East,FALSE
+CLM-2024-000772,POL-000047,2024-07-31,2025-07-25,Auto,24958,Approved,Claim description for record 772,East,FALSE
+CLM-2024-000773,POL-000218,2024-03-19,2025-06-13,Life,849,Approved,Claim description for record 773,South,FALSE
+CLM-2024-000774,POL-000146,2023-04-02,2024-05-01,Life,45115,Closed,Claim description for record 774,North,FALSE
+CLM-2024-000775,POL-000332,2024-05-27,2024-06-05,Health,124609,Approved,Claim description for record 775,South,FALSE
+CLM-2024-000776,POL-000312,2023-06-01,2024-11-26,Travel,92930,Under Review,Claim description for record 776,East,FALSE
+CLM-2024-000777,POL-000035,2023-10-09,2024-03-14,Auto,93172,Closed,Claim description for record 777,East,FALSE
+CLM-2024-000778,POL-000104,2023-11-29,2024-08-21,Life,86822,Pending,Claim description for record 778,West,FALSE
+CLM-2024-000779,POL-000170,2023-02-12,2024-05-12,Auto,111077,Approved,Claim description for record 779,South,FALSE
+CLM-2024-000780,POL-000419,2023-06-10,2025-10-07,Property,144374,Pending,Claim description for record 780,East,FALSE
+CLM-2024-000781,POL-000498,2023-02-12,2024-07-12,Life,125542,Approved,Claim description for record 781,South,FALSE
+CLM-2024-000782,POL-000087,2025-01-22,2024-03-05,Health,66623,Closed,Claim description for record 782,North,FALSE
+CLM-2024-000783,POL-000456,2025-09-17,2025-08-14,Property,108445,Rejected,Claim description for record 783,South,FALSE
+CLM-2024-000784,POL-000355,2024-06-11,2025-11-19,Life,80346,Approved,Claim description for record 784,South,FALSE
+CLM-2024-000785,POL-000267,2023-10-27,2025-05-26,Health,95328,Rejected,Claim description for record 785,West,FALSE
+CLM-2024-000786,POL-000048,2024-12-22,2024-02-24,Life,59004,Under Review,Claim description for record 786,East,FALSE
+CLM-2024-000787,POL-000259,2023-04-20,2024-10-22,Auto,6654,Under Review,Claim description for record 787,West,FALSE
+CLM-2024-000788,POL-000138,2023-10-20,2025-04-23,Health,55300,Pending,Claim description for record 788,Central,TRUE
+CLM-2024-000789,POL-000373,2024-08-27,2025-02-01,Property,20501,Closed,Claim description for record 789,Central,FALSE
+CLM-2024-000790,POL-000181,2025-05-25,2024-02-17,Auto,93216,Closed,Claim description for record 790,West,FALSE
+CLM-2024-000791,POL-000435,2025-01-17,2025-11-22,Property,94795,Under Review,Claim description for record 791,South,FALSE
+CLM-2024-000792,POL-000476,2024-04-28,2025-08-18,Life,108031,Closed,Claim description for record 792,North,FALSE
+CLM-2024-000793,POL-000011,2024-10-10,2025-12-15,Travel,5575,Pending,Claim description for record 793,East,FALSE
+CLM-2024-000794,POL-000357,2023-02-04,2025-09-09,Health,98861,Closed,Claim description for record 794,North,FALSE
+CLM-2024-000795,POL-000131,2023-08-16,2024-03-07,Health,42755,Under Review,Claim description for record 795,East,FALSE
+CLM-2024-000796,POL-000069,2024-05-04,2024-04-11,Property,118680,Under Review,Claim description for record 796,East,FALSE
+CLM-2024-000797,POL-000355,2024-10-23,2025-03-04,Property,97517,Approved,Claim description for record 797,North,FALSE
+CLM-2024-000798,POL-000292,2025-05-16,2025-06-04,Health,61241,Rejected,Claim description for record 798,East,FALSE
+CLM-2024-000799,POL-000293,2025-11-12,2024-10-20,Life,77208,Closed,Claim description for record 799,West,FALSE
+CLM-2024-000800,POL-000136,2024-04-20,2025-09-10,Health,67847,Rejected,Claim description for record 800,North,TRUE
+CLM-2024-000801,POL-000077,2025-06-21,2025-06-09,Property,118187,Under Review,Claim description for record 801,West,FALSE
+CLM-2024-000802,POL-000428,2025-03-04,2025-08-01,Property,30244,Under Review,Claim description for record 802,East,FALSE
+CLM-2024-000803,POL-000481,2023-01-20,2025-03-03,Health,86017,Rejected,Claim description for record 803,North,FALSE
+CLM-2024-000804,POL-000425,2024-01-18,2025-12-14,Life,22701,Pending,Claim description for record 804,East,FALSE
+CLM-2024-000805,POL-000129,2024-02-28,2024-07-23,Property,113553,Approved,Claim description for record 805,East,FALSE
+CLM-2024-000806,POL-000138,2023-02-03,2025-06-01,Health,104666,Approved,Claim description for record 806,East,FALSE
+CLM-2024-000807,POL-000144,2025-11-03,2024-05-13,Life,49325,Rejected,Claim description for record 807,Central,FALSE
+CLM-2024-000808,POL-000072,2025-12-28,2025-12-31,Property,67758,Rejected,Claim description for record 808,South,FALSE
+CLM-2024-000809,POL-000428,2023-03-10,2024-04-09,Property,128144,Under Review,Claim description for record 809,West,FALSE
+CLM-2024-000810,POL-000012,2024-05-28,2024-10-30,Auto,112315,Rejected,Claim description for record 810,Central,FALSE
+CLM-2024-000811,POL-000337,2025-07-25,2025-06-14,Auto,132398,Approved,Claim description for record 811,Central,FALSE
+CLM-2024-000812,POL-000011,2023-01-18,2024-03-15,Health,23540,Rejected,Claim description for record 812,Central,FALSE
+CLM-2024-000813,POL-000273,2024-07-21,2024-10-17,Health,71869,Rejected,Claim description for record 813,North,FALSE
+CLM-2024-000814,POL-000233,2023-03-05,2025-11-16,Auto,54238,Approved,Claim description for record 814,South,FALSE
+CLM-2024-000815,POL-000181,2023-06-19,2025-08-22,Health,81733,Closed,Claim description for record 815,East,FALSE
+CLM-2024-000816,POL-000439,2023-07-18,2025-07-04,Life,44138,Closed,Claim description for record 816,West,FALSE
+CLM-2024-000817,POL-000245,2025-08-31,2024-09-18,Life,111817,Rejected,Claim description for record 817,Central,FALSE
+CLM-2024-000818,POL-000223,2023-10-02,2024-10-31,Property,126824,Under Review,Claim description for record 818,West,FALSE
+CLM-2024-000819,POL-000101,2025-09-19,2025-01-18,Property,94568,Rejected,Claim description for record 819,North,FALSE
+CLM-2024-000820,POL-000149,2024-03-11,2025-02-01,Life,88630,Approved,Claim description for record 820,South,FALSE
+CLM-2024-000821,POL-000304,2023-03-01,2024-01-18,Life,127822,Closed,Claim description for record 821,North,FALSE
+CLM-2024-000822,POL-000445,2024-05-24,2024-06-28,Life,33455,Rejected,Claim description for record 822,North,FALSE
+CLM-2024-000823,POL-000384,2024-05-15,2025-02-28,Auto,9808,Closed,Claim description for record 823,West,FALSE
+CLM-2024-000824,POL-000117,2023-04-18,2025-02-07,Life,105268,Rejected,Claim description for record 824,Central,FALSE
+CLM-2024-000825,POL-000098,2024-10-02,2024-06-18,Health,26581,Closed,Claim description for record 825,North,FALSE
+CLM-2024-000826,POL-000441,2023-05-15,2024-11-18,Property,127052,Under Review,Claim description for record 826,North,FALSE
+CLM-2024-000827,POL-000250,2025-12-26,2024-01-25,Auto,111833,Rejected,Claim description for record 827,South,FALSE
+CLM-2024-000828,POL-000190,2024-08-08,2024-03-13,Life,134702,Under Review,Claim description for record 828,West,FALSE
+CLM-2024-000829,POL-000152,2023-03-13,2024-04-06,Travel,146335,Closed,Claim description for record 829,South,FALSE
+CLM-2024-000830,POL-000140,2024-11-04,2024-11-03,Property,124447,Pending,Claim description for record 830,Central,TRUE
+CLM-2024-000831,POL-000491,2023-07-22,2025-11-01,Auto,81921,Rejected,Claim description for record 831,South,FALSE
+CLM-2024-000832,POL-000307,2025-03-02,2024-11-16,Travel,127024,Pending,Claim description for record 832,East,FALSE
+CLM-2024-000833,POL-000096,2024-07-10,2025-04-06,Travel,21408,Closed,Claim description for record 833,South,FALSE
+CLM-2024-000834,POL-000436,2023-10-08,2025-09-12,Travel,106505,Closed,Claim description for record 834,Central,FALSE
+CLM-2024-000835,POL-000202,2024-10-13,2025-02-05,Property,8267,Pending,Claim description for record 835,North,FALSE
+CLM-2024-000836,POL-000466,2024-10-15,2024-08-05,Life,36190,Closed,Claim description for record 836,West,FALSE
+CLM-2024-000837,POL-000083,2025-07-20,2024-02-13,Health,111947,Rejected,Claim description for record 837,East,FALSE
+CLM-2024-000838,POL-000184,2024-11-21,2025-08-31,Life,39730,Approved,Claim description for record 838,Central,FALSE
+CLM-2024-000839,POL-000388,2023-05-02,2024-02-15,Life,70651,Pending,Claim description for record 839,Central,FALSE
+CLM-2024-000840,POL-000318,2024-10-05,2025-10-16,Travel,44971,Pending,Claim description for record 840,Central,FALSE
+CLM-2024-000841,POL-000277,2024-05-26,2025-01-29,Property,30026,Under Review,Claim description for record 841,North,FALSE
+CLM-2024-000842,POL-000320,2023-03-02,2024-07-15,Auto,24383,Under Review,Claim description for record 842,North,FALSE
+CLM-2024-000843,POL-000028,2024-07-17,2024-08-29,Property,28325,Approved,Claim description for record 843,East,FALSE
+CLM-2024-000844,POL-000073,2025-07-11,2025-10-17,Auto,27625,Rejected,Claim description for record 844,North,FALSE
+CLM-2024-000845,POL-000303,2025-10-21,2025-05-29,Life,57219,Pending,Claim description for record 845,Central,FALSE
+CLM-2024-000846,POL-000193,2023-06-28,2024-10-07,Property,24258,Pending,Claim description for record 846,South,FALSE
+CLM-2024-000847,POL-000352,2024-02-09,2024-11-10,Life,48370,Approved,Claim description for record 847,East,FALSE
+CLM-2024-000848,POL-000193,2024-06-03,2025-03-25,Travel,109594,Pending,Claim description for record 848,Central,FALSE
+CLM-2024-000849,POL-000176,2023-12-21,2025-06-22,Health,72707,Rejected,Claim description for record 849,West,TRUE
+CLM-2024-000850,POL-000447,2025-05-23,2024-02-29,Auto,72658,Closed,Claim description for record 850,North,FALSE
+CLM-2024-000851,POL-000326,2023-11-30,2025-09-11,Life,22993,Pending,Claim description for record 851,Central,FALSE
+CLM-2024-000852,POL-000394,2023-09-10,2025-05-05,Travel,7614,Rejected,Claim description for record 852,North,FALSE
+CLM-2024-000853,POL-000058,2024-02-28,2025-02-06,Life,117430,Pending,Claim description for record 853,South,FALSE
+CLM-2024-000854,POL-000197,2024-11-15,2025-03-11,Life,54989,Closed,Claim description for record 854,South,FALSE
+CLM-2024-000855,POL-000115,2023-07-10,2025-06-05,Travel,34591,Closed,Claim description for record 855,South,FALSE
+CLM-2024-000856,POL-000014,2025-03-04,2025-12-24,Auto,37681,Closed,Claim description for record 856,South,FALSE
+CLM-2024-000857,POL-000190,2023-09-29,2024-03-13,Travel,141865,Approved,Claim description for record 857,East,FALSE
+CLM-2024-000858,POL-000422,2024-06-27,2025-11-09,Travel,120927,Pending,Claim description for record 858,North,FALSE
+CLM-2024-000859,POL-000160,2024-12-26,2025-08-05,Life,7969,Rejected,Claim description for record 859,South,FALSE
+CLM-2024-000860,POL-000005,2024-06-26,2024-04-06,Health,70505,Approved,Claim description for record 860,North,FALSE
+CLM-2024-000861,POL-000135,2024-06-28,2024-04-07,Auto,4574,Approved,Claim description for record 861,West,FALSE
+CLM-2024-000862,POL-000150,2024-03-27,2024-10-30,Travel,70843,Under Review,Claim description for record 862,East,FALSE
+CLM-2024-000863,POL-000482,2023-11-25,2024-02-15,Health,107382,Pending,Claim description for record 863,West,FALSE
+CLM-2024-000864,POL-000328,2023-07-14,2024-08-27,Health,37250,Under Review,Claim description for record 864,Central,FALSE
+CLM-2024-000865,POL-000194,2024-10-15,2024-10-24,Auto,25579,Closed,Claim description for record 865,Central,FALSE
+CLM-2024-000866,POL-000049,2024-07-24,2025-10-11,Health,18276,Under Review,Claim description for record 866,West,FALSE
+CLM-2024-000867,POL-000122,2023-05-20,2024-11-22,Auto,109597,Closed,Claim description for record 867,Central,FALSE
+CLM-2024-000868,POL-000069,2024-09-15,2024-09-05,Property,29386,Pending,Claim description for record 868,East,FALSE
+CLM-2024-000869,POL-000212,2025-11-28,2025-10-01,Travel,43843,Under Review,Claim description for record 869,North,FALSE
+CLM-2024-000870,POL-000177,2023-06-13,2025-02-11,Property,34714,Approved,Claim description for record 870,Central,FALSE
+CLM-2024-000871,POL-000111,2023-09-12,2025-06-03,Health,3417,Rejected,Claim description for record 871,South,FALSE
+CLM-2024-000872,POL-000023,2024-01-09,2025-03-02,Travel,4898,Approved,Claim description for record 872,West,FALSE
+CLM-2024-000873,POL-000147,2025-04-06,2025-01-09,Auto,101473,Approved,Claim description for record 873,South,FALSE
+CLM-2024-000874,POL-000395,2023-02-19,2025-03-14,Property,61788,Approved,Claim description for record 874,North,FALSE
+CLM-2024-000875,POL-000118,2023-09-15,2025-04-11,Property,17266,Rejected,Claim description for record 875,South,FALSE
+CLM-2024-000876,POL-000130,2025-03-29,2025-05-31,Property,22667,Closed,Claim description for record 876,North,FALSE
+CLM-2024-000877,POL-000117,2025-09-23,2024-06-20,Health,118909,Pending,Claim description for record 877,East,FALSE
+CLM-2024-000878,POL-000086,2025-02-25,2025-03-04,Travel,131904,Pending,Claim description for record 878,North,FALSE
+CLM-2024-000879,POL-000381,2025-02-12,2024-01-12,Property,37089,Closed,Claim description for record 879,Central,FALSE
+CLM-2024-000880,POL-000079,2025-11-15,2024-11-10,Property,122629,Approved,Claim description for record 880,Central,FALSE
+CLM-2024-000881,POL-000490,2024-08-12,2025-08-01,Life,68412,Closed,Claim description for record 881,South,FALSE
+CLM-2024-000882,POL-000147,2023-09-05,2024-02-23,Travel,146605,Approved,Claim description for record 882,West,FALSE
+CLM-2024-000883,POL-000417,2025-05-08,2025-04-01,Health,93475,Closed,Claim description for record 883,East,FALSE
+CLM-2024-000884,POL-000478,2025-10-06,2025-09-02,Auto,35465,Rejected,Claim description for record 884,West,TRUE
+CLM-2024-000885,POL-000453,2024-04-28,2024-03-14,Travel,113434,Closed,Claim description for record 885,East,FALSE
+CLM-2024-000886,POL-000455,2023-04-06,2025-12-02,Property,45523,Approved,Claim description for record 886,West,TRUE
+CLM-2024-000887,POL-000220,2023-11-09,2024-09-22,Health,98829,Closed,Claim description for record 887,Central,FALSE
+CLM-2024-000888,POL-000437,2024-05-28,2025-02-15,Life,52125,Rejected,Claim description for record 888,West,FALSE
+CLM-2024-000889,POL-000310,2024-10-25,2024-11-23,Auto,93240,Rejected,Claim description for record 889,North,TRUE
+CLM-2024-000890,POL-000076,2025-09-18,2025-10-29,Health,5083,Closed,Claim description for record 890,Central,FALSE
+CLM-2024-000891,POL-000283,2024-07-23,2025-03-16,Health,21496,Closed,Claim description for record 891,North,FALSE
+CLM-2024-000892,POL-000268,2023-04-08,2024-02-27,Property,31448,Under Review,Claim description for record 892,South,FALSE
+CLM-2024-000893,POL-000075,2025-11-19,2025-01-21,Health,40635,Under Review,Claim description for record 893,Central,FALSE
+CLM-2024-000894,POL-000039,2024-01-29,2025-01-30,Life,92925,Approved,Claim description for record 894,West,FALSE
+CLM-2024-000895,POL-000124,2025-06-22,2025-10-10,Auto,97602,Approved,Claim description for record 895,Central,FALSE
+CLM-2024-000896,POL-000373,2024-02-04,2025-02-23,Travel,66865,Pending,Claim description for record 896,West,FALSE
+CLM-2024-000897,POL-000064,2024-03-22,2024-06-21,Life,20897,Approved,Claim description for record 897,South,FALSE
+CLM-2024-000898,POL-000119,2024-04-06,2025-08-15,Auto,30298,Approved,Claim description for record 898,North,FALSE
+CLM-2024-000899,POL-000074,2024-03-06,2025-04-28,Auto,50158,Pending,Claim description for record 899,North,FALSE
+CLM-2024-000900,POL-000418,2023-10-30,2024-12-04,Property,101877,Closed,Claim description for record 900,South,FALSE
+CLM-2024-000901,POL-000170,2024-10-10,2024-05-05,Life,21478,Pending,Claim description for record 901,Central,FALSE
+CLM-2024-000902,POL-000131,2025-11-01,2024-07-14,Auto,68240,Under Review,Claim description for record 902,Central,FALSE
+CLM-2024-000903,POL-000284,2023-09-21,2024-03-19,Travel,149557,Under Review,Claim description for record 903,Central,FALSE
+CLM-2024-000904,POL-000312,2025-11-09,2024-04-14,Travel,52685,Under Review,Claim description for record 904,East,FALSE
+CLM-2024-000905,POL-000357,2024-02-10,2024-10-26,Travel,46851,Closed,Claim description for record 905,West,FALSE
+CLM-2024-000906,POL-000228,2024-02-29,2025-10-27,Auto,107564,Pending,Claim description for record 906,North,FALSE
+CLM-2024-000907,POL-000166,2025-11-09,2025-04-14,Travel,121063,Under Review,Claim description for record 907,West,FALSE
+CLM-2024-000908,POL-000368,2024-11-20,2024-12-01,Health,89470,Closed,Claim description for record 908,North,FALSE
+CLM-2024-000909,POL-000157,2025-12-15,2025-07-15,Health,143177,Closed,Claim description for record 909,North,FALSE
+CLM-2024-000910,POL-000032,2025-02-23,2025-11-19,Property,23137,Approved,Claim description for record 910,West,FALSE
+CLM-2024-000911,POL-000223,2023-08-24,2024-10-06,Life,144578,Rejected,Claim description for record 911,Central,FALSE
+CLM-2024-000912,POL-000234,2024-07-12,2024-06-10,Travel,6555,Pending,Claim description for record 912,Central,FALSE
+CLM-2024-000913,POL-000369,2024-11-04,2025-04-02,Health,101546,Rejected,Claim description for record 913,West,FALSE
+CLM-2024-000914,POL-000225,2023-08-04,2025-09-17,Life,142498,Closed,Claim description for record 914,Central,FALSE
+CLM-2024-000915,POL-000260,2023-11-26,2024-06-09,Health,127205,Closed,Claim description for record 915,West,FALSE
+CLM-2024-000916,POL-000351,2024-01-17,2024-09-12,Property,43641,Closed,Claim description for record 916,Central,FALSE
+CLM-2024-000917,POL-000155,2023-05-20,2025-05-24,Health,140500,Rejected,Claim description for record 917,South,FALSE
+CLM-2024-000918,POL-000047,2024-10-07,2024-02-04,Property,103516,Rejected,Claim description for record 918,South,FALSE
+CLM-2024-000919,POL-000009,2024-01-19,2024-08-05,Life,122053,Closed,Claim description for record 919,West,FALSE
+CLM-2024-000920,POL-000117,2025-09-17,2025-02-25,Property,82923,Under Review,Claim description for record 920,Central,FALSE
+CLM-2024-000921,POL-000325,2023-11-30,2024-08-09,Auto,79565,Pending,Claim description for record 921,Central,FALSE
+CLM-2024-000922,POL-000373,2023-09-22,2025-02-13,Property,103599,Under Review,Claim description for record 922,East,FALSE
+CLM-2024-000923,POL-000482,2023-07-09,2025-10-12,Life,22216,Approved,Claim description for record 923,West,FALSE
+CLM-2024-000924,POL-000284,2025-02-28,2024-01-19,Auto,79190,Approved,Claim description for record 924,West,FALSE
+CLM-2024-000925,POL-000210,2025-02-22,2025-11-23,Life,23467,Closed,Claim description for record 925,East,FALSE
+CLM-2024-000926,POL-000161,2024-12-25,2025-11-30,Life,89919,Under Review,Claim description for record 926,East,TRUE
+CLM-2024-000927,POL-000134,2025-06-18,2024-01-12,Life,44357,Rejected,Claim description for record 927,North,TRUE
+CLM-2024-000928,POL-000185,2024-07-08,2025-01-22,Auto,95006,Rejected,Claim description for record 928,North,FALSE
+CLM-2024-000929,POL-000430,2025-11-03,2025-07-22,Property,63773,Rejected,Claim description for record 929,West,FALSE
+CLM-2024-000930,POL-000254,2025-09-30,2025-03-18,Property,136391,Closed,Claim description for record 930,Central,FALSE
+CLM-2024-000931,POL-000152,2023-12-29,2025-04-30,Health,96010,Approved,Claim description for record 931,South,FALSE
+CLM-2024-000932,POL-000118,2025-11-24,2025-08-09,Auto,34845,Rejected,Claim description for record 932,South,FALSE
+CLM-2024-000933,POL-000133,2024-12-01,2024-08-22,Auto,86881,Closed,Claim description for record 933,Central,FALSE
+CLM-2024-000934,POL-000465,2024-02-23,2025-11-26,Property,111991,Rejected,Claim description for record 934,North,FALSE
+CLM-2024-000935,POL-000226,2023-03-30,2024-08-23,Travel,82664,Rejected,Claim description for record 935,South,FALSE
+CLM-2024-000936,POL-000300,2023-12-15,2025-06-04,Health,17787,Pending,Claim description for record 936,East,FALSE
+CLM-2024-000937,POL-000482,2023-01-05,2025-02-01,Health,95707,Under Review,Claim description for record 937,East,FALSE
+CLM-2024-000938,POL-000358,2024-04-30,2024-04-20,Auto,110234,Under Review,Claim description for record 938,Central,FALSE
+CLM-2024-000939,POL-000398,2023-08-21,2024-06-12,Health,86123,Pending,Claim description for record 939,East,FALSE
+CLM-2024-000940,POL-000192,2023-12-12,2024-02-29,Travel,86858,Pending,Claim description for record 940,West,FALSE
+CLM-2024-000941,POL-000285,2025-01-13,2025-06-02,Property,52482,Under Review,Claim description for record 941,North,FALSE
+CLM-2024-000942,POL-000006,2024-08-06,2024-11-18,Auto,118735,Pending,Claim description for record 942,West,FALSE
+CLM-2024-000943,POL-000027,2025-01-09,2025-01-21,Property,4002,Closed,Claim description for record 943,North,FALSE
+CLM-2024-000944,POL-000245,2025-12-22,2024-09-28,Health,133105,Closed,Claim description for record 944,East,FALSE
+CLM-2024-000945,POL-000105,2023-06-27,2025-06-24,Health,30140,Pending,Claim description for record 945,East,FALSE
+CLM-2024-000946,POL-000374,2024-01-25,2025-10-26,Auto,143746,Approved,Claim description for record 946,West,FALSE
+CLM-2024-000947,POL-000219,2023-05-10,2025-08-24,Property,91116,Rejected,Claim description for record 947,South,FALSE
+CLM-2024-000948,POL-000309,2023-06-20,2024-05-31,Property,124735,Closed,Claim description for record 948,West,FALSE
+CLM-2024-000949,POL-000497,2025-10-22,2025-04-09,Travel,43877,Under Review,Claim description for record 949,Central,FALSE
+CLM-2024-000950,POL-000477,2024-02-22,2024-11-06,Auto,17504,Pending,Claim description for record 950,North,FALSE
+CLM-2024-000951,POL-000175,2023-01-03,2025-12-10,Auto,35530,Under Review,Claim description for record 951,North,FALSE
+CLM-2024-000952,POL-000065,2023-04-05,2024-06-14,Health,103795,Rejected,Claim description for record 952,Central,FALSE
+CLM-2024-000953,POL-000377,2024-01-14,2025-05-06,Life,120167,Pending,Claim description for record 953,North,FALSE
+CLM-2024-000954,POL-000475,2025-02-01,2025-10-19,Health,90988,Pending,Claim description for record 954,North,FALSE
+CLM-2024-000955,POL-000230,2025-06-02,2025-10-20,Property,51642,Closed,Claim description for record 955,North,FALSE
+CLM-2024-000956,POL-000458,2024-10-10,2024-07-07,Auto,64558,Pending,Claim description for record 956,East,FALSE
+CLM-2024-000957,POL-000297,2023-06-08,2024-09-10,Life,90694,Closed,Claim description for record 957,East,FALSE
+CLM-2024-000958,POL-000435,2024-07-07,2025-02-15,Life,47848,Under Review,Claim description for record 958,Central,TRUE
+CLM-2024-000959,POL-000124,2025-06-30,2024-02-23,Travel,1236,Closed,Claim description for record 959,North,FALSE
+CLM-2024-000960,POL-000382,2024-09-26,2024-01-17,Travel,121449,Approved,Claim description for record 960,South,FALSE
+CLM-2024-000961,POL-000010,2024-07-29,2025-06-30,Life,51953,Approved,Claim description for record 961,Central,FALSE
+CLM-2024-000962,POL-000031,2023-02-14,2025-07-21,Life,127446,Closed,Claim description for record 962,East,FALSE
+CLM-2024-000963,POL-000356,2023-05-03,2025-12-03,Auto,40255,Rejected,Claim description for record 963,Central,FALSE
+CLM-2024-000964,POL-000017,2024-03-20,2025-10-08,Health,30118,Closed,Claim description for record 964,North,FALSE
+CLM-2024-000965,POL-000214,2023-06-23,2025-04-22,Property,21289,Pending,Claim description for record 965,North,FALSE
+CLM-2024-000966,POL-000074,2025-05-12,2024-04-14,Life,54725,Under Review,Claim description for record 966,North,FALSE
+CLM-2024-000967,POL-000090,2023-11-01,2024-06-04,Health,4870,Pending,Claim description for record 967,East,TRUE
+CLM-2024-000968,POL-000410,2023-06-15,2025-04-17,Life,7947,Approved,Claim description for record 968,Central,FALSE
+CLM-2024-000969,POL-000345,2024-04-12,2024-05-26,Auto,135037,Closed,Claim description for record 969,North,FALSE
+CLM-2024-000970,POL-000070,2024-03-31,2025-08-03,Life,108748,Closed,Claim description for record 970,North,FALSE
+CLM-2024-000971,POL-000449,2025-02-03,2024-03-07,Travel,77844,Rejected,Claim description for record 971,Central,FALSE
+CLM-2024-000972,POL-000107,2024-03-24,2024-12-31,Auto,62305,Pending,Claim description for record 972,North,FALSE
+CLM-2024-000973,POL-000231,2023-01-20,2025-02-15,Property,98149,Approved,Claim description for record 973,Central,FALSE
+CLM-2024-000974,POL-000045,2023-11-15,2024-12-21,Property,128428,Approved,Claim description for record 974,Central,FALSE
+CLM-2024-000975,POL-000228,2024-08-31,2025-02-04,Life,62348,Under Review,Claim description for record 975,East,FALSE
+CLM-2024-000976,POL-000137,2023-08-11,2025-05-12,Auto,58867,Under Review,Claim description for record 976,South,FALSE
+CLM-2024-000977,POL-000368,2024-01-06,2025-01-03,Life,106348,Pending,Claim description for record 977,South,FALSE
+CLM-2024-000978,POL-000156,2024-01-16,2024-02-27,Travel,6721,Under Review,Claim description for record 978,South,FALSE
+CLM-2024-000979,POL-000363,2025-06-13,2024-12-17,Life,56865,Rejected,Claim description for record 979,South,FALSE
+CLM-2024-000980,POL-000005,2025-07-01,2024-06-14,Auto,124839,Rejected,Claim description for record 980,West,FALSE
+CLM-2024-000981,POL-000489,2023-02-03,2024-02-25,Travel,61895,Rejected,Claim description for record 981,North,FALSE
+CLM-2024-000982,POL-000110,2023-07-30,2025-10-09,Health,73228,Under Review,Claim description for record 982,North,FALSE
+CLM-2024-000983,POL-000435,2023-06-17,2024-03-29,Travel,49983,Approved,Claim description for record 983,East,TRUE
+CLM-2024-000984,POL-000383,2023-11-18,2024-10-12,Life,52672,Approved,Claim description for record 984,West,FALSE
+CLM-2024-000985,POL-000397,2025-06-23,2024-02-29,Life,124971,Pending,Claim description for record 985,East,FALSE
+CLM-2024-000986,POL-000287,2024-04-20,2025-06-03,Property,28820,Approved,Claim description for record 986,East,FALSE
+CLM-2024-000987,POL-000460,2023-07-24,2024-08-28,Life,4359,Pending,Claim description for record 987,Central,FALSE
+CLM-2024-000988,POL-000184,2025-07-02,2024-11-09,Property,57565,Under Review,Claim description for record 988,South,FALSE
+CLM-2024-000989,POL-000012,2025-08-11,2025-10-16,Life,17705,Approved,Claim description for record 989,South,FALSE
+CLM-2024-000990,POL-000037,2023-06-01,2025-02-02,Health,53873,Closed,Claim description for record 990,South,FALSE
+CLM-2024-000991,POL-000022,2024-08-28,2024-10-01,Auto,113507,Pending,Claim description for record 991,West,FALSE
+CLM-2024-000992,POL-000131,2023-11-01,2024-06-14,Auto,17975,Under Review,Claim description for record 992,West,FALSE
+CLM-2024-000993,POL-000360,2023-03-06,2025-05-27,Health,25681,Closed,Claim description for record 993,North,FALSE
+CLM-2024-000994,POL-000150,2025-05-17,2024-08-28,Life,5252,Under Review,Claim description for record 994,North,FALSE
+CLM-2024-000995,POL-000094,2025-08-15,2025-12-13,Auto,111829,Rejected,Claim description for record 995,South,FALSE
+CLM-2024-000996,POL-000411,2025-07-19,2024-04-02,Life,85521,Rejected,Claim description for record 996,North,FALSE
+CLM-2024-000997,POL-000103,2024-01-06,2024-01-04,Life,96519,Under Review,Claim description for record 997,Central,FALSE
+CLM-2024-000998,POL-000232,2025-10-18,2025-05-21,Life,89152,Pending,Claim description for record 998,South,FALSE
+CLM-2024-000999,POL-000291,2023-05-16,2025-02-03,Life,92410,Pending,Claim description for record 999,North,FALSE
+CLM-2024-001000,POL-000053,2024-04-14,2025-12-17,Auto,36379,Rejected,Claim description for record 1000,South,FALSE

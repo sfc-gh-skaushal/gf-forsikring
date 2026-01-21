@@ -356,9 +356,12 @@ ORDER BY table_name, metric_name;
 ******************************************************************************
 */
 
--- Uncomment to manually trigger DMF execution (for demo purposes)
--- EXECUTE DATA METRIC FUNCTION ON TABLE INSURANCECO.RAW.RAW_CLAIMS;
--- EXECUTE DATA METRIC FUNCTION ON TABLE INSURANCECO.RAW.RAW_POLICIES;
+-- To manually test a DMF, call it directly with SELECT:
+-- SELECT SNOWFLAKE.CORE.ROW_COUNT(SELECT * FROM INSURANCECO.RAW.RAW_CLAIMS);
+-- SELECT SNOWFLAKE.CORE.NULL_COUNT(SELECT claim_id FROM INSURANCECO.RAW.RAW_CLAIMS);
+
+-- Note: Scheduled DMFs run automatically per DATA_METRIC_SCHEDULE (60 MINUTE).
+-- To trigger on data changes instead, use: ALTER TABLE RAW_CLAIMS SET DATA_METRIC_SCHEDULE = 'TRIGGER_ON_CHANGES';
 
 /*
 ******************************************************************************

@@ -359,7 +359,8 @@ SELECT
         ELSE 0.75
     END AS data_quality_score
 FROM RAW.RAW_CLAIMS
-WHERE claim_id IS NOT NULL;  -- Filter out records with NULL claim_ids for curated
+WHERE claim_id IS NOT NULL 
+  AND policy_id IS NOT NULL;  -- Filter out records with NULL claim_ids or policy_ids for curated
 
 -- Verify curated claims
 SELECT 'DIM_CLAIMS populated' AS status, COUNT(*) AS record_count FROM DIM_CLAIMS;

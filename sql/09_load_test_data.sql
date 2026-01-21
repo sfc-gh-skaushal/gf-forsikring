@@ -144,11 +144,17 @@ FROM (
         $18,                      -- damage_description
         TRY_TO_BOOLEAN($19),      -- fraud_flag
         $20                       -- adjuster_notes
-    FROM @STG_TEST_DATA/raw_claims_1000.csv
+    FROM @INSURANCECO.RAW.STG_TEST_DATA/raw_claims_1000.csv
 )
 FILE_FORMAT = CSV_FORMAT
 ON_ERROR = 'CONTINUE'
 PURGE = FALSE;
+
+
+
+
+select $1  FROM @INSURANCECO.RAW.STG_TEST_DATA/raw_claims_1000.csv
+(FILE_FORMAT => CSV_FORMAT);
 
 -- Verify load
 SELECT 'RAW_CLAIMS loaded' AS status, COUNT(*) AS record_count FROM RAW_CLAIMS;
@@ -201,7 +207,7 @@ FROM (
         TRY_TO_NUMBER($18),       -- years_licensed
         TRY_TO_NUMBER($19),       -- previous_claims_count
         $20                       -- risk_score
-    FROM @STG_TEST_DATA/raw_policies_1000.csv
+    FROM @INSURANCECO.RAW.STG_TEST_DATA/raw_policies_1000.csv
 )
 FILE_FORMAT = CSV_FORMAT
 ON_ERROR = 'CONTINUE'
@@ -319,7 +325,7 @@ SELECT
     claim_amount,
     policy_coverage_limit,
     CASE WHEN policy_coverage_limit > 0 
-         THEN ROUND((claim_amount / policy_coverage_limit) * 100, 2)
+         THEN LEAST(ROUND((claim_amount / policy_coverage_limit) * 100, 2), 999.99)
          ELSE 0 
     END AS coverage_utilization_pct,
     date_of_incident,

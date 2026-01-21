@@ -159,6 +159,41 @@ GROUP BY 1, 2, 3;
 -- Add comment to table
 ALTER TABLE AGG_CLAIMS_EXECUTIVE SET COMMENT = 'Pre-aggregated executive dashboard data. Refreshed by scheduled task. Source: DIM_CLAIMS';
 
+INSERT INTO INSURANCECO.ANALYTICS.AGG_CLAIMS_EXECUTIVE (
+    report_week,
+    region,
+    claim_type,
+    total_claims,
+    total_claim_value,
+    avg_claim_value,
+    min_claim_value,
+    max_claim_value,
+    approved_claims,
+    rejected_claims,
+    pending_claims,
+    fraud_flagged_claims,
+    avg_days_to_report,
+    refreshed_at
+)
+SELECT
+    DATE_TRUNC('WEEK', date_reported) AS report_week,
+    region,
+    claim_type,
+    COUNT(*) AS total_claims,
+    SUM(claim_amount) AS total_claim_value,
+    AVG(claim_amount) AS avg_claim_value,
+    MIN(claim_amount) AS min_claim_value,
+    MAX(claim_amount) AS max_claim_value,
+    COUNT(CASE WHEN claim_status = 'approved' THEN 1 END) AS approved_claims,
+    COUNT(CASE WHEN claim_status = 'rejected' THEN 1 END) AS rejected_claims,
+    COUNT(CASE WHEN claim_status = 'pending' THEN 1 END) AS pending_claims,
+    COUNT(CASE WHEN fraud_flag THEN 1 END) AS fraud_flagged_claims,
+    AVG(days_to_report) AS avg_days_to_report,
+    CURRENT_TIMESTAMP()::TIMESTAMP_LTZ AS refreshed_at
+FROM INSURANCECO.CURATED.DIM_CLAIMS
+GROUP BY 1, 2, 3;
+
+
 -- ============================================================================
 -- SECTION 4: CREATE ML FEATURE TABLE (For Data Science)
 -- ============================================================================

@@ -35,17 +35,17 @@ GRANT DATABASE ROLE SNOWFLAKE.DATA_METRIC_USER TO ROLE DATA_STEWARD;
 * SECTION 2: SET DATA METRIC SCHEDULE ON CURATED TABLES
 ******************************************************************************
 */
-
+use role data_engineer;
 -- Continue as ACCOUNTADMIN (has full privileges to modify tables and add DMFs)
 USE WAREHOUSE INSURANCECO_ETL_WH;
 USE DATABASE INSURANCECO;
 USE SCHEMA CURATED;
 
 -- Define schedule on DIM_CLAIMS (runs every 60 minutes)
-ALTER TABLE DIM_CLAIMS SET DATA_METRIC_SCHEDULE = '60 MINUTE';
+ALTER TABLE DIM_CLAIMS SET DATA_METRIC_SCHEDULE = '5 MINUTE';
 
 -- Define schedule on DIM_POLICIES (runs every 60 minutes)
-ALTER TABLE DIM_POLICIES SET DATA_METRIC_SCHEDULE = '60 MINUTE';
+ALTER TABLE DIM_POLICIES SET DATA_METRIC_SCHEDULE = '5 MINUTE';
 
 /*
 ******************************************************************************
@@ -481,3 +481,252 @@ SELECT 'Curated data monitoring setup complete!' AS STATUS,
        'DIM_POLICIES: 12 DMFs configured' AS POLICIES_DMFS,
        'Schedule: 60 MINUTE' AS SCHEDULE,
        'Navigate to Data Quality tab in Snowsight to view results' AS NEXT_STEP;
+
+/*
+******************************************************************************
+* SECTION 11: ENABLE ANOMALY DETECTION FOR SUPPORTED DMFs
+******************************************************************************
+* NOTE: Anomaly detection is ONLY supported for ROW_COUNT and FRESHNESS DMFs.
+*       Other system DMFs and custom DMFs do NOT support anomaly detection.
+******************************************************************************
+*/
+
+USE SCHEMA INSURANCECO.CURATED;
+
+-- ============================================================================
+-- DIM_CLAIMS: Enable Anomaly Detection (only ROW_COUNT and FRESHNESS supported)
+-- ============================================================================
+
+ALTER TABLE DIM_CLAIMS
+  MODIFY DATA METRIC FUNCTION SNOWFLAKE.CORE.ROW_COUNT ON ()
+  SET ANOMALY_DETECTION = TRUE;
+
+ALTER TABLE DIM_CLAIMS
+  MODIFY DATA METRIC FUNCTION SNOWFLAKE.CORE.FRESHNESS ON (updated_at)
+  SET ANOMALY_DETECTION = TRUE;
+
+-- ============================================================================
+-- DIM_POLICIES: Enable Anomaly Detection (only ROW_COUNT and FRESHNESS supported)
+-- ============================================================================
+
+ALTER TABLE DIM_POLICIES
+  MODIFY DATA METRIC FUNCTION SNOWFLAKE.CORE.ROW_COUNT ON ()
+  SET ANOMALY_DETECTION = TRUE;
+
+ALTER TABLE DIM_POLICIES
+  MODIFY DATA METRIC FUNCTION SNOWFLAKE.CORE.FRESHNESS ON (updated_at)
+  SET ANOMALY_DETECTION = TRUE;
+
+-- ============================================================================
+-- Verify Anomaly Detection is Enabled
+-- ============================================================================
+
+SELECT metric_name, ref_entity_name, anomaly_detection_status
+FROM TABLE(INFORMATION_SCHEMA.DATA_METRIC_FUNCTION_REFERENCES(
+    REF_ENTITY_NAME => 'INSURANCECO.CURATED.DIM_CLAIMS',
+    REF_ENTITY_DOMAIN => 'TABLE'
+))
+UNION ALL
+SELECT metric_name, ref_entity_name, anomaly_detection_status
+FROM TABLE(INFORMATION_SCHEMA.DATA_METRIC_FUNCTION_REFERENCES(
+    REF_ENTITY_NAME => 'INSURANCECO.CURATED.DIM_POLICIES',
+    REF_ENTITY_DOMAIN => 'TABLE'
+))
+ORDER BY ref_entity_name, metric_name;
+
+/*
+******************************************************************************
+* SECTION 12: SET UP DMF ALERTS USING SNOWFLAKE ALERTS
+******************************************************************************
+* Uses standard Snowflake ALERT objects to monitor DMF results and send
+* email notifications when data quality issues are detected.
+******************************************************************************
+*/
+
+USE ROLE ACCOUNTADMIN;
+USE SCHEMA INSURANCECO.GOVERNANCE;
+
+-- ============================================================================
+-- Create Alerts for Critical CURATED Layer DMF Metrics
+-- ============================================================================
+-- NOTE: Assumes DMF_EMAIL_NOTIFICATION_INT already exists from 05a script
+-- If not, create it first:
+-- CREATE OR REPLACE NOTIFICATION INTEGRATION DMF_EMAIL_NOTIFICATION_INT
+--   TYPE = EMAIL
+--   ENABLED = TRUE
+--   ALLOWED_RECIPIENTS = ('your-email@company.com');
+
+USE ROLE DATA_ENGINEER;
+USE WAREHOUSE INSURANCECO_ETL_WH;
+USE SCHEMA INSURANCECO.GOVERNANCE;
+
+-- Alert 1: Duplicate claim_ids in DIM_CLAIMS (CRITICAL - should never happen)
+CREATE OR REPLACE ALERT ALERT_DIM_CLAIMS_DUPLICATE_ID
+  WAREHOUSE = INSURANCECO_ETL_WH
+  SCHEDULE = '60 MINUTE'
+  IF (EXISTS (
+    SELECT 1 FROM SNOWFLAKE.LOCAL.DATA_QUALITY_MONITORING_RESULTS
+    WHERE table_database = 'INSURANCECO'
+      AND table_schema = 'CURATED'
+      AND table_name = 'DIM_CLAIMS'
+      AND metric_name = 'DUPLICATE_COUNT'
+      AND value > 0
+      AND measurement_time > DATEADD('minute', -65, CURRENT_TIMESTAMP())
+  ))
+  THEN
+    CALL SYSTEM$SEND_EMAIL(
+      'DMF_EMAIL_NOTIFICATION_INT',
+      'siddharth.kaushal@snowflake.com',
+      'CRITICAL: Duplicate claim_ids in DIM_CLAIMS',
+      'Alert: Duplicate claim_id values detected in curated DIM_CLAIMS table. This indicates a serious data integrity issue. Please investigate immediately.'
+    );
+
+ALTER ALERT ALERT_DIM_CLAIMS_DUPLICATE_ID RESUME;
+
+-- Alert 2: Invalid claim amounts in curated layer
+CREATE OR REPLACE ALERT ALERT_DIM_CLAIMS_INVALID_AMOUNT
+  WAREHOUSE = INSURANCECO_ETL_WH
+  SCHEDULE = '60 MINUTE'
+  IF (EXISTS (
+    SELECT 1 FROM SNOWFLAKE.LOCAL.DATA_QUALITY_MONITORING_RESULTS
+    WHERE table_database = 'INSURANCECO'
+      AND table_schema = 'CURATED'
+      AND table_name = 'DIM_CLAIMS'
+      AND metric_name = 'DMF_CURATED_INVALID_CLAIM_AMOUNT'
+      AND value > 0
+      AND measurement_time > DATEADD('minute', -65, CURRENT_TIMESTAMP())
+  ))
+  THEN
+    CALL SYSTEM$SEND_EMAIL(
+      'DMF_EMAIL_NOTIFICATION_INT',
+      'siddharth.kaushal@snowflake.com',
+      'CRITICAL: Invalid claim amounts in DIM_CLAIMS',
+      'Alert: Claims with negative or zero amounts found in curated DIM_CLAIMS. Data validation in ETL pipeline may have failed.'
+    );
+
+ALTER ALERT ALERT_DIM_CLAIMS_INVALID_AMOUNT RESUME;
+
+-- Alert 3: Orphan claims (referential integrity violation)
+CREATE OR REPLACE ALERT ALERT_DIM_CLAIMS_ORPHAN
+  WAREHOUSE = INSURANCECO_ETL_WH
+  SCHEDULE = '60 MINUTE'
+  IF (EXISTS (
+    SELECT 1 FROM SNOWFLAKE.LOCAL.DATA_QUALITY_MONITORING_RESULTS
+    WHERE table_database = 'INSURANCECO'
+      AND table_schema = 'CURATED'
+      AND table_name = 'DIM_CLAIMS'
+      AND metric_name = 'DMF_CURATED_ORPHAN_CLAIMS'
+      AND value > 0
+      AND measurement_time > DATEADD('minute', -65, CURRENT_TIMESTAMP())
+  ))
+  THEN
+    CALL SYSTEM$SEND_EMAIL(
+      'DMF_EMAIL_NOTIFICATION_INT',
+      'siddharth.kaushal@snowflake.com',
+      'CRITICAL: Orphan claims in DIM_CLAIMS',
+      'Alert: Claims found with policy_id not in DIM_POLICIES. Referential integrity violated in curated layer.'
+    );
+
+ALTER ALERT ALERT_DIM_CLAIMS_ORPHAN RESUME;
+
+-- Alert 4: Invalid date sequence
+CREATE OR REPLACE ALERT ALERT_DIM_CLAIMS_INVALID_DATES
+  WAREHOUSE = INSURANCECO_ETL_WH
+  SCHEDULE = '60 MINUTE'
+  IF (EXISTS (
+    SELECT 1 FROM SNOWFLAKE.LOCAL.DATA_QUALITY_MONITORING_RESULTS
+    WHERE table_database = 'INSURANCECO'
+      AND table_schema = 'CURATED'
+      AND table_name = 'DIM_CLAIMS'
+      AND metric_name = 'DMF_CURATED_INVALID_DATE_SEQUENCE'
+      AND value > 0
+      AND measurement_time > DATEADD('minute', -65, CURRENT_TIMESTAMP())
+  ))
+  THEN
+    CALL SYSTEM$SEND_EMAIL(
+      'DMF_EMAIL_NOTIFICATION_INT',
+      'siddharth.kaushal@snowflake.com',
+      'WARNING: Invalid date sequence in DIM_CLAIMS',
+      'Alert: Claims with report date before incident date found in curated layer. Please review data pipeline.'
+    );
+
+ALTER ALERT ALERT_DIM_CLAIMS_INVALID_DATES RESUME;
+
+-- Alert 5: High fraud rate warning
+CREATE OR REPLACE ALERT ALERT_DIM_CLAIMS_HIGH_FRAUD_RATE
+  WAREHOUSE = INSURANCECO_ETL_WH
+  SCHEDULE = '60 MINUTE'
+  IF (EXISTS (
+    SELECT 1 FROM SNOWFLAKE.LOCAL.DATA_QUALITY_MONITORING_RESULTS
+    WHERE table_database = 'INSURANCECO'
+      AND table_schema = 'CURATED'
+      AND table_name = 'DIM_CLAIMS'
+      AND metric_name = 'DMF_CURATED_FRAUD_FLAG_RATE'
+      AND value > 25
+      AND measurement_time > DATEADD('minute', -65, CURRENT_TIMESTAMP())
+  ))
+  THEN
+    CALL SYSTEM$SEND_EMAIL(
+      'DMF_EMAIL_NOTIFICATION_INT',
+      'siddharth.kaushal@snowflake.com',
+      'WARNING: High fraud rate detected in DIM_CLAIMS',
+      'Alert: Fraud flag rate exceeds 25% threshold. This may indicate a data issue or require fraud investigation team review.'
+    );
+
+ALTER ALERT ALERT_DIM_CLAIMS_HIGH_FRAUD_RATE RESUME;
+
+-- Alert 6: Duplicate policy_ids in DIM_POLICIES
+CREATE OR REPLACE ALERT ALERT_DIM_POLICIES_DUPLICATE_ID
+  WAREHOUSE = INSURANCECO_ETL_WH
+  SCHEDULE = '60 MINUTE'
+  IF (EXISTS (
+    SELECT 1 FROM SNOWFLAKE.LOCAL.DATA_QUALITY_MONITORING_RESULTS
+    WHERE table_database = 'INSURANCECO'
+      AND table_schema = 'CURATED'
+      AND table_name = 'DIM_POLICIES'
+      AND metric_name = 'DUPLICATE_COUNT'
+      AND value > 0
+      AND measurement_time > DATEADD('minute', -65, CURRENT_TIMESTAMP())
+  ))
+  THEN
+    CALL SYSTEM$SEND_EMAIL(
+      'DMF_EMAIL_NOTIFICATION_INT',
+      'siddharth.kaushal@snowflake.com',
+      'CRITICAL: Duplicate policy_ids in DIM_POLICIES',
+      'Alert: Duplicate policy_id values detected in curated DIM_POLICIES table. This is a critical data integrity issue.'
+    );
+
+ALTER ALERT ALERT_DIM_POLICIES_DUPLICATE_ID RESUME;
+
+-- ============================================================================
+-- Verify Alerts are Created and Running
+-- ============================================================================
+
+SHOW ALERTS IN SCHEMA INSURANCECO.GOVERNANCE;
+
+/*
+******************************************************************************
+* CURATED LAYER ALERTS SUMMARY
+******************************************************************************
+
+6 Snowflake Alerts created for CURATED layer:
+
+DIM_CLAIMS Alerts (5):
+----------------------
+1. ALERT_DIM_CLAIMS_DUPLICATE_ID     - Duplicate claim_ids (CRITICAL)
+2. ALERT_DIM_CLAIMS_INVALID_AMOUNT   - Invalid claim amounts (CRITICAL)
+3. ALERT_DIM_CLAIMS_ORPHAN           - Orphan claims (CRITICAL)
+4. ALERT_DIM_CLAIMS_INVALID_DATES    - Invalid date sequence (WARNING)
+5. ALERT_DIM_CLAIMS_HIGH_FRAUD_RATE  - Fraud rate > 25% (WARNING)
+
+DIM_POLICIES Alerts (1):
+------------------------
+1. ALERT_DIM_POLICIES_DUPLICATE_ID   - Duplicate policy_ids (CRITICAL)
+
+Anomaly Detection Enabled:
+--------------------------
+- DIM_CLAIMS: ROW_COUNT, FRESHNESS
+- DIM_POLICIES: ROW_COUNT, FRESHNESS
+
+******************************************************************************
+*/

@@ -35,18 +35,18 @@ GRANT SELECT ON ALL TABLES IN SCHEMA INSURANCECO.DATA_SCIENCE TO ROLE DATA_ENGIN
 * SECTION 2: SET DATA METRIC SCHEDULE ON ANALYTICS TABLES
 ******************************************************************************
 */
-
+use role data_engineer;
 -- Continue as ACCOUNTADMIN (has full privileges to modify tables and add DMFs)
 USE WAREHOUSE INSURANCECO_ETL_WH;
 USE DATABASE INSURANCECO;
 
 -- Define schedule on AGG_CLAIMS_EXECUTIVE (runs every 60 minutes)
 USE SCHEMA ANALYTICS;
-ALTER TABLE AGG_CLAIMS_EXECUTIVE SET DATA_METRIC_SCHEDULE = '60 MINUTE';
+ALTER TABLE AGG_CLAIMS_EXECUTIVE SET DATA_METRIC_SCHEDULE = '5 MINUTE';
 
 -- Define schedule on FRAUD_DETECTION_FEATURES (runs every 60 minutes)
 USE SCHEMA DATA_SCIENCE;
-ALTER TABLE FRAUD_DETECTION_FEATURES SET DATA_METRIC_SCHEDULE = '60 MINUTE';
+ALTER TABLE FRAUD_DETECTION_FEATURES SET DATA_METRIC_SCHEDULE = '5 MINUTE';
 
 /*
 ******************************************************************************
@@ -169,7 +169,7 @@ CREATE OR REPLACE DATA METRIC FUNCTION DMF_AGG_STATUS_MISMATCH(
         total_claims NUMBER,
         approved_claims NUMBER,
         pending_claims NUMBER,
-        flagged_claims NUMBER
+        fraud_flagged_claims NUMBER
     )
 )
 RETURNS NUMBER
@@ -178,7 +178,7 @@ AS
 $$
     SELECT COUNT(*)
     FROM ARG_T
-    WHERE (COALESCE(approved_claims, 0) + COALESCE(pending_claims, 0) + COALESCE(flagged_claims, 0)) > total_claims
+    WHERE (COALESCE(approved_claims, 0) + COALESCE(pending_claims, 0) + COALESCE(fraud_flagged_claims, 0)) > total_claims
 $$;
 
 -- NOTE: DMF_AGG_STALE_DATA was removed because DMFs cannot use 
@@ -219,9 +219,9 @@ $$;
 CREATE OR REPLACE DATA METRIC FUNCTION DMF_ML_NULL_FEATURES(
     ARG_T TABLE(
         claim_amount NUMBER,
-        coverage_utilization_pct NUMBER,
+        claim_to_coverage_ratio NUMBER,
         days_to_report NUMBER,
-        vehicle_age NUMBER
+        policyholder_age NUMBER
     )
 )
 RETURNS NUMBER
@@ -231,9 +231,9 @@ $$
     SELECT COUNT(*)
     FROM ARG_T
     WHERE claim_amount IS NULL
-       OR coverage_utilization_pct IS NULL
+       OR claim_to_coverage_ratio IS NULL
        OR days_to_report IS NULL
-       OR vehicle_age IS NULL
+       OR policyholder_age IS NULL
 $$;
 
 -- DMF: ML Feature - Check for negative values that should be positive
@@ -241,8 +241,8 @@ CREATE OR REPLACE DATA METRIC FUNCTION DMF_ML_NEGATIVE_FEATURES(
     ARG_T TABLE(
         claim_amount NUMBER,
         days_to_report NUMBER,
-        vehicle_age NUMBER,
-        driver_age NUMBER
+        policyholder_age NUMBER,
+        years_licensed NUMBER
     )
 )
 RETURNS NUMBER
@@ -253,21 +253,21 @@ $$
     FROM ARG_T
     WHERE claim_amount < 0
        OR days_to_report < 0
-       OR vehicle_age < 0
-       OR driver_age < 0
+       OR policyholder_age < 0
+       OR years_licensed < 0
 $$;
 
 -- DMF: ML Feature - Suspicious claim_premium_ratio (extremely high)
 CREATE OR REPLACE DATA METRIC FUNCTION DMF_ML_EXTREME_RATIO(
-    ARG_T TABLE(claim_premium_ratio NUMBER)
+    ARG_T TABLE(claim_to_coverage_ratio NUMBER)
 )
 RETURNS NUMBER
-COMMENT = 'Counts rows with extremely high claim_premium_ratio (> 100x premium)'
+COMMENT = 'Counts rows with extremely high claim_to_coverage_ratio (> 100)'
 AS
 $$
     SELECT COUNT(*)
     FROM ARG_T
-    WHERE claim_premium_ratio IS NOT NULL AND claim_premium_ratio > 100
+    WHERE claim_to_coverage_ratio IS NOT NULL AND claim_to_coverage_ratio > 100
 $$;
 
 /*
@@ -289,7 +289,7 @@ ALTER TABLE AGG_CLAIMS_EXECUTIVE
 
 ALTER TABLE AGG_CLAIMS_EXECUTIVE
   ADD DATA METRIC FUNCTION INSURANCECO.GOVERNANCE.DMF_AGG_STATUS_MISMATCH
-    ON (total_claims, approved_claims, pending_claims, flagged_claims);
+    ON (total_claims, approved_claims, pending_claims, fraud_flagged_claims);
 
 -- NOTE: DMF_AGG_STALE_DATA removed (cannot use CURRENT_TIMESTAMP in DMF)
 -- Using SNOWFLAKE.CORE.FRESHNESS system DMF instead for staleness monitoring
@@ -313,15 +313,15 @@ ALTER TABLE FRAUD_DETECTION_FEATURES
 
 ALTER TABLE FRAUD_DETECTION_FEATURES
   ADD DATA METRIC FUNCTION INSURANCECO.GOVERNANCE.DMF_ML_NULL_FEATURES
-    ON (claim_amount, coverage_utilization_pct, days_to_report, vehicle_age);
+    ON (claim_amount, claim_to_coverage_ratio, days_to_report, policyholder_age);
 
 ALTER TABLE FRAUD_DETECTION_FEATURES
   ADD DATA METRIC FUNCTION INSURANCECO.GOVERNANCE.DMF_ML_NEGATIVE_FEATURES
-    ON (claim_amount, days_to_report, vehicle_age, driver_age);
+    ON (claim_amount, days_to_report, policyholder_age, years_licensed);
 
 ALTER TABLE FRAUD_DETECTION_FEATURES
   ADD DATA METRIC FUNCTION INSURANCECO.GOVERNANCE.DMF_ML_EXTREME_RATIO
-    ON (claim_premium_ratio);
+    ON (claim_to_coverage_ratio);
 
 /*
 ******************************************************************************

@@ -38,7 +38,7 @@
 -- ============================================================================
 
 USE ROLE DATA_ENGINEER;
-USE WAREHOUSE INSURANCECO_TRANSFORM_WH;
+USE WAREHOUSE INSURANCECO_ETL_WH;
 USE DATABASE INSURANCECO;
 
 -- ============================================================================

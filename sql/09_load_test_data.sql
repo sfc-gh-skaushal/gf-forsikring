@@ -647,4 +647,64 @@ LIMIT 50;
 ================================================================================
 */
 
+-- ============================================================================
+-- SECTION 15: FORCE DMF REFRESH ON ALL TABLES
+-- ============================================================================
+/*
+ * DMFs run on a schedule and may not have evaluated yet.
+ * Setting DATA_METRIC_SCHEDULE to TRIGGER_ON_CHANGES forces immediate evaluation
+ * after data changes.
+ */
+
+-- Force DMF refresh on RAW tables
+ALTER TABLE RAW.RAW_CLAIMS SET DATA_METRIC_SCHEDULE = 'TRIGGER_ON_CHANGES';
+ALTER TABLE RAW.RAW_POLICIES SET DATA_METRIC_SCHEDULE = 'TRIGGER_ON_CHANGES';
+
+-- Force DMF refresh on CURATED tables
+ALTER TABLE CURATED.DIM_CLAIMS SET DATA_METRIC_SCHEDULE = 'TRIGGER_ON_CHANGES';
+ALTER TABLE CURATED.DIM_POLICIES SET DATA_METRIC_SCHEDULE = 'TRIGGER_ON_CHANGES';
+
+-- Force DMF refresh on ANALYTICS tables
+ALTER TABLE ANALYTICS.AGG_CLAIMS_EXECUTIVE SET DATA_METRIC_SCHEDULE = 'TRIGGER_ON_CHANGES';
+
+-- Force DMF refresh on DATA_SCIENCE tables
+ALTER TABLE DATA_SCIENCE.FRAUD_DETECTION_FEATURES SET DATA_METRIC_SCHEDULE = 'TRIGGER_ON_CHANGES';
+
+-- Verify schedules are set
+SELECT 
+    table_schema,
+    table_name,
+    data_metric_schedule
+FROM INSURANCECO.INFORMATION_SCHEMA.TABLES
+WHERE table_catalog = 'INSURANCECO'
+  AND data_metric_schedule IS NOT NULL
+ORDER BY table_schema, table_name;
+
+-- ============================================================================
+-- SECTION 16: CHECK DMF RESULTS (Run after a few minutes)
+-- ============================================================================
+
+/*
+ * After forcing the refresh, DMFs will evaluate on the next change or shortly after.
+ * Run the query below after a few minutes to see updated results:
+ */
+
+SELECT 
+    measurement_time,
+    metric_name,
+    table_schema,
+    table_name,
+    value,
+    CASE 
+        WHEN value > 0 AND metric_name LIKE '%NULL%' THEN '⚠️ NULL values detected'
+        WHEN value > 0 AND metric_name LIKE '%DUPLICATE%' THEN '⚠️ Duplicates detected'
+        WHEN value > 0 AND metric_name LIKE '%NEGATIVE%' THEN '⚠️ Negative values detected'
+        WHEN value > 0 AND metric_name LIKE '%FUTURE%' THEN '⚠️ Future dates detected'
+        ELSE '✓ OK'
+    END AS status
+FROM SNOWFLAKE.LOCAL.DATA_QUALITY_MONITORING_RESULTS
+WHERE table_database = 'INSURANCECO'
+  AND measurement_time > DATEADD('hour', -1, CURRENT_TIMESTAMP())
+ORDER BY measurement_time DESC, table_schema, table_name;
+
 COMMIT;

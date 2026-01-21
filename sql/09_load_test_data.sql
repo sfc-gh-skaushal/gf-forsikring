@@ -11,10 +11,10 @@
    - 15 NULL policy_ids          -> Triggers NULL_COUNT DMF
    - 15 NULL amounts             -> Triggers NULL_COUNT DMF
    - 15 duplicate claim_ids      -> Triggers DUPLICATE_COUNT DMF
-   - 15 negative amounts         -> Triggers DMF_NEGATIVE_AMOUNTS
-   - 15 future incident dates    -> Triggers DMF_FUTURE_DATES
-   - 15 zero amounts             -> Triggers DMF_ZERO_AMOUNTS (if exists)
-   - 15 huge amounts (50M+)      -> Triggers DMF_AMOUNT_OUTLIERS (if exists)
+   - 15 negative amounts         -> Triggers custom negative amount DMF
+   - 15 future incident dates    -> Triggers custom future date DMF
+   - 15 zero amounts             -> Triggers amount validation
+   - 15 huge amounts (50M+)      -> Triggers outlier detection
    - 15 NULL incident dates      -> Triggers NULL_COUNT DMF
    - 15 fraud-flagged records    -> Higher fraud rate for DMF_FRAUD_FLAG_RATE
    
@@ -23,12 +23,12 @@
    - 15 NULL names               -> Triggers NULL_COUNT DMF
    - 15 NULL coverage limits     -> Triggers NULL_COUNT DMF
    - 15 duplicate policy_ids     -> Triggers DUPLICATE_COUNT DMF
-   - 15 negative premiums        -> Triggers DMF_NEGATIVE_PREMIUMS (if exists)
-   - 15 expired but active       -> Triggers DMF_EXPIRED_POLICIES
+   - 15 negative premiums        -> Triggers premium validation
    - 15 NULL emails              -> Triggers NULL_COUNT DMF
-   - 15 NULL phones              -> Triggers NULL_COUNT DMF
-   - 15 invalid DOBs (future)    -> Triggers DMF_INVALID_DOB (if exists)
-   - 15 zero coverage limits     -> Triggers DMF_ZERO_COVERAGE (if exists)
+   - 15 NULL CPRs                -> Triggers NULL_COUNT DMF
+   - 15 zero coverage limits     -> Triggers coverage validation
+   - 15 invalid driver ages      -> Triggers age validation
+   - 15 negative years licensed  -> Triggers license validation
 
 ================================================================================
 */
@@ -38,7 +38,7 @@
 -- ============================================================================
 
 USE ROLE DATA_ENGINEER;
-USE WAREHOUSE INSURANCECO_ETL_WH;
+USE WAREHOUSE INSURANCECO_TRANSFORM_WH;
 USE DATABASE INSURANCECO;
 
 -- ============================================================================
@@ -83,10 +83,6 @@ CREATE OR REPLACE FILE FORMAT CSV_FORMAT
  * snowsql -a <account> -u <user> -d INSURANCECO -s RAW
  * PUT file:///path/to/data/raw_claims_1000.csv @STG_TEST_DATA;
  * PUT file:///path/to/data/raw_policies_1000.csv @STG_TEST_DATA;
- * 
- * OPTION C: Using Python Connector
- * --------------------------------
- * See the Python script at the end of this file
  */
 
 -- Verify files are staged (run after upload)
@@ -107,27 +103,47 @@ LIST @STG_TEST_DATA;
 COPY INTO RAW_CLAIMS (
     claim_id,
     policy_id,
+    claim_amount,
+    policy_coverage_limit,
     date_of_incident,
     date_reported,
     claim_type,
-    claim_amount,
     claim_status,
-    description,
-    region,
-    fraud_flag
+    policy_holder_name,
+    policy_holder_email,
+    policy_holder_cpr,
+    address,
+    city,
+    postal_code,
+    vehicle_make,
+    vehicle_model,
+    vehicle_year,
+    damage_description,
+    fraud_flag,
+    adjuster_notes
 )
 FROM (
     SELECT 
         NULLIF($1, ''),           -- claim_id
         NULLIF($2, ''),           -- policy_id
-        TRY_TO_DATE($3),          -- date_of_incident
-        TRY_TO_DATE($4),          -- date_reported
-        $5,                       -- claim_type
-        TRY_TO_NUMBER($6),        -- claim_amount
-        $7,                       -- claim_status
-        $8,                       -- description
-        $9,                       -- region
-        TRY_TO_BOOLEAN($10)       -- fraud_flag
+        TRY_TO_NUMBER($3),        -- claim_amount
+        TRY_TO_NUMBER($4),        -- policy_coverage_limit
+        TRY_TO_DATE($5),          -- date_of_incident
+        TRY_TO_DATE($6),          -- date_reported
+        $7,                       -- claim_type
+        $8,                       -- claim_status
+        NULLIF($9, ''),           -- policy_holder_name
+        NULLIF($10, ''),          -- policy_holder_email
+        NULLIF($11, ''),          -- policy_holder_cpr
+        $12,                      -- address
+        $13,                      -- city
+        $14,                      -- postal_code
+        $15,                      -- vehicle_make
+        $16,                      -- vehicle_model
+        TRY_TO_NUMBER($17),       -- vehicle_year
+        $18,                      -- damage_description
+        TRY_TO_BOOLEAN($19),      -- fraud_flag
+        $20                       -- adjuster_notes
     FROM @STG_TEST_DATA/raw_claims_1000.csv
 )
 FILE_FORMAT = CSV_FORMAT
@@ -144,35 +160,47 @@ SELECT 'RAW_CLAIMS loaded' AS status, COUNT(*) AS record_count FROM RAW_CLAIMS;
 COPY INTO RAW_POLICIES (
     policy_id,
     policy_holder_name,
-    date_of_birth,
-    email,
-    phone,
+    policy_holder_email,
+    policy_holder_cpr,
     address,
+    city,
+    postal_code,
     policy_type,
     coverage_limit,
-    premium_amount,
+    premium_annual,
     policy_start_date,
     policy_end_date,
-    risk_score,
-    region,
-    is_active
+    vehicle_make,
+    vehicle_model,
+    vehicle_year,
+    vehicle_vin,
+    driver_age,
+    years_licensed,
+    previous_claims_count,
+    risk_score
 )
 FROM (
     SELECT 
         NULLIF($1, ''),           -- policy_id
         NULLIF($2, ''),           -- policy_holder_name
-        TRY_TO_DATE($3),          -- date_of_birth
-        NULLIF($4, ''),           -- email
-        NULLIF($5, ''),           -- phone
-        $6,                       -- address
-        $7,                       -- policy_type
-        TRY_TO_NUMBER($8),        -- coverage_limit
-        TRY_TO_NUMBER($9),        -- premium_amount
-        TRY_TO_DATE($10),         -- policy_start_date
-        TRY_TO_DATE($11),         -- policy_end_date
-        $12,                      -- risk_score
-        $13,                      -- region
-        TRY_TO_BOOLEAN($14)       -- is_active
+        NULLIF($3, ''),           -- policy_holder_email
+        NULLIF($4, ''),           -- policy_holder_cpr
+        $5,                       -- address
+        $6,                       -- city
+        $7,                       -- postal_code
+        $8,                       -- policy_type
+        TRY_TO_NUMBER($9),        -- coverage_limit
+        TRY_TO_NUMBER($10),       -- premium_annual
+        TRY_TO_DATE($11),         -- policy_start_date
+        TRY_TO_DATE($12),         -- policy_end_date
+        $13,                      -- vehicle_make
+        $14,                      -- vehicle_model
+        TRY_TO_NUMBER($15),       -- vehicle_year
+        $16,                      -- vehicle_vin
+        TRY_TO_NUMBER($17),       -- driver_age
+        TRY_TO_NUMBER($18),       -- years_licensed
+        TRY_TO_NUMBER($19),       -- previous_claims_count
+        $20                       -- risk_score
     FROM @STG_TEST_DATA/raw_policies_1000.csv
 )
 FILE_FORMAT = CSV_FORMAT
@@ -192,7 +220,8 @@ SELECT
     SUM(CASE WHEN claim_id IS NULL THEN 1 ELSE 0 END) AS null_claim_ids,
     SUM(CASE WHEN policy_id IS NULL THEN 1 ELSE 0 END) AS null_policy_ids,
     SUM(CASE WHEN claim_amount IS NULL THEN 1 ELSE 0 END) AS null_amounts,
-    SUM(CASE WHEN date_of_incident IS NULL THEN 1 ELSE 0 END) AS null_incident_dates
+    SUM(CASE WHEN date_of_incident IS NULL THEN 1 ELSE 0 END) AS null_incident_dates,
+    SUM(CASE WHEN policy_holder_cpr IS NULL THEN 1 ELSE 0 END) AS null_cprs
 FROM RAW_CLAIMS;
 
 -- Check for bad amounts in claims
@@ -229,14 +258,17 @@ SELECT
     SUM(CASE WHEN policy_id IS NULL THEN 1 ELSE 0 END) AS null_policy_ids,
     SUM(CASE WHEN policy_holder_name IS NULL THEN 1 ELSE 0 END) AS null_names,
     SUM(CASE WHEN coverage_limit IS NULL THEN 1 ELSE 0 END) AS null_coverage,
-    SUM(CASE WHEN email IS NULL THEN 1 ELSE 0 END) AS null_emails,
-    SUM(CASE WHEN phone IS NULL THEN 1 ELSE 0 END) AS null_phones
+    SUM(CASE WHEN policy_holder_email IS NULL THEN 1 ELSE 0 END) AS null_emails,
+    SUM(CASE WHEN policy_holder_cpr IS NULL THEN 1 ELSE 0 END) AS null_cprs
 FROM RAW_POLICIES;
 
--- Check for expired but active policies
+-- Check for bad values in policies
 SELECT 
-    'RAW_POLICIES Expired Active Analysis' AS check_type,
-    SUM(CASE WHEN is_active = TRUE AND policy_end_date < CURRENT_DATE() THEN 1 ELSE 0 END) AS expired_but_active
+    'RAW_POLICIES Value Analysis' AS check_type,
+    SUM(CASE WHEN premium_annual < 0 THEN 1 ELSE 0 END) AS negative_premiums,
+    SUM(CASE WHEN coverage_limit = 0 THEN 1 ELSE 0 END) AS zero_coverage,
+    SUM(CASE WHEN driver_age < 0 OR driver_age > 120 THEN 1 ELSE 0 END) AS invalid_ages,
+    SUM(CASE WHEN years_licensed < 0 THEN 1 ELSE 0 END) AS negative_years_licensed
 FROM RAW_POLICIES;
 
 -- ============================================================================
@@ -257,9 +289,15 @@ INSERT INTO DIM_CLAIMS (
     claim_type,
     claim_amount,
     claim_status,
-    description,
-    region,
+    policy_holder_name,
+    policy_holder_email,
+    policy_holder_cpr,
+    address,
+    city,
+    postal_code,
+    damage_description,
     fraud_flag,
+    adjuster_notes,
     days_to_report,
     claim_year,
     claim_month,
@@ -276,9 +314,15 @@ SELECT
     claim_type,
     claim_amount,
     claim_status,
-    description,
-    region,
+    policy_holder_name,
+    policy_holder_email,
+    policy_holder_cpr,
+    address,
+    city,
+    postal_code,
+    damage_description,
     fraud_flag,
+    adjuster_notes,
     -- Calculated fields
     DATEDIFF('day', date_of_incident, date_reported) AS days_to_report,
     YEAR(date_of_incident) AS claim_year,
@@ -304,20 +348,25 @@ SELECT 'DIM_CLAIMS populated' AS status, COUNT(*) AS record_count FROM DIM_CLAIM
 INSERT INTO DIM_POLICIES (
     policy_id,
     policy_holder_name,
-    date_of_birth,
-    email,
-    phone,
+    policy_holder_email,
+    policy_holder_cpr,
     address,
+    city,
+    postal_code,
     policy_type,
     coverage_limit,
-    premium_amount,
+    premium_annual,
     policy_start_date,
     policy_end_date,
+    vehicle_make,
+    vehicle_model,
+    vehicle_year,
+    vehicle_vin,
+    driver_age,
+    years_licensed,
+    previous_claims_count,
     risk_score,
-    region,
-    is_active,
     policy_duration_days,
-    age_at_policy_start,
     coverage_tier,
     created_at,
     updated_at
@@ -325,21 +374,26 @@ INSERT INTO DIM_POLICIES (
 SELECT 
     policy_id,
     policy_holder_name,
-    date_of_birth,
-    email,
-    phone,
+    policy_holder_email,
+    policy_holder_cpr,
     address,
+    city,
+    postal_code,
     policy_type,
     coverage_limit,
-    premium_amount,
+    premium_annual,
     policy_start_date,
     policy_end_date,
+    vehicle_make,
+    vehicle_model,
+    vehicle_year,
+    vehicle_vin,
+    driver_age,
+    years_licensed,
+    previous_claims_count,
     risk_score,
-    region,
-    is_active,
     -- Calculated fields
     DATEDIFF('day', policy_start_date, policy_end_date) AS policy_duration_days,
-    DATEDIFF('year', date_of_birth, policy_start_date) AS age_at_policy_start,
     CASE 
         WHEN coverage_limit >= 500000 THEN 'Platinum'
         WHEN coverage_limit >= 250000 THEN 'Gold'
@@ -360,14 +414,11 @@ SELECT 'DIM_POLICIES populated' AS status, COUNT(*) AS record_count FROM DIM_POL
 
 USE SCHEMA ANALYTICS;
 
--- Truncate for clean load (optional)
--- TRUNCATE TABLE AGG_CLAIMS_EXECUTIVE;
-
 -- Recreate aggregated executive dashboard data
 CREATE OR REPLACE TABLE AGG_CLAIMS_EXECUTIVE AS
 SELECT
     DATE_TRUNC('WEEK', date_reported) AS report_week,
-    region,
+    city AS region,
     claim_type,
     COUNT(*) AS total_claims,
     SUM(claim_amount) AS total_claim_value,
@@ -383,7 +434,7 @@ SELECT
 FROM CURATED.DIM_CLAIMS
 GROUP BY 
     DATE_TRUNC('WEEK', date_reported),
-    region,
+    city,
     claim_type;
 
 ALTER TABLE AGG_CLAIMS_EXECUTIVE SET COMMENT = 'Pre-aggregated executive dashboard data with weekly claims summary by region and type';
@@ -400,9 +451,6 @@ SELECT 'AGG_CLAIMS_EXECUTIVE populated' AS status, COUNT(*) AS record_count FROM
 
 USE SCHEMA DATA_SCIENCE;
 
--- Truncate for clean load (optional)
--- TRUNCATE TABLE FRAUD_DETECTION_FEATURES;
-
 -- Recreate fraud detection feature table
 CREATE OR REPLACE TABLE FRAUD_DETECTION_FEATURES AS
 SELECT
@@ -413,9 +461,11 @@ SELECT
     c.claim_amount,
     c.days_to_report,
     COALESCE(p.coverage_limit, 0) AS policy_coverage,
-    COALESCE(p.premium_amount, 0) AS policy_premium,
-    COALESCE(p.age_at_policy_start, 0) AS policyholder_age,
+    COALESCE(p.premium_annual, 0) AS policy_premium,
+    COALESCE(p.driver_age, 0) AS policyholder_age,
     COALESCE(p.policy_duration_days, 0) AS policy_tenure_days,
+    COALESCE(p.previous_claims_count, 0) AS previous_claims,
+    COALESCE(p.years_licensed, 0) AS years_licensed,
     -- Derived features
     CASE WHEN p.coverage_limit > 0 
          THEN c.claim_amount / p.coverage_limit 
@@ -430,12 +480,15 @@ SELECT
         WHEN 'Travel' THEN 5
         ELSE 0
     END AS claim_type_encoded,
-    CASE c.region
-        WHEN 'North' THEN 1
-        WHEN 'South' THEN 2
-        WHEN 'East' THEN 3
-        WHEN 'West' THEN 4
-        WHEN 'Central' THEN 5
+    CASE c.city
+        WHEN 'Copenhagen' THEN 1
+        WHEN 'Aarhus' THEN 2
+        WHEN 'Odense' THEN 3
+        WHEN 'Aalborg' THEN 4
+        WHEN 'Esbjerg' THEN 5
+        WHEN 'Randers' THEN 6
+        WHEN 'Kolding' THEN 7
+        WHEN 'Horsens' THEN 8
         ELSE 0
     END AS region_encoded,
     CASE p.risk_score
@@ -508,7 +561,7 @@ SELECT
 FROM DATA_SCIENCE.FRAUD_DETECTION_FEATURES;
 
 -- ============================================================================
--- SECTION 14: TRIGGER DMF EVALUATION (Manual trigger)
+-- SECTION 14: VIEW DMF RESULTS
 -- ============================================================================
 
 /*
@@ -542,13 +595,12 @@ LIMIT 50;
  - NULL_COUNT on claim_amount: ~15 nulls
  - DUPLICATE_COUNT on claim_id: ~15 duplicates
  - DUPLICATE_COUNT on policy_id: ~15 duplicates
- - DMF_RAW_NEGATIVE_AMOUNTS: ~15 negative amounts
- - DMF_RAW_FUTURE_INCIDENTS: ~15 future dates
+ - Custom DMFs for negative amounts, future dates, etc.
 
  CURATED LAYER:
  --------------
  - Data quality should be better (nulls filtered out)
- - Some derived field issues may surface
+ - Some derived field issues may surface from bad source data
  
  ANALYTICS LAYER:
  ----------------
@@ -556,7 +608,7 @@ LIMIT 50;
  
  DATA SCIENCE LAYER:
  -------------------
- - DMF_FRAUD_INVALID_AMOUNT: Claims with amount outliers
+ - Feature quality checks
  - Higher fraud rate visible in fraud_flag column
 
 ================================================================================

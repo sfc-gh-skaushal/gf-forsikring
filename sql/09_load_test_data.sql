@@ -308,6 +308,8 @@ INSERT INTO DIM_CLAIMS (
     fraud_flag,
     exceeds_coverage,
     high_value_claim,
+    created_at,
+    updated_at,
     source_system,
     data_quality_score
 )
@@ -348,6 +350,8 @@ SELECT
     fraud_flag,
     claim_amount > policy_coverage_limit AS exceeds_coverage,
     claim_amount > 100000 AS high_value_claim,
+    CURRENT_TIMESTAMP()::TIMESTAMP_LTZ AS created_at,
+    CURRENT_TIMESTAMP()::TIMESTAMP_LTZ AS updated_at,
     'RAW_CLAIMS' AS source_system,
     -- Calculate data quality score
     CASE 
@@ -396,7 +400,9 @@ INSERT INTO DIM_POLICIES (
     driver_age,
     years_licensed,
     previous_claims_count,
-    risk_score
+    risk_score,
+    created_at,
+    updated_at
 )
 SELECT 
     policy_id,
@@ -430,7 +436,9 @@ SELECT
     driver_age,
     years_licensed,
     previous_claims_count,
-    risk_score
+    risk_score,
+    CURRENT_TIMESTAMP()::TIMESTAMP_LTZ AS created_at,
+    CURRENT_TIMESTAMP()::TIMESTAMP_LTZ AS updated_at
 FROM RAW.RAW_POLICIES
 WHERE policy_id IS NOT NULL;  -- Filter out records with NULL policy_ids for curated
 

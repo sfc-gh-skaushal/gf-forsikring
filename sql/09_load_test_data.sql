@@ -280,14 +280,17 @@ USE SCHEMA CURATED;
 -- Truncate for clean load (optional)
 -- TRUNCATE TABLE DIM_CLAIMS;
 
--- Insert transformed data into DIM_CLAIMS
+-- Insert transformed data into DIM_CLAIMS (matching actual table structure)
 INSERT INTO DIM_CLAIMS (
     claim_id,
     policy_id,
+    claim_amount,
+    policy_coverage_limit,
+    coverage_utilization_pct,
     date_of_incident,
     date_reported,
+    days_to_report,
     claim_type,
-    claim_amount,
     claim_status,
     policy_holder_name,
     policy_holder_email,
@@ -295,24 +298,32 @@ INSERT INTO DIM_CLAIMS (
     address,
     city,
     postal_code,
+    region,
+    vehicle_make,
+    vehicle_model,
+    vehicle_year,
+    vehicle_age,
     damage_description,
-    fraud_flag,
     adjuster_notes,
-    days_to_report,
-    claim_year,
-    claim_month,
-    is_high_value,
-    created_at,
-    updated_at,
-    source_system
+    fraud_flag,
+    exceeds_coverage,
+    high_value_claim,
+    source_system,
+    data_quality_score
 )
 SELECT 
     claim_id,
     policy_id,
+    claim_amount,
+    policy_coverage_limit,
+    CASE WHEN policy_coverage_limit > 0 
+         THEN ROUND((claim_amount / policy_coverage_limit) * 100, 2)
+         ELSE 0 
+    END AS coverage_utilization_pct,
     date_of_incident,
     date_reported,
+    DATEDIFF('day', date_of_incident, date_reported) AS days_to_report,
     claim_type,
-    claim_amount,
     claim_status,
     policy_holder_name,
     policy_holder_email,
@@ -320,17 +331,33 @@ SELECT
     address,
     city,
     postal_code,
+    -- Calculate region from postal code
+    CASE 
+        WHEN LEFT(postal_code, 1) IN ('1', '2', '3') THEN 'Greater Copenhagen'
+        WHEN LEFT(postal_code, 1) IN ('4', '5') THEN 'Zealand & Funen'
+        WHEN LEFT(postal_code, 1) IN ('6', '7') THEN 'Central Jutland'
+        WHEN LEFT(postal_code, 1) IN ('8', '9') THEN 'North Jutland'
+        ELSE 'Unknown'
+    END AS region,
+    vehicle_make,
+    vehicle_model,
+    vehicle_year,
+    YEAR(CURRENT_DATE()) - vehicle_year AS vehicle_age,
     damage_description,
-    fraud_flag,
     adjuster_notes,
-    -- Calculated fields
-    DATEDIFF('day', date_of_incident, date_reported) AS days_to_report,
-    YEAR(date_of_incident) AS claim_year,
-    MONTH(date_of_incident) AS claim_month,
-    CASE WHEN claim_amount > 100000 THEN TRUE ELSE FALSE END AS is_high_value,
-    CURRENT_TIMESTAMP()::TIMESTAMP_LTZ AS created_at,
-    CURRENT_TIMESTAMP()::TIMESTAMP_LTZ AS updated_at,
-    'RAW_CLAIMS' AS source_system
+    fraud_flag,
+    claim_amount > policy_coverage_limit AS exceeds_coverage,
+    claim_amount > 100000 AS high_value_claim,
+    'RAW_CLAIMS' AS source_system,
+    -- Calculate data quality score
+    CASE 
+        WHEN claim_id IS NOT NULL 
+             AND policy_id IS NOT NULL 
+             AND claim_amount IS NOT NULL 
+             AND date_of_incident IS NOT NULL
+        THEN 1.00
+        ELSE 0.75
+    END AS data_quality_score
 FROM RAW.RAW_CLAIMS
 WHERE claim_id IS NOT NULL;  -- Filter out records with NULL claim_ids for curated
 
@@ -344,7 +371,7 @@ SELECT 'DIM_CLAIMS populated' AS status, COUNT(*) AS record_count FROM DIM_CLAIM
 -- Truncate for clean load (optional)
 -- TRUNCATE TABLE DIM_POLICIES;
 
--- Insert transformed data into DIM_POLICIES
+-- Insert transformed data into DIM_POLICIES (matching actual table structure)
 INSERT INTO DIM_POLICIES (
     policy_id,
     policy_holder_name,
@@ -353,11 +380,14 @@ INSERT INTO DIM_POLICIES (
     address,
     city,
     postal_code,
+    region,
     policy_type,
     coverage_limit,
     premium_annual,
     policy_start_date,
     policy_end_date,
+    policy_term_months,
+    is_active,
     vehicle_make,
     vehicle_model,
     vehicle_year,
@@ -365,11 +395,7 @@ INSERT INTO DIM_POLICIES (
     driver_age,
     years_licensed,
     previous_claims_count,
-    risk_score,
-    policy_duration_days,
-    coverage_tier,
-    created_at,
-    updated_at
+    risk_score
 )
 SELECT 
     policy_id,
@@ -379,11 +405,23 @@ SELECT
     address,
     city,
     postal_code,
+    -- Calculate region from postal code
+    CASE 
+        WHEN LEFT(postal_code, 1) IN ('1', '2', '3') THEN 'Greater Copenhagen'
+        WHEN LEFT(postal_code, 1) IN ('4', '5') THEN 'Zealand & Funen'
+        WHEN LEFT(postal_code, 1) IN ('6', '7') THEN 'Central Jutland'
+        WHEN LEFT(postal_code, 1) IN ('8', '9') THEN 'North Jutland'
+        ELSE 'Unknown'
+    END AS region,
     policy_type,
     coverage_limit,
     premium_annual,
     policy_start_date,
     policy_end_date,
+    -- Calculate policy term in months
+    DATEDIFF('month', policy_start_date, policy_end_date) AS policy_term_months,
+    -- Determine if policy is active
+    CASE WHEN policy_end_date >= CURRENT_DATE() THEN TRUE ELSE FALSE END AS is_active,
     vehicle_make,
     vehicle_model,
     vehicle_year,
@@ -391,17 +429,7 @@ SELECT
     driver_age,
     years_licensed,
     previous_claims_count,
-    risk_score,
-    -- Calculated fields
-    DATEDIFF('day', policy_start_date, policy_end_date) AS policy_duration_days,
-    CASE 
-        WHEN coverage_limit >= 500000 THEN 'Platinum'
-        WHEN coverage_limit >= 250000 THEN 'Gold'
-        WHEN coverage_limit >= 100000 THEN 'Silver'
-        ELSE 'Bronze'
-    END AS coverage_tier,
-    CURRENT_TIMESTAMP()::TIMESTAMP_LTZ AS created_at,
-    CURRENT_TIMESTAMP()::TIMESTAMP_LTZ AS updated_at
+    risk_score
 FROM RAW.RAW_POLICIES
 WHERE policy_id IS NOT NULL;  -- Filter out records with NULL policy_ids for curated
 
@@ -418,7 +446,7 @@ USE SCHEMA ANALYTICS;
 CREATE OR REPLACE TABLE AGG_CLAIMS_EXECUTIVE AS
 SELECT
     DATE_TRUNC('WEEK', date_reported) AS report_week,
-    city AS region,
+    region,
     claim_type,
     COUNT(*) AS total_claims,
     SUM(claim_amount) AS total_claim_value,
@@ -434,7 +462,7 @@ SELECT
 FROM CURATED.DIM_CLAIMS
 GROUP BY 
     DATE_TRUNC('WEEK', date_reported),
-    city,
+    region,
     claim_type;
 
 ALTER TABLE AGG_CLAIMS_EXECUTIVE SET COMMENT = 'Pre-aggregated executive dashboard data with weekly claims summary by region and type';
@@ -463,7 +491,7 @@ SELECT
     COALESCE(p.coverage_limit, 0) AS policy_coverage,
     COALESCE(p.premium_annual, 0) AS policy_premium,
     COALESCE(p.driver_age, 0) AS policyholder_age,
-    COALESCE(p.policy_duration_days, 0) AS policy_tenure_days,
+    COALESCE(p.policy_term_months, 0) AS policy_tenure_months,
     COALESCE(p.previous_claims_count, 0) AS previous_claims,
     COALESCE(p.years_licensed, 0) AS years_licensed,
     -- Derived features
@@ -480,15 +508,11 @@ SELECT
         WHEN 'Travel' THEN 5
         ELSE 0
     END AS claim_type_encoded,
-    CASE c.city
-        WHEN 'Copenhagen' THEN 1
-        WHEN 'Aarhus' THEN 2
-        WHEN 'Odense' THEN 3
-        WHEN 'Aalborg' THEN 4
-        WHEN 'Esbjerg' THEN 5
-        WHEN 'Randers' THEN 6
-        WHEN 'Kolding' THEN 7
-        WHEN 'Horsens' THEN 8
+    CASE c.region
+        WHEN 'Greater Copenhagen' THEN 1
+        WHEN 'Zealand & Funen' THEN 2
+        WHEN 'Central Jutland' THEN 3
+        WHEN 'North Jutland' THEN 4
         ELSE 0
     END AS region_encoded,
     CASE p.risk_score
